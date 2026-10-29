@@ -10,6 +10,8 @@ export interface LekturaCard {
   mainCharacters: { name: string; description: string }[];
   keyScenes: { title: string; meaning: string }[];
   cardinalWarning: string;
+  /** Status lektury na egzaminie wg informatora CKE 2025 (podstawa 2024), gdy nie jest to zwykła lektura obowiązkowa PP. */
+  examNote?: string;
 }
 
 export const MATURA_LEKTURY: LekturaCard[] = [
@@ -81,7 +83,8 @@ export const MATURA_LEKTURY: LekturaCard[] = [
     author: 'Juliusz Słowacki',
     epoch: 'Romantyzm',
     genre: 'Dramat romantyczny',
-    isGwiazdka: true,
+    isGwiazdka: false,
+    examNote: 'W podstawie 2024 to lektura z zakresu rozszerzonego: test historycznoliteracki PP jej nie sprawdza, ale w wypracowaniu na poziomie podstawowym można się do niej odwołać.',
     summary: 'Ewolucja młodego nieszczęśliwie zakochanego szlachcica w dojrzałego bojownika o wolność ojczyzny. Słowacki polemizuje z mesjanizmem Mickiewicza, przedstawiając koncepcję winkelriedyzmu („Polska Winkelriedem narodów”).',
     keyMotifs: ['Winkelriedyzm vs Mesjanizm', 'Rozczarowanie światem (jaskółczy niepokój)', 'Władza i tyrania', 'Walka z własnymi słabościami'],
     mainCharacters: [
@@ -254,5 +257,83 @@ export const MATURA_LEKTURY: LekturaCard[] = [
       { title: 'Finałowe tango „La Cumparsita”', meaning: 'Edek zakłada marynarkę zabitego Artura i tańczy tango ze starym Eugeniuszem. Przerażająca metafora przejęcia władzy przez prymitywną, brutalną dyktaturę.' }
     ],
     cardinalWarning: 'BŁĄD KARDYNALNY CKE: Artur w „Tangu” NIE buntuje się przeciwko skostniałym normom społecznym, lecz ODWROTNIE – buntuje się przeciwko BRAKOWI norm i obyczajowej anarchii stworzonej przez jego awangardowych rodziców!'
+  },
+  // Lektury obowiązkowe PP z podstawy 2024 (informator CKE 2025, s. 9–11)
+  {
+    id: 'skapiec',
+    title: 'Skąpiec',
+    author: 'Molier',
+    epoch: 'Barok (klasycyzm francuski)',
+    genre: 'Komedia charakterów',
+    isGwiazdka: true,
+    summary: 'Bogaty mieszczanin Harpagon kocha tylko pieniądze: chce wydać córkę Elizę za starego Anzelma, bo ten weźmie ją bez posagu, a sam zamierza poślubić Marianę, w której kocha się jego syn Kleant. Kradzież szkatułki z pieniędzmi wywołuje komiczny chaos, a finałowe rozpoznanie rodzinne pozwala młodym pobrać się zgodnie z uczuciem.',
+    keyMotifs: ['Skąpstwo i władza pieniądza', 'Konflikt pokoleń', 'Miłość kontra interes', 'Komizm postaci, sytuacji i słowa'],
+    mainCharacters: [
+      { name: 'Harpagon', description: 'Skąpiec i lichwiarz; podejrzliwy wobec wszystkich, gotów poświęcić szczęście dzieci dla oszczędności.' },
+      { name: 'Kleant', description: 'Syn Harpagona, zakochany w Marianie; by żyć na poziomie, pożycza pieniądze na lichwiarski procent – jak się okazuje, od własnego ojca.' },
+      { name: 'Eliza i Walery', description: 'Córka Harpagona i jej ukochany, który dla bliskości z nią zatrudnia się u skąpca jako zarządca domu.' }
+    ],
+    keyScenes: [
+      { title: '„Bez posagu!”', meaning: 'Harpagon powtarza ten argument na każdy zarzut wobec małżeństwa Elizy z Anzelmem – komizm słowa obnaża jego jedyne kryterium wartości.' },
+      { title: 'Monolog po kradzieży szkatułki', meaning: 'Harpagon w rozpaczy podejrzewa cały świat, a nawet samego siebie; strata pieniędzy jest dla niego jak utrata życia.' }
+    ],
+    cardinalWarning: 'BŁĄD KARDYNALNY CKE: Harpagon NIE poślubia Mariany i NIE zmienia się w finale! Rezygnuje z niej na rzecz Kleanta tylko po to, by odzyskać szkatułkę – zostaje sam ze swoimi pieniędzmi.'
+  },
+  {
+    id: 'miejsce',
+    title: 'Miejsce (z tomu Opowieści galicyjskie)',
+    author: 'Andrzej Stasiuk',
+    epoch: 'Współczesność',
+    genre: 'Opowiadanie',
+    isGwiazdka: true,
+    summary: 'Narrator opowiada o rozebraniu starej, opuszczonej cerkwi w beskidzkiej wsi i przeniesieniu jej „po kawałku” do muzeum. Realistyczny opis pracy konserwatorów i pustego prostokąta ziemi łączy się z refleksją, że miejsca – w przeciwieństwie do budynku – nie można przenieść.',
+    keyMotifs: ['Genius loci i sacrum miejsca', 'Przemijanie i nietrwałość', 'Pamięć o świecie pogranicza', 'Muzealizacja przeszłości'],
+    mainCharacters: [
+      { name: 'Narrator', description: 'Mieszkaniec okolicy i uważny obserwator; łączy konkretny opis z metafizycznym namysłem nad sensem miejsca.' },
+      { name: 'Turysta z mapą i aparatem', description: 'Przybysz pytający, co tu było; nieświadomie stoi na progu nieistniejącej już cerkwi.' }
+    ],
+    keyScenes: [
+      { title: 'Rozmowa z turystą', meaning: '„Zabrali ją do muzeum. Całą, ale po kawałku” – zderzenie rzeczowej informacji z poczuciem straty.' },
+      { title: 'Finał na progu', meaning: 'Turysta stoi na progu cerkwi, której już nie ma – miejsce trwa, choć budowli zabrakło.' }
+    ],
+    cardinalWarning: 'BŁĄD KARDYNALNY CKE: Cerkiew w „Miejscu” NIE spłonęła ani nie została zburzona! Rozebrano ją i przeniesiono do muzeum (skansenu) – narrator wątpi jednak, czy z budynkiem przeniesiono samo miejsce.'
+  },
+  {
+    id: 'profesor-andrews',
+    title: 'Profesor Andrews w Warszawie (z tomu Gra na wielu bębenkach)',
+    author: 'Olga Tokarczuk',
+    epoch: 'Współczesność',
+    genre: 'Opowiadanie',
+    isGwiazdka: true,
+    summary: 'Angielski psycholog przyjeżdża do Warszawy z wykładami w grudniu 1981 r. Następnego dnia zostaje wprowadzony stan wojenny: telefony milkną, opiekunka Gosha znika, a profesor, nie znając języka, błąka się po mieście i próbuje zrozumieć sytuację z gestów, kolejek i milczenia ludzi.',
+    keyMotifs: ['Obcość i samotność', 'Granice języka i komunikacji', 'Stan wojenny widziany oczami przybysza', 'Utrata poczucia bezpieczeństwa'],
+    mainCharacters: [
+      { name: 'Profesor Andrews', description: 'Brytyjski naukowiec, który nagle traci wszystkie punkty oparcia: kontakt z gospodarzami, język i poczucie, że rozumie świat.' },
+      { name: 'Gosha', description: 'Opiekunka profesora, która przestaje się pojawiać; jej nieobecność to znak zerwanej komunikacji.' }
+    ],
+    keyScenes: [
+      { title: 'Kolejka po karpie', meaning: 'Profesor szuka ludzkiego ciepła w tłumie milczących ludzi; obcy rytuał (zabijanie ryb, słowa „Żywą czy na miejscu?”) budzi w nim lęk i fascynację.' },
+      { title: 'Patrol żołnierzy z psem', meaning: 'Widok wojska przywraca profesora do rzeczywistości i pokazuje grozę sytuacji, której nie potrafi nazwać.' }
+    ],
+    cardinalWarning: 'BŁĄD KARDYNALNY CKE: Profesor Andrews NIE jest Polakiem i NIE zna polskiego! Akcja to grudzień 1981 r. (stan wojenny), a nie wojna czy okupacja – nie myl tła historycznego.'
+  },
+  {
+    id: 'podroze-z-herodotem',
+    title: 'Podróże z Herodotem (fragmenty)',
+    author: 'Ryszard Kapuściński',
+    epoch: 'Współczesność',
+    genre: 'Reportaż literacki',
+    isGwiazdka: true,
+    summary: 'Kapuściński wspomina swoje pierwsze podróże reporterskie z lat 50. – do Indii i Chin – w które zabrał „Dzieje” Herodota. Opowieść o młodym reporterze przeplata się z lekturą Herodota, który staje się dla narratora wzorem ciekawości świata i szacunku dla Innego.',
+    keyMotifs: ['Przekraczanie granic', 'Spotkanie z Innym', 'Herodot jako pierwszy reporter', 'Historia i pamięć'],
+    mainCharacters: [
+      { name: 'Narrator-reporter', description: 'Młody dziennikarz, który marzy o „przekroczeniu granicy” i uczy się świata, którego języka i kultury nie zna.' },
+      { name: 'Herodot', description: 'Grecki historyk-podróżnik; narrator czyta go jak kolegę po fachu, który zbierał relacje świadków wielu ludów.' }
+    ],
+    keyScenes: [
+      { title: 'Wyjazd do Indii z „Dziejami”', meaning: 'Pierwsza zagraniczna podróż reportera – szok kulturowy i bariera językowa, z którą mierzy się bohater.' },
+      { title: 'Lektura opowieści Herodota o wojnach i ludach', meaning: 'Dawne relacje uczą narratora, że świat trzeba poznawać przez rozmowę z ludźmi i ich własne opowieści.' }
+    ],
+    cardinalWarning: 'BŁĄD KARDYNALNY CKE: „Podróże z Herodotem” to NIE powieść przygodowa ani przekład „Dziejów”! To reportaż literacki, w którym Kapuściński łączy własne wspomnienia z podróży z lekturą Herodota.'
   }
 ];

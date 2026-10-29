@@ -8,7 +8,7 @@ import { PART3_WYPRACOWANIE_TASKS } from './part3_wypracowanie';
 /**
  * Pełna baza 800+ zadań z języka polskiego CKE Formuła 2023:
  * - 280 zadań z Części I (Język polski w użyciu)
- * - 518 zadań z Części II (Test historycznoliteracki - pokrycie 11 epok i 26 jednostek)
+ * - 570 zadań z Części II (Test historycznoliteracki - pokrycie 11 epok i 30 jednostek, w tym lektury PP z podstawy 2024)
  * - 60 zadań z Części III (Warsztat wypracowania)
  */
 export const ALL_POLISH_TASKS_800: Task800Item[] = [

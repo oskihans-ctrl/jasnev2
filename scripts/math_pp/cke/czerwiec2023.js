@@ -392,7 +392,8 @@ export default {
         T`Wykres przechodzi przez punkt $(0, -1)$, więc wyraz wolny $b = -1$.`,
         T`$g(x) = x - 1$.`
       ],
-      trap: T`Współczynnik $-1$ (odpowiedzi B i C) oznacza prostą RÓWNOLEGŁĄ do wykresu $f$, nie prostopadłą.`
+      trap: T`Współczynnik $-1$ (odpowiedzi B i C) oznacza prostą RÓWNOLEGŁĄ do wykresu $f$, nie prostopadłą.`,
+      scope: 'Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi.'
     },
     {
       n: '27', pts: 1, t: 10, k: 'SC',

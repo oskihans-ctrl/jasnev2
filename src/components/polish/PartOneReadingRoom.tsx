@@ -64,14 +64,14 @@ export const PartOneReadingRoom: React.FC<PartOneReadingRoomProps> = ({
   const [highlightedPara, setHighlightedPara] = useState<string | null>(null);
   const [isFullscreenModal, setIsFullscreenModal] = useState<boolean>(false);
 
-  // Domyślna wzorcowa para z bazy CKE (Agnieszka Krzemińska vs Olga Stanisławska)
+  // Domyślna para tekstów ćwiczeniowych JASNE w formacie CKE (Anna Zielińska vs Ewa Nowicka)
   const defaultPair = (typeof CKE_READING_PAIRS !== 'undefined' && Array.isArray(CKE_READING_PAIRS) && CKE_READING_PAIRS.length > 0)
     ? CKE_READING_PAIRS[0]
     : {
         id: 'para-1-turystyka',
         theme: 'Turystyka masowa a autentyzm i tożsamość kulturowa',
-        text1: { author: 'Agnieszka Krzemińska', sourceTitle: 'W pogoni za autentyzmem', text: '', paragraphs: [] },
-        text2: { author: 'Olga Stanisławska', sourceTitle: 'Pochwała spotkania z Innym', text: '', paragraphs: [] }
+        text1: { author: 'Anna Zielińska', sourceTitle: 'W pogoni za autentyzmem', text: '', paragraphs: [] },
+        text2: { author: 'Ewa Nowicka', sourceTitle: 'Pochwała spotkania z Innym', text: '', paragraphs: [] }
       };
 
   // Tekst 1: z zadania lub fallback

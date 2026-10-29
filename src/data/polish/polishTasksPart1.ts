@@ -1,12 +1,12 @@
 import { PolishTask } from '../../types/maturaTypes';
 
 // =========================================================================
-// PEŁNE TEKSTY ŹRÓDŁOWE CKE DLA CZĘŚCI I (JĘZYK POLSKI W UŻYCIU)
+// TEKSTY ĆWICZENIOWE JASNE DLA CZĘŚCI I (JĘZYK POLSKI W UŻYCIU) – NIE SĄ CYTATAMI Z ARKUSZY CKE
 // Formuła 2023 / Aneks 2024: 2 obszerne artykuły z ponumerowanymi akapitami [1]–[5]
 // =========================================================================
 
 export const CKE_TEXT_1_KRZEMINSKA = {
-  author: 'Agnieszka Krzemińska',
+  author: 'Anna Zielińska (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'W pogoni za autentyzmem',
   text: `1. Masowa turystyka stała się jednym z najbardziej ekspansywnych i wielowymiarowych zjawisk kulturowo-gospodarczych XXI wieku. Współczesny człowiek, zmęczony monotonią zurbanizowanego środowiska oraz presją korporacyjnych rygorów, wyrusza w podróż z obietnicą odnalezienia tego, co dziewicze, nieskażone i prawdziwe. Jednak sam fakt pojawienia się milionowych rzesz przybyszów w miejscach dotąd odizolowanych wywołuje nieodwracalne skutki: to, co miało być autentyczne, na oczach podróżnych przekształca się w zaaranżowany towar.
 
@@ -27,7 +27,7 @@ export const CKE_TEXT_1_KRZEMINSKA = {
 };
 
 export const CKE_TEXT_2_STANISLAWSKA = {
-  author: 'Olga Stanisławska',
+  author: 'Ewa Nowicka (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'Pochwała spotkania z Innym',
   text: `1. Łatwo jest z perspektywy uniwersyteckiej katedry lub elitarnego gabinetu potępiać tłumy przemierzające rzymskie place czy plaże basenu Morza Śródziemnego. Wielu intelektualistów ulega pokusie snobizmu, dzieląc wędrujących na „prawdziwych podróżników” – wykształconych, wrażliwych i wnikliwych – oraz „wulgarnych turystów”, bezrefleksyjnie konsumujących egzotykę. Taki podział jest jednak głęboko niesprawiedliwy i pomija fundamentalną wartość, jaką niesie sam akt wyruszenia poza granice własnego podwórka.
 
@@ -48,7 +48,7 @@ export const CKE_TEXT_2_STANISLAWSKA = {
 };
 
 export const CKE_TEXT_1_LUECKE = {
-  author: 'Richard Luecke',
+  author: 'Piotr Malec (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'Czas jako waluta nowoczesności',
   text: `1. Nowożytność zdefiniowała czas jako zasób skończony, mierzalny i podlegający precyzyjnej wycenie rynkowej. Słynna maksyma Benjamina Franklina „czas to pieniądz” nie była jedynie chwytliwym aforyzmem, lecz manifestem nowej filozofii egzystencji, która przekształciła ludzkie życie w nieustanny wyścig z zegarkiem. Czas przestał być naturalną przestrzenią dojrzewania, odpoczynku i kontemplacji, a stał się wskaźnikiem wydajności produkcyjnej.
 
@@ -66,7 +66,7 @@ export const CKE_TEXT_1_LUECKE = {
 };
 
 export const CKE_TEXT_2_GADOMSKA = {
-  author: 'Halina Gadomska',
+  author: 'Joanna Sadowska (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'Czas wewnętrzny i przestrzeń lektury',
   text: `1. Czas nie jest wyłącznie obiektywną, fizyczną wielkością mierzoną tykaniem zegarów ani towarem w transakcjach ekonomicznych. Obok czasu zegarowego istnieje czas wewnętrzny, psychologiczny – mierzony nie sekundami, lecz intensywnością wzruszeń, zachwytem, głębią myśli i twórczym skupieniem. Godzina spędzona na nudnym zebraniu dłuży się w nieskończoność, podczas gdy ten sam czas poświęcony porywającej lekturze mija jak mgnienie oka.
 
@@ -84,7 +84,7 @@ export const CKE_TEXT_2_GADOMSKA = {
 };
 
 export const CKE_TEXT_1_DYCZEWSKI = {
-  author: 'Leon Dyczewski',
+  author: 'Marek Wierzbicki (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'Kultura w ciągłości pokoleniowej',
   text: `1. Pamięć zbiorowa stanowi fundamentalny fundament tożsamości każdej wspólnoty narodowej i kulturowej. Nie jest ona jedynie magazynem przeszłych faktów, lecz żywym spoiwem łączącym minione pokolenia z teraźniejszością i przyszłością. Bez wspólnej pamięci naród zatraca poczucie własnej odrębności i staje się bezbronną masą podatną na manipulacje i asymilację.
 
@@ -99,7 +99,7 @@ export const CKE_TEXT_1_DYCZEWSKI = {
 };
 
 export const CKE_TEXT_2_LIMON = {
-  author: 'Jerzy Limon',
+  author: 'Adam Kowal (tekst ćwiczeniowy JASNE)',
   sourceTitle: 'Pułapki pamięci i teatr wyobraźni',
   text: `1. Pamięć ludzka nie jest obiektywnym rejestratorem ani wierną kroniką przeszłości. Jest raczej żywym, nieustannie przekształcającym się teatrem wyobraźni, w którym minione wydarzenia są na bieżąco reinterpretowane, retuszowane i dopasowywane do aktualnych potrzeb psychologicznych i politycznych.
 
@@ -118,7 +118,7 @@ export const CKE_TEXT_2_LIMON = {
 // =========================================================================
 
 export const POLISH_TASKS_PART_1: PolishTask[] = [
-  // --- ZESTAW 1: Turystyka i doświadczanie świata (CKE Maj 2023) ---
+  // --- ZESTAW 1: Turystyka i doświadczanie świata (ćwiczenie w formacie CKE) ---
   {
     id: 'pol-p1-001',
     part: 1,
@@ -128,7 +128,7 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_1_KRZEMINSKA,
     passage2: CKE_TEXT_2_STANISLAWSKA,
-    question: 'Oceń prawdziwość poniższych stwierdzeń na podstawie tekstu Agnieszki Krzemińskiej (akapity 1–3).',
+    question: 'Oceń prawdziwość poniższych stwierdzeń na podstawie tekstu Anny Zielińskiej (akapity 1–3).',
     trueFalseStatements: [
       {
         statement: 'Autorka uważa, że współczesny turysta stawia na autentyczne, pogłębione relacje z obcą kulturą.',
@@ -142,7 +142,7 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
       }
     ],
     explanation: 'Zadanie wymaga precyzyjnego odróżnienia tezy autorki od manipulacji informacyjnych na podstawie akapitów 1–3.',
-    sourceYear: 'CKE Maj 2023 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-002',
@@ -153,14 +153,14 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_1_KRZEMINSKA,
     passage2: CKE_TEXT_2_STANISLAWSKA,
-    question: 'Wyjaśnij własnymi słowami sens sformułowania „kultura staje się towarem na sprzedaż” w kontekście akapitu 2. i 3. artykułu Agnieszki Krzemińskiej.',
+    question: 'Wyjaśnij własnymi słowami sens sformułowania „kultura staje się towarem na sprzedaż” w kontekście akapitu 2. i 3. artykułu Anny Zielińskiej.',
     correctAnswerText: 'Sformułowanie to oznacza, że wartości kulturowe, tradycje i duchowe dziedzictwo tracą swój pierwotny, autentyczny charakter, a zaczynają być traktowane czysto materialnie i komercyjnie – jako zaaranżowany produkt oferowany turystom dla zysku finansowego.',
     ckeKeyCriteria: [
       '1 pkt – poprawne wyjaśnienie sensu sformułowania w kontekście komercjalizacji kultury i utraty autentyczności na rzecz zysku.',
       '0 pkt – odpowiedź błędna, powtórzenie słów z tekstu bez wyjaśnienia lub brak odpowiedzi.'
     ],
     explanation: 'W zadaniach CKE tego typu należy unikać cytowania – kluczem jest parafraza i synteza znaczenia metafory w kontekście akapitów 2–3.',
-    sourceYear: 'CKE Maj 2023 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-003',
@@ -171,7 +171,7 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_2_STANISLAWSKA,
     passage2: CKE_TEXT_1_KRZEMINSKA,
-    question: 'Jaka funkcja językowa dominuje w sformułowaniu z akapitu 5. tekstu Olgi Stanisławskiej: „Uczmy młode pokolenia ciekawości, która pyta, a nie narzuca; uważności, która potrafi patrzeć bez obiektywu aparatu”?',
+    question: 'Jaka funkcja językowa dominuje w sformułowaniu z akapitu 5. tekstu Ewy Nowickiej: „Uczmy młode pokolenia ciekawości, która pyta, a nie narzuca; uważności, która potrafi patrzeć bez obiektywu aparatu”?',
     options: [
       'A. Funkcja poznawcza (informacyjna)',
       'B. Funkcja impresywna (apelatywna / perswazyjna)',
@@ -180,7 +180,7 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     ],
     correctOptionIndex: 1,
     explanation: 'Występują formy czasownikowe o charakterze postulatywnym i nakłaniającym („Uczmy”), których celem jest wpłynięcie na postawę i działanie odbiorcy (funkcja impresywna / apelatywna).',
-    sourceYear: 'CKE Maj 2023 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-004',
@@ -191,14 +191,14 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_1_KRZEMINSKA,
     passage2: CKE_TEXT_2_STANISLAWSKA,
-    question: 'Wskaż zabieg retoryczny zastosowany w pytaniu otwierającym akapit 5. u Agnieszki Krzemińskiej („Czy zatem autentyzm w podróży jest jeszcze w ogóle możliwy?”) i określ jego funkcję w kompozycji wywodu.',
+    question: 'Wskaż zabieg retoryczny zastosowany w pytaniu otwierającym akapit 5. u Anny Zielińskiej („Czy zatem autentyzm w podróży jest jeszcze w ogóle możliwy?”) i określ jego funkcję w kompozycji wywodu.',
     correctAnswerText: 'Zabieg: Pytanie retoryczne (lub pytanie problemowe). Funkcja: Aktywizacja uwagi czytelnika, zasygnalizowanie zmiany toku wywodu ku poszukiwaniu konstruktywnego rozwiązania oraz skłonienie odbiorcy do głębszej refleksji nad własnym podejściem do podróżowania.',
     ckeKeyCriteria: [
       '1 pkt – poprawne nazwanie środka (pytanie retoryczne / problemowe) oraz trafne określenie jego funkcji kompozycyjnej lub perswazyjnej.',
       '0 pkt – tylko nazwanie środka bez funkcji LUB funkcja bez nazwy środka LUB odpowiedź błędna.'
     ],
     explanation: 'Klucz CKE zawsze wymaga formuły dwuczłonowej: NAZWA ZABIEGU + JEGO KONKRETNA ROLA W TEKŚCIE.',
-    sourceYear: 'CKE Maj 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-005',
@@ -209,14 +209,14 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_1_KRZEMINSKA,
     passage2: CKE_TEXT_2_STANISLAWSKA,
-    question: 'Czy Agnieszka Krzemińska zgodziłaby się z optymistycznym poglądem Olgi Stanisławskiej, że współczesna turystyka masowa burzy uprzedzenia i otwiera umysły? Uzasadnij odpowiedź, odwołując się do argumentacji OBU autorek.',
-    correctAnswerText: 'Nie, Krzemińska nie zgodziłaby się z tą tezą. Choć Stanisławska (tekst 2) przekonuje, że każda podróż przełamuje etnocentryzm i uczy tolerancji wobec Innego, to Krzemińska (tekst 1) dowodzi, że masowa turystyka rzadko prowadzi do autentycznego dialogu – przeciwnie, redukuje spotkanie do powierzchownej konsumpcji, inscenizowanego spektaklu i utwierdzania się w marketingowych stereotypach.',
+    question: 'Czy Anna Zielińska zgodziłaby się z optymistycznym poglądem Ewy Nowickiej, że współczesna turystyka masowa burzy uprzedzenia i otwiera umysły? Uzasadnij odpowiedź, odwołując się do argumentacji OBU autorek.',
+    correctAnswerText: 'Nie, Zielińska nie zgodziłaby się z tą tezą. Choć Nowicka (tekst 2) przekonuje, że każda podróż przełamuje etnocentryzm i uczy tolerancji wobec Innego, to Zielińska (tekst 1) dowodzi, że masowa turystyka rzadko prowadzi do autentycznego dialogu – przeciwnie, redukuje spotkanie do powierzchownej konsumpcji, inscenizowanego spektaklu i utwierdzania się w marketingowych stereotypach.',
     ckeKeyCriteria: [
       '1 pkt – jednoznaczne rozstrzygnięcie (nie zgodziłaby się) oraz wyczerpujące uzasadnienie odwołujące się do sensu i argumentów OBU tekstów.',
       '0 pkt – brak uzasadnienia, odwołanie się tylko do jednego tekstu lub błędne rozpoznanie intencji autorek.'
     ],
     explanation: 'Zadanie konfrontacyjne CKE bada umiejętność zestawiania odmiennych perspektyw badawczych. Warunkiem zdobycia punktu jest przywołanie racji OBU tekstów!',
-    sourceYear: 'CKE Maj 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-006',
@@ -227,21 +227,21 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 4,
     passage: CKE_TEXT_1_KRZEMINSKA,
     passage2: CKE_TEXT_2_STANISLAWSKA,
-    question: 'Na podstawie obu tekstów (Agnieszka Krzemińska, „W pogoni za autentyzmem” oraz Olga Stanisławska, „Pochwała spotkania z Innym”) napisz notatkę syntetyzującą na temat: „Wpływ podróżowania na człowieka i kulturę”. Twoja notatka musi liczyć od 60 do 90 wyrazów.',
+    question: 'Na podstawie obu tekstów (Anna Zielińska, „W pogoni za autentyzmem” oraz Ewa Nowicka, „Pochwała spotkania z Innym”) napisz notatkę syntetyzującą na temat: „Wpływ podróżowania na człowieka i kulturę”. Twoja notatka musi liczyć od 60 do 90 wyrazów.',
     synthesisTheme: 'Wpływ podróżowania na człowieka i kulturę',
-    synthesisAuthor1Stance: 'Krzemińska podkreśla negatywne skutki masowej turystyki: komercjalizację dziedzictwa, „inscenizowany autentyzm” i powierzchowną konsumpcję miejsc.',
-    synthesisAuthor2Stance: 'Stanisławska akcentuje humanistyczny potencjał wędrówki: przełamywanie barier etnocentryzmu, rozwój empatii i autentyczne spotkanie z Innym.',
-    synthesisModelSummary: 'Obie autorki analizują wpływ podróżowania na człowieka i kulturę, prezentując jednak odmienne perspektywy. Agnieszka Krzemińska zwraca uwagę na destrukcyjny wymiar turystyki masowej, która sprowadza kulturę do komercyjnego towaru i niszczy tożsamość zwiedzanych miejsc. Z kolei Olga Stanisławska akcentuje humanistyczny potencjał wędrówki, wskazując, że nawet masowe podróżowanie kształtuje empatię i przełamuje stereotypy. Ostatecznie obie publicystki dowodzą, że rzeczywista wartość podróży zależy od dojrzałości i intencji samego wędrowca.',
+    synthesisAuthor1Stance: 'Zielińska podkreśla negatywne skutki masowej turystyki: komercjalizację dziedzictwa, „inscenizowany autentyzm” i powierzchowną konsumpcję miejsc.',
+    synthesisAuthor2Stance: 'Nowicka akcentuje humanistyczny potencjał wędrówki: przełamywanie barier etnocentryzmu, rozwój empatii i autentyczne spotkanie z Innym.',
+    synthesisModelSummary: 'Obie autorki analizują wpływ podróżowania na człowieka i kulturę, prezentując jednak odmienne perspektywy. Anna Zielińska zwraca uwagę na destrukcyjny wymiar turystyki masowej, która sprowadza kulturę do komercyjnego towaru i niszczy tożsamość zwiedzanych miejsc. Z kolei Ewa Nowicka akcentuje humanistyczny potencjał wędrówki, wskazując, że nawet masowe podróżowanie kształtuje empatię i przełamuje stereotypy. Ostatecznie obie publicystki dowodzą, że rzeczywista wartość podróży zależy od dojrzałości i intencji samego wędrowca.',
     ckeKeyCriteria: [
-      'Zgodność z tematem i synteza obu tekstów (0–2 pkt): przedstawienie stanowiska Krzemińskiej, Stanisławskiej oraz trafnego uogólnienia syntetycznego.',
+      'Zgodność z tematem i synteza obu tekstów (0–2 pkt): przedstawienie stanowiska Zielińskiej, Nowickiej oraz trafnego uogólnienia syntetycznego.',
       'Spójność i forma tekstu ciągłego (0–1 pkt): jeden zwarty akapit bez wyliczeń w punktach, ściśle w przedziale 60–90 słów.',
       'Poprawność językowa, ortograficzna i interpunkcyjna (0–1 pkt, max 1 błąd każdego typu).'
     ],
     explanation: 'Flagowe zadanie Części 1 za 4 punkty (40% punktów Zeszytu 1). Modelowa notatka liczy 74 wyrazy i spełnia wszystkie rygory CKE Formuła 2023.',
-    sourceYear: 'CKE Maj 2023 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
-  // --- ZESTAW 2: Człowiek wobec czasu i przemijania (CKE Maj 2024) ---
+  // --- ZESTAW 2: Człowiek wobec czasu i przemijania (ćwiczenie w formacie CKE) ---
   {
     id: 'pol-p1-007',
     part: 1,
@@ -251,12 +251,12 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 1,
     passage: CKE_TEXT_1_LUECKE,
     passage2: CKE_TEXT_2_GADOMSKA,
-    question: 'Oceń prawdziwość zdań na podstawie artykułu Richarda Lueckego (akapity 1–3).',
+    question: 'Oceń prawdziwość zdań na podstawie artykułu Piotra Malca (akapity 1–3).',
     trueFalseStatements: [
       {
         statement: 'Według autora w nowożytności czas zaczął być postrzegany przede wszystkim jako przestrzeń kontemplacji i spokoju.',
         isTrue: false,
-        explanation: 'Fałsz: W akapicie 1. Luecke pisze wprost, że czas przestał być przestrzenią kontemplacji, a stał się mierzalnym wskaźnikiem wydajności produkcyjnej.'
+        explanation: 'Fałsz: W akapicie 1. Malec pisze wprost, że czas przestał być przestrzenią kontemplacji, a stał się mierzalnym wskaźnikiem wydajności produkcyjnej.'
       },
       {
         statement: 'Maksyma Franklina przyczyniła się do powiązania upływu czasu z wymierną wartością ekonomiczną.',
@@ -264,8 +264,8 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
         explanation: 'Prawda: W akapicie 1. autor wskazuje, że sentencja „czas to pieniądz” przekształciła egzystencję w rynkowy wyścig i powiązała czas z kapitałem.'
       }
     ],
-    explanation: 'Dokładna weryfikacja logiki tekstu Lueckego w odniesieniu do akapitów 1–3.',
-    sourceYear: 'CKE Maj 2024 (Formuła 2024)'
+    explanation: 'Dokładna weryfikacja logiki tekstu Malca w odniesieniu do akapitów 1–3.',
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-008',
@@ -276,21 +276,21 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 4,
     passage: CKE_TEXT_1_LUECKE,
     passage2: CKE_TEXT_2_GADOMSKA,
-    question: 'Na podstawie obu tekstów (Richard Luecke, „Czas jako waluta nowoczesności” oraz Halina Gadomska, „Czas wewnętrzny i przestrzeń lektury”) napisz notatkę syntetyzującą na temat: „Relacja człowieka z czasem”. Twoja notatka musi liczyć od 60 do 90 wyrazów.',
+    question: 'Na podstawie obu tekstów (Piotr Malec, „Czas jako waluta nowoczesności” oraz Joanna Sadowska, „Czas wewnętrzny i przestrzeń lektury”) napisz notatkę syntetyzującą na temat: „Relacja człowieka z czasem”. Twoja notatka musi liczyć od 60 do 90 wyrazów.',
     synthesisTheme: 'Relacja człowieka z czasem',
-    synthesisAuthor1Stance: 'Luecke zwraca uwagę na alienujący charakter czasu mechanicznego, rynkową tyranię zegara i ekonomizację życia.',
-    synthesisAuthor2Stance: 'Gadomska kładzie nacisk na czas psychologiczny, wewnętrzny i subiektywne przeżywanie chwil w przestrzeni sztuki i lektury.',
-    synthesisModelSummary: 'Teksty podejmują problematykę relacji człowieka z upływem czasu. Richard Luecke wskazuje na opresyjny charakter czasu zmechanizowanego, który podporządkowuje egzystencję rygorom ekonomii i wydajności. Z kolei Halina Gadomska podkreśla istnienie czasu wewnętrznego, którego miarą jest głębia emocjonalna oraz intensywność ludzkich przeżyć. Zestawienie obu perspektyw prowadzi do wniosku, że choć zegar organizuje życie społeczne, to subiektywne doświadczanie chwil stanowi o prawdziwej jakości ludzkiego bytu.',
+    synthesisAuthor1Stance: 'Malec zwraca uwagę na alienujący charakter czasu mechanicznego, rynkową tyranię zegara i ekonomizację życia.',
+    synthesisAuthor2Stance: 'Sadowska kładzie nacisk na czas psychologiczny, wewnętrzny i subiektywne przeżywanie chwil w przestrzeni sztuki i lektury.',
+    synthesisModelSummary: 'Teksty podejmują problematykę relacji człowieka z upływem czasu. Piotr Malec wskazuje na opresyjny charakter czasu zmechanizowanego, który podporządkowuje egzystencję rygorom ekonomii i wydajności. Z kolei Joanna Sadowska podkreśla istnienie czasu wewnętrznego, którego miarą jest głębia emocjonalna oraz intensywność ludzkich przeżyć. Zestawienie obu perspektyw prowadzi do wniosku, że choć zegar organizuje życie społeczne, to subiektywne doświadczanie chwil stanowi o prawdziwej jakości ludzkiego bytu.',
     ckeKeyCriteria: [
       'Zestawienie obu autorów i synteza (0–2 pkt)',
       'Spójność wypowiedzi i limit 60–90 słów (0–1 pkt)',
       'Poprawność gramatyczna i stylistyczna (0–1 pkt)'
     ],
-    explanation: 'Modelowa notatka liczy 73 wyrazy i precyzyjnie łączy mechaniczne ujęcie czasu Lueckego z psychologicznym czasem Gadomskiej.',
-    sourceYear: 'CKE Maj 2024'
+    explanation: 'Modelowa notatka liczy 73 wyrazy i precyzyjnie łączy mechaniczne ujęcie czasu Malca z psychologicznym czasem Sadowskiej.',
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
-  // --- ZESTAW 3: Pamięć i tożsamość kulturowa (CKE Czerwiec 2024) ---
+  // --- ZESTAW 3: Pamięć i tożsamość kulturowa (ćwiczenie w formacie CKE) ---
   {
     id: 'pol-p1-009',
     part: 1,
@@ -300,14 +300,14 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 2,
     passage: CKE_TEXT_1_DYCZEWSKI,
     passage2: CKE_TEXT_2_LIMON,
-    question: 'Dopasuj rodzaj pamięci (kolumna lewa) do jej głównej roli opisanej w tekście Leona Dyczewskiego (kolumna prawa).',
+    question: 'Dopasuj rodzaj pamięci (kolumna lewa) do jej głównej roli opisanej w tekście Marka Wierzbickiego (kolumna prawa).',
     matchingPairs: [
       { left: 'Pamięć zbiorowa', right: 'Integrowanie wspólnoty wokół wspólnych wartości i tradycji' },
       { left: 'Przekaz międzypokoleniowy', right: 'Kształtowanie poczucia odpowiedzialności i zakorzenienia' },
       { left: 'Żywa pamięć kultury', right: 'Stanowienie źródła inspiracji dla współczesnych wyzwań' }
     ],
-    explanation: 'Zadanie sprawdza zdolność precyzyjnej kategoryzacji pojęć socjologicznych i kulturoznawczych na podstawie tekstu Dyczewskiego.',
-    sourceYear: 'CKE Czerwiec 2024'
+    explanation: 'Zadanie sprawdza zdolność precyzyjnej kategoryzacji pojęć socjologicznych i kulturoznawczych na podstawie tekstu Wierzbickiego.',
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p1-010',
@@ -318,17 +318,17 @@ export const POLISH_TASKS_PART_1: PolishTask[] = [
     points: 4,
     passage: CKE_TEXT_1_DYCZEWSKI,
     passage2: CKE_TEXT_2_LIMON,
-    question: 'Na podstawie artykułów Leona Dyczewskiego („Kultura w ciągłości pokoleniowej”) oraz Jerzego Limona („Pułapki pamięci i teatr wyobraźni”) napisz notatkę syntetyzującą na temat: „Rola i charakter pamięci w życiu człowieka”. Długość: 60–90 wyrazów.',
+    question: 'Na podstawie artykułów Marka Wierzbickiego („Kultura w ciągłości pokoleniowej”) oraz Adama Kowala („Pułapki pamięci i teatr wyobraźni”) napisz notatkę syntetyzującą na temat: „Rola i charakter pamięci w życiu człowieka”. Długość: 60–90 wyrazów.',
     synthesisTheme: 'Rola i charakter pamięci w życiu człowieka',
-    synthesisAuthor1Stance: 'Dyczewski akcentuje ochronną, integracyjną rolę pamięci dla tożsamości i ciągłości kultury narodu.',
-    synthesisAuthor2Stance: 'Limon przestrzega przed zawodnością pamięci, jej podatnością na kreację, mitologizację i manipulację.',
-    synthesisModelSummary: 'Autorzy analizują zjawisko pamięci oraz jej wpływ na tożsamość człowieka. Leon Dyczewski traktuje pamięć jako niezastąpione spoiwo wspólnoty, które umożliwia przekaz tradycji i chroni kulturę przed zanikiem. Natomiast Jerzy Limon zwraca uwagę na subiektywny, kreacyjny wymiar pamięci, wskazując, że podlega ona ciągłym zniekształceniom i mitologizacji. W konkluzji obaj badacze zgadzają się, że pamięć – mimo swej niedoskonałości – pozostaje kluczowym elementem definiującym ludzką świadomość.',
+    synthesisAuthor1Stance: 'Wierzbicki akcentuje ochronną, integracyjną rolę pamięci dla tożsamości i ciągłości kultury narodu.',
+    synthesisAuthor2Stance: 'Kowal przestrzega przed zawodnością pamięci, jej podatnością na kreację, mitologizację i manipulację.',
+    synthesisModelSummary: 'Autorzy analizują zjawisko pamięci oraz jej wpływ na tożsamość człowieka. Marek Wierzbicki traktuje pamięć jako niezastąpione spoiwo wspólnoty, które umożliwia przekaz tradycji i chroni kulturę przed zanikiem. Natomiast Adam Kowal zwraca uwagę na subiektywny, kreacyjny wymiar pamięci, wskazując, że podlega ona ciągłym zniekształceniom i mitologizacji. W konkluzji obaj badacze zgadzają się, że pamięć – mimo swej niedoskonałości – pozostaje kluczowym elementem definiującym ludzką świadomość.',
     ckeKeyCriteria: [
-      'Podsumowanie stanowisk Dyczewskiego i Limona + synteza uogólniająca (0–2 pkt)',
+      'Podsumowanie stanowisk Wierzbickiego i Kowala + synteza uogólniająca (0–2 pkt)',
       'Tekst spójny, ciągły, w przedziale 60–90 słów (0–1 pkt)',
       'Poprawność językowa, ortograficzna i interpunkcyjna (0–1 pkt)'
     ],
-    explanation: 'Notatka liczy 75 słów, precyzyjnie konfrontuje stabilność tradycji Dyczewskiego z mechanizmami zniekształcania pamięci u Limona.',
-    sourceYear: 'CKE Czerwiec 2024'
+    explanation: 'Notatka liczy 75 słów, precyzyjnie konfrontuje stabilność tradycji Wierzbickiego z mechanizmami zniekształcania pamięci u Kowala.',
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   }
 ];

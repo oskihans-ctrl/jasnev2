@@ -1,5 +1,7 @@
 /**
- * Buduje kurs matematyki PP: 15 działów × 5 lekcji (teoria Core-4) + 20 unikalnych zadań na lekcję.
+ * Buduje kurs matematyki PP: 15 działów × 5 lekcji (teoria Core-4) + 20 unikalnych zadań na lekcję:
+ * 16 zamkniętych / krótkich (gens) i 4 otwarte oceniane etapami CKE (open) – jak w kursie rozszerzonym.
+ * Każda lekcja deklaruje wymagania podstawy programowej 2024 (requirements), sprawdzane z wymagania_2024.json.
  * Wyjście:
  *   src/data/math/generated/math_blueprints.json  – działy i lekcje (pigułki teorii)
  *   src/data/math/generated/all_1500_tasks.json   – zadania przypisane do lekcji
@@ -9,10 +11,20 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { makeR, finalize, Retry, evalTex, close } from './lib.js';
+import { OPEN } from './open.js';
+import { LESSON_REQUIREMENTS } from './requirements.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUT_DIR = path.join(__dirname, '../../src/data/math/generated');
 const TASKS_PER_LESSON = 20;
+// Na arkuszach PP od grudnia 2024 r. połowa punktów to zadania otwarte (ok. 10 zadań po 2–4 pkt),
+// dlatego każda lekcja ma w puli 4 zadania otwarte z etapami z zasad oceniania CKE.
+const OPEN_PER_LESSON = 4;
+const REQS_PP = new Set(
+  JSON.parse(fs.readFileSync(path.join(__dirname, '../../docs/curriculum/matematyka_pr/wymagania_2024.json'), 'utf8'))
+    .filter((q) => q.level === 'PP')
+    .map((q) => q.code)
+);
 
 const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 const only = args.only ? args.only.split(',').map(Number) : null;
@@ -70,7 +82,9 @@ for (const t of topics) {
     const lessonTasks = [];
     let attempts = 0;
     let gi = 0;
-    while (lessonTasks.length < TASKS_PER_LESSON && attempts < 20000) {
+    // Najpierw zadania zamknięte: ta sama sekwencja losowań co wcześniej, więc pozycje 01–16 się nie zmieniają.
+    const closedTarget = TASKS_PER_LESSON - OPEN_PER_LESSON;
+    while (lessonTasks.length < closedTarget && attempts < 20000) {
       attempts++;
       const g = gi % l.gens.length;
       gi++;
@@ -102,9 +116,39 @@ for (const t of topics) {
       );
       lessonTasks.push(task);
     }
-    if (lessonTasks.length < TASKS_PER_LESSON) {
-      fail(`${lessonKey} „${l.title}”: tylko ${lessonTasks.length} unikalnych zadań (per gen: ${perGen.join(',')})`);
+    // Potem zadania otwarte (pozycje 17–20) z generatorów `open` lekcji
+    const openGens = l.open || OPEN[lessonKey] || [];
+    if (!openGens.length) fail(`${lessonKey} „${l.title}”: brak generatorów zadań otwartych (open)`);
+    const perOpen = openGens.map(() => 0);
+    let oi = 0;
+    while (openGens.length && lessonTasks.length < TASKS_PER_LESSON && attempts < 40000) {
+      attempts++;
+      const g = oi % openGens.length;
+      oi++;
+      if (perOpen[g] >= Math.ceil(OPEN_PER_LESSON / openGens.length) + 1) continue;
+      let raw;
+      try {
+        raw = openGens[g](r);
+      } catch (e) {
+        if (e instanceof Retry) continue;
+        throw new Error(`${lessonKey} open#${g}: ${e.message}`);
+      }
+      if (raw.kind !== 'open') throw new Error(`${lessonKey} open#${g}: generator nie zwraca zadania otwartego`);
+      if (seen.has(raw.q)) continue;
+      seen.add(raw.q);
+      perOpen[g]++;
+      const n = lessonTasks.length + 1;
+      lessonTasks.push(finalize(raw, { id: `mat-pp-${d}-${order}-${String(n).padStart(2, '0')}`, lessonId, lessonKey, topicId, sectionTitle: `Dział ${d}: ${t.title}`, archetypeCode, category: t.short_title }, r));
     }
+    if (lessonTasks.length < TASKS_PER_LESSON) {
+      fail(`${lessonKey} „${l.title}”: tylko ${lessonTasks.length} unikalnych zadań (zamknięte: ${perGen.join(',')}; otwarte: ${perOpen.join(',')})`);
+    }
+    // wymagania podstawy programowej 2024
+    const reqs = l.requirements || LESSON_REQUIREMENTS[lessonKey] || [];
+    l.requirements = reqs;
+    if (!reqs.length) fail(`${lessonKey}: brak wymagań podstawy programowej (requirements)`);
+    for (const c of reqs) if (!REQS_PP.has(c)) fail(`${lessonKey}: wymaganie ${c} nie należy do podstawy PP 2024`);
+    for (const task of lessonTasks) task.requirements = reqs;
     // kontrole zadań
     for (const task of lessonTasks) {
       lintText(task.id, task.content, 'treść');
@@ -125,6 +169,12 @@ for (const t of topics) {
         if (!'ABCD'.includes(task.correct_answer)) fail(`${task.id}: zły klucz`);
       }
       if (/rysunk|wykres(?:ie)? przedstawion/i.test(task.content) && !task.diagram && !task.numberLine) fail(`${task.id}: odwołanie do rysunku bez rysunku`);
+      if (/^OPEN_/.test(task.type)) {
+        const st = task.rubric_stages || [];
+        if (st.length < 2 || st[st.length - 1].points !== task.points) fail(`${task.id}: etapy oceniania (${st.length}) niezgodne z punktacją ${task.points}`);
+        if (task.points > 5) fail(`${task.id}: zadanie otwarte PP za więcej niż 5 pkt`);
+        st.forEach((x) => lintText(task.id, x.criterion, 'etap'));
+      }
     }
     // kontrole pigułki
     const pl = l.pill;
@@ -164,6 +214,7 @@ for (const t of topics) {
       short_title: l.short_title,
       badge: `Lekcja ${lessonKey}`,
       archetypeCode,
+      requirements: l.requirements || [],
       estimated_time_formatted: l.time || '~5 min',
       theory_pill: pl
     });

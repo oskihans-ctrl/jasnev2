@@ -7,7 +7,7 @@ const eqy = (a, b) => m(`y = ${lin(a, b)}`);
 const sqTerm = (p, v) => (p === 0 ? `${v}^2` : `(${xm(p, v)})^2`);
 const circ = (a, b, r2) => `${sqTerm(a, 'x')} + ${sqTerm(b, 'y')} = ${r2}`;
 const TIP_DIST = 'Karta wzorów, str. 21: długość odcinka $|AB| = \\sqrt{(x_B - x_A)^2 + (y_B - y_A)^2}$, środek $S = \\left(\\frac{x_A + x_B}{2}, \\frac{y_A + y_B}{2}\\right)$.';
-const TIP_LINE = 'Karta wzorów, str. 22: proste $y = a_1x + b_1$ i $y = a_2x + b_2$ są równoległe, gdy $a_1 = a_2$, a prostopadłe, gdy $a_1 \\cdot a_2 = -1$.';
+const TIP_LINE = 'Karta wzorów, str. 22: proste $y = a_1x + b_1$ i $y = a_2x + b_2$ są równoległe, gdy $a_1 = a_2$; przy różnych wyrazach wolnych nie mają punktu wspólnego.';
 const TIP_CIRC = 'Karta wzorów, str. 23: równanie okręgu o środku $S = (a, b)$ i promieniu $r$: $(x - a)^2 + (y - b)^2 = r^2$.';
 const slope = (n, d) => {
   const s = fr(n, d);
@@ -176,111 +176,99 @@ const lineAxisPoints = (r) => {
   });
 };
 
-// ---------- 10.3 Proste równoległe i prostopadłe ----------
-const perpSlope = (r) => {
-  const n = r.intNot(-5, 5, 0);
-  const d = r.int(1, 4);
-  need(gcd(n, d) === 1 && !(Math.abs(n) === 1 && d === 1));
+// ---------- 10.3 Wzajemne położenie prostych i proste równoległe ----------
+// Podstawa 2024 (IX.1, IX.2): położenie prostych, punkt wspólny i prosta równoległa.
+// Prosta prostopadła jest od 2024 r. wymaganiem rozszerzonym (IX.R4), więc nie ma jej w tej lekcji.
+const yEq = (nn, dd, bb) => m(`y = ${slope(nn, dd)}x${bb === 0 ? '' : ` ${bb > 0 ? '+' : '-'} ${Math.abs(bb)}`}`);
+// Pary (licznik, mianownik) współczynnika – losowane z listy, bez odrzuceń (generator nie traci kolejki w build.js)
+const SLOPES = [[2, 1], [-2, 1], [3, 1], [-3, 1], [4, 1], [-5, 1], [1, 2], [-1, 2], [3, 2], [-3, 2], [2, 3], [-2, 3], [4, 3], [-5, 3], [1, 4], [-3, 4], [5, 4]];
+const parSlope = (r) => {
+  const [n, d] = r.pick(SLOPES);
   const b = r.int(-7, 7);
   const b2 = r.intNot(-7, 7, b);
-  const f = (nn, dd, bb) => m(`y = ${slope(nn, dd)}x${bb === 0 ? '' : ` ${bb > 0 ? '+' : '-'} ${Math.abs(bb)}`}`);
-  const par0 = r.bool();
   return mc({
-    title: par0 ? 'Prosta równoległa' : 'Prosta prostopadła',
-    q: T`Prosta $k$ ma równanie $y = ${slope(n, d)}x${b === 0 ? '' : ` ${b > 0 ? '+' : '-'} ${Math.abs(b)}`}$. Prostą ${par0 ? 'równoległą' : 'prostopadłą'} do prostej $k$ jest prosta o równaniu`,
-    ok: par0 ? f(n, d, b2) : f(-d, n, b2),
-    bad: par0 ? [f(-d, n, b2), f(d, n, b2), f(-n, d, b2)] : [f(n, d, b2), f(d, n, b2), f(-n, d, b2)],
-    steps: par0 ? [T`Proste równoległe mają równe współczynniki kierunkowe: $a = ${fr(n, d)}$.`, `Taki współczynnik (i inny wyraz wolny) ma tylko prosta ${f(n, d, b2)}.`] : [T`Dla prostych prostopadłych $a_1 \cdot a_2 = -1$, więc $a_2 = -\frac{1}{a_1}$.`, T`$a_2 = ${fr(-d, n)}$ – „odwrotność ze zmienionym znakiem” liczby $${fr(n, d)}$.`],
-    trap: par0 ? T`O równoległości decyduje tylko współczynnik przy $x$. Wyraz wolny może być dowolny (byle inny, jeśli proste mają być różne).` : T`Sama zmiana znaku albo samo odwrócenie ułamka nie wystarcza – trzeba zrobić obie rzeczy naraz.`,
+    title: 'Prosta równoległa',
+    q: T`Prosta $k$ ma równanie $y = ${slope(n, d)}x${b === 0 ? '' : ` ${b > 0 ? '+' : '-'} ${Math.abs(b)}`}$. Prostą równoległą do prostej $k$ jest prosta o równaniu`,
+    ok: yEq(n, d, b2),
+    bad: [yEq(-n, d, b2), yEq(d, n, b2), yEq(-d, n, b2)],
+    steps: [T`Proste równoległe mają równe współczynniki kierunkowe: $a = ${fr(n, d)}$.`, `Taki współczynnik (i inny wyraz wolny) ma tylko prosta ${yEq(n, d, b2)}.`],
+    trap: T`O równoległości decyduje tylko współczynnik przy $x$. Zmiana znaku albo odwrócenie ułamka daje prostą, która przecina prostą $k$.`,
     tip: TIP_LINE
   });
 };
-const perpParam = (r) => {
+const parParam = (r) => {
   const k = r.pick([1, 2, 3]);
   const c = r.intNot(-6, 6, 0);
   const a2 = r.intNot(-4, 4, 0);
-  const par0 = r.bool();
-  // (k m + c) x + b1 i a2 x + b2
-  const target = par0 ? [a2, 1] : [-1, a2];
-  const nn = target[0] - c * target[1];
-  const dd = k * target[1];
+  const nn = a2 - c;
   const coef = `${k === 1 ? '' : k}m ${c > 0 ? '+' : '-'} ${Math.abs(c)}`;
   const [b1, b2] = [r.int(1, 9), r.int(-9, -1)];
   return mc({
-    title: par0 ? 'Parametr: proste równoległe' : 'Parametr: proste prostopadłe',
-    q: T`Proste o równaniach $y = (${coef})x + ${b1}$ oraz $y = ${lin(a2, b2)}$ są ${par0 ? 'równoległe' : 'prostopadłe'}. Liczba $m$ jest równa`,
-    ok: m(fr(nn, dd)),
-    val: nn / dd,
-    bad: par0 ? [m(fr(a2 + c, k)), m(fr(-1 - c * a2, k * a2)), m(fr(nn, 1) === fr(nn, dd) ? fr(nn + 1, dd) : fr(nn, 1)), m(fr(-nn, dd) === fr(nn, dd) ? '1' : fr(-nn, dd))] : [m(fr(a2 - c, k)), m(fr(1 - c * a2, k * a2)), m(fr(-a2 - c, k)), m(fr(-nn, dd) === fr(nn, dd) ? '1' : fr(-nn, dd))],
-    steps: par0 ? [T`Proste równoległe: $${coef} = ${a2}$.`, T`$${k === 1 ? '' : k}m = ${a2 - c}$, więc $m = ${fr(nn, dd)}$.`] : [T`Proste prostopadłe: $(${coef}) \cdot ${par(a2)} = -1$, czyli $${coef} = ${fr(-1, a2)}$.`, T`$${k === 1 ? '' : k}m = ${fr(-1 - c * a2, a2)}$, więc $m = ${fr(nn, dd)}$.`],
-    trap: par0 ? T`Przyrównujemy całe wyrażenie stojące przy $x$, czyli $${coef}$, a nie samo $m$.` : T`Iloczyn współczynników ma być równy $-1$, a nie $1$ ani $0$.`,
+    title: 'Parametr: proste równoległe',
+    q: T`Proste o równaniach $y = (${coef})x + ${b1}$ oraz $y = ${lin(a2, b2)}$ są równoległe. Liczba $m$ jest równa`,
+    ok: m(fr(nn, k)),
+    val: nn / k,
+    bad: [m(fr(a2 + c, k)), m(fr(-nn, k) === fr(nn, k) ? '1' : fr(-nn, k)), m(fr(a2, k) === fr(nn, k) ? fr(a2 + 1, k) : fr(a2, k)), m(fr(nn * k, 1) === fr(nn, k) ? fr(nn + 1, k) : fr(nn * k, 1))],
+    steps: [T`Proste równoległe: $${coef} = ${a2}$.`, T`$${k === 1 ? '' : k}m = ${a2 - c}$, więc $m = ${fr(nn, k)}$.`],
+    trap: T`Przyrównujemy całe wyrażenie stojące przy $x$, czyli $${coef}$, a nie samo $m$.`,
     tip: TIP_LINE
   });
 };
-const perpThroughPoint = (r) => {
+const parThroughPoint = (r) => {
   const a = r.pick([2, 3, 4, -2, -3, -4]);
   const b = r.int(-6, 6);
-  const px = a * r.intNot(-2, 2, 0);
+  const px = r.intNot(-4, 4, 0);
   const py = r.int(-6, 6);
-  // prosta prostopadła: y = -1/a x + c, c = py + px/a
-  const c = py + px / a;
-  const f = (nn, dd, bb) => m(`y = ${slope(nn, dd)}x${bb === 0 ? '' : ` ${bb > 0 ? '+' : '-'} ${Math.abs(bb)}`}`);
+  const c = py - a * px;
+  need(c !== b);
   return mc({
-    title: 'Prosta prostopadła przez punkt',
-    q: T`Prosta $l$ jest prostopadła do prostej o równaniu $y = ${lin(a, b)}$ i przechodzi przez punkt $P = (${px}, ${py})$. Prosta $l$ ma równanie`,
-    ok: f(-1, a, c),
-    bad: [f(a, 1, py - a * px), f(1, a, py - px / a), f(-1, a, py), f(-a, 1, py + a * px), f(-1, a, b === c ? b + 1 : b)],
-    steps: [T`Współczynnik kierunkowy prostej prostopadłej: $a_l = ${fr(-1, a)}$ (odwrotność liczby $${a}$ ze zmienionym znakiem).`, T`Podstawiamy punkt $P$: $${py} = ${fr(-1, a)} \cdot ${par(px)} + b$, czyli $${py} = ${-px / a} + b$, więc $b = ${c}$.`, T`Równanie: $y = ${slope(-1, a)}x${c === 0 ? '' : ` ${c > 0 ? '+' : '-'} ${Math.abs(c)}`}$.`],
-    trap: T`Najpierw nowy współczynnik kierunkowy ($${fr(-1, a)}$), potem wyraz wolny z punktu $P$. Wyraz wolny prostej wyjściowej ($${b}$) nie ma tu znaczenia.`,
+    title: 'Prosta równoległa przez punkt',
+    q: T`Prosta $l$ jest równoległa do prostej o równaniu $y = ${lin(a, b)}$ i przechodzi przez punkt $P = (${px}, ${py})$. Prosta $l$ ma równanie`,
+    ok: yEq(a, 1, c),
+    bad: [yEq(a, 1, b), yEq(-a, 1, py + a * px), yEq(a, 1, py + a * px), yEq(1, 1, py - px)].filter((o, i, all) => all.indexOf(o) === i),
+    steps: [T`Prosta równoległa ma ten sam współczynnik kierunkowy: $a = ${a}$.`, T`Podstawiamy punkt $P$: $${py} = ${a} \cdot ${par(px)} + b$, więc $b = ${c}$.`, T`Równanie: $y = ${lin(a, c)}$.`],
+    trap: T`Wyraz wolny prostej wyjściowej ($${b}$) nie przechodzi na prostą $l$ – trzeba go wyliczyć z punktu $P$.`,
     tip: TIP_LINE
   });
 };
-const perpBisector = (r) => {
-  const [x1, y1] = [r.int(-6, 6), r.int(-6, 6)];
-  const [dx, dy] = r.pick([[2, 4], [4, 2], [2, -4], [4, -2], [2, 2], [2, -2], [6, 2], [2, 6], [4, 4], [6, -2]]);
-  const [x2, y2] = [x1 + dx, y1 + dy];
-  const [sx, sy] = [x1 + dx / 2, y1 + dy / 2];
-  const kind = r.int(0, 1);
-  const f = (nn, dd, bb) => m(`y = ${slope(nn, dd)}x${bb === 0 ? '' : ` ${bb > 0 ? '+' : '-'} ${fr(Math.abs(Math.round(bb * 2)), 2)}`}`);
-  const c = sy + (dx / dy) * sx;
-  need(Number.isInteger(c * 2));
-  if (kind === 0)
-    return mc({
-      title: 'Współczynnik kierunkowy symetralnej odcinka',
-      q: T`Dane są punkty $A = (${x1}, ${y1})$ oraz $B = (${x2}, ${y2})$. Współczynnik kierunkowy symetralnej odcinka $AB$ jest równy`,
-      ok: m(fr(-dx, dy)),
-      val: -dx / dy,
-      bad: [m(fr(dy, dx)), m(fr(dx, dy)), m(fr(-dy, dx)), m(fr(sy, sx || 1))],
-      steps: [T`Współczynnik kierunkowy prostej $AB$: $\frac{${y2} - ${par(y1)}}{${x2} - ${par(x1)}} = ${fr(dy, dx)}$.`, T`Symetralna jest prostopadła do odcinka, więc jej współczynnik to $${fr(-dx, dy)}$.`],
-      trap: T`Symetralna odcinka jest do niego PROSTOPADŁA, a nie równoległa – jej współczynnik to odwrotność ze zmienionym znakiem.`,
-      tip: 'Symetralna odcinka to prosta prostopadła do niego, przechodząca przez jego środek.'
-    });
+const crossPoint = (r) => {
+  const a1 = r.intNot(-4, 4, 0);
+  const a2 = r.intNot(-4, 4, 0, a1);
+  const x0 = r.intNot(-5, 5, 0);
+  const y0 = r.int(-6, 6);
+  const b1 = y0 - a1 * x0;
+  const b2 = y0 - a2 * x0;
   return mc({
-    title: 'Równanie symetralnej odcinka',
-    q: T`Dane są punkty $A = (${x1}, ${y1})$ oraz $B = (${x2}, ${y2})$. Symetralna odcinka $AB$ ma równanie`,
-    ok: f(-dx, dy, c),
-    bad: [f(dy, dx, sy - (dy / dx) * sx), f(-dx, dy, y1 + (dx / dy) * x1), f(dx, dy, sy - (dx / dy) * sx), f(-dx, dy, sy)].filter((o) => !o.includes('NaN')),
-    steps: [T`Środek odcinka: $S = (${sx}, ${sy})$.`, T`Współczynnik prostej $AB$: $${fr(dy, dx)}$, więc symetralna ma współczynnik $${fr(-dx, dy)}$.`, T`Podstawiamy $S$: $${sy} = ${fr(-dx, dy)} \cdot ${par(sx)} + b$, stąd $b = ${fr(Math.round(c * 2), 2)}$.`],
-    trap: T`Symetralna przechodzi przez ŚRODEK odcinka, a nie przez jego koniec. Do równania podstawiamy punkt $S$.`,
-    tip: 'Symetralna odcinka to prosta prostopadła do niego, przechodząca przez jego środek.'
+    title: 'Punkt wspólny dwóch prostych',
+    q: T`Proste o równaniach $y = ${lin(a1, b1)}$ oraz $y = ${lin(a2, b2)}$ przecinają się w punkcie`,
+    ok: P(x0, y0),
+    bad: [P(y0, x0), P(-x0, y0), P(x0, -y0), P(0, b1)].filter((o) => o !== P(x0, y0)),
+    steps: [T`Porównujemy prawe strony: $${lin(a1, b1)} = ${lin(a2, b2)}$, stąd $${a1 - a2 === 1 ? '' : a1 - a2 === -1 ? '-' : a1 - a2}x = ${b2 - b1}$, czyli $x = ${x0}$.`, T`Podstawiamy do pierwszego równania: $y = ${a1} \cdot ${par(x0)} ${b1 >= 0 ? '+' : '-'} ${Math.abs(b1)} = ${y0}$.`],
+    trap: T`Punkt przecięcia musi spełniać OBA równania – sprawdź go w drugim: $${a2} \cdot ${par(x0)} ${b2 >= 0 ? '+' : '-'} ${Math.abs(b2)} = ${y0}$.`,
+    tip: 'Punkt wspólny dwóch prostych to rozwiązanie układu ich równań.'
   });
 };
 const linesPosition = (r) => {
-  const a = r.intNot(-4, 4, 0, 1, -1);
+  const a = r.intNot(-4, 4, 0);
   const b = r.int(-6, 6);
   const kind = r.int(0, 2);
-  const a2 = kind === 0 ? a : kind === 1 ? null : r.intNot(-4, 4, 0, a);
-  const b2 = r.intNot(-6, 6, b);
-  const second = kind === 1 ? `y = ${slope(-1, a)}x${b2 === 0 ? '' : ` ${b2 > 0 ? '+' : '-'} ${Math.abs(b2)}`}` : `y = ${lin(a2, b2)}`;
-  need(kind !== 2 || a * a2 !== -1);
-  const ans = ['są równoległe i różne', 'są prostopadłe', 'przecinają się, ale nie są prostopadłe'][kind];
+  const mult = r.pick([2, 3, -2]);
+  const a2 = kind === 2 ? r.intNot(-4, 4, 0, a) : a;
+  let second;
+  if (kind === 0) second = `y = ${lin(a, r.intNot(-6, 6, b))}`;
+  else if (kind === 1) second = `${mult}y = ${lin(mult * a, mult * b)}`;
+  else second = `y = ${lin(a2, b)}`;
+  const ans = ['są równoległe i różne', 'pokrywają się', 'przecinają się w punkcie leżącym na osi Oy'][kind];
   return mc({
     title: 'Wzajemne położenie dwóch prostych',
     q: T`Proste o równaniach $y = ${lin(a, b)}$ oraz $${second}$`,
     ok: ans,
-    bad: ['są równoległe i różne', 'są prostopadłe', 'przecinają się, ale nie są prostopadłe', 'pokrywają się'].filter((x) => x !== ans),
-    steps: [T`Współczynniki kierunkowe: $a_1 = ${a}$ oraz $a_2 = ${kind === 1 ? fr(-1, a) : a2}$.`, kind === 0 ? T`$a_1 = a_2$ i wyrazy wolne są różne, więc proste są równoległe i różne.` : kind === 1 ? T`$a_1 \cdot a_2 = ${a} \cdot \left(${fr(-1, a)}\right) = -1$, więc proste są prostopadłe.` : T`$a_1 \neq a_2$, więc proste się przecinają; $a_1 \cdot a_2 = ${a * a2} \neq -1$, więc nie są prostopadłe.`],
-    trap: T`Proste o różnych współczynnikach kierunkowych zawsze się przecinają – ale prostopadłe są tylko wtedy, gdy iloczyn współczynników to dokładnie $-1$.`,
+    bad: ['są równoległe i różne', 'pokrywają się', 'przecinają się w punkcie leżącym na osi Oy', 'przecinają się w punkcie, który nie leży na osi Oy'].filter((x) => x !== ans),
+    steps: [
+      kind === 1 ? T`Dzielimy drugie równanie przez $${mult}$: $y = ${lin(a, b)}$ – to ta sama prosta.` : T`Współczynniki kierunkowe: $a_1 = ${a}$ oraz $a_2 = ${a2}$.`,
+      kind === 0 ? T`$a_1 = a_2$, a wyrazy wolne są różne, więc proste są równoległe i nie mają punktu wspólnego.` : kind === 1 ? T`Równania opisują ten sam zbiór punktów, więc proste się pokrywają (mają nieskończenie wiele punktów wspólnych).` : T`$a_1 \neq a_2$, więc proste się przecinają. Mają ten sam wyraz wolny $${b}$, więc punkt przecięcia to $(0, ${b})$ – leży na osi $Oy$.`
+    ],
+    trap: T`Przed porównaniem współczynników sprowadź oba równania do postaci $y = ax + b$ – np. $2y = 4x + 2$ to ta sama prosta co $y = 2x + 1$.`,
     tip: TIP_LINE
   });
 };
@@ -541,34 +529,33 @@ export default {
       gens: [lineTwoPoints, linePointParam, lineSlopeThroughPoint, lineGeneralForm, lineAxisPoints]
     },
     {
-      title: 'Proste równoległe i prostopadłe',
-      short_title: 'Równoległe i prostopadłe',
+      title: 'Wzajemne położenie prostych i proste równoległe',
+      short_title: 'Położenie prostych',
       pill: pill({
-        essence: T`Wzajemne położenie dwóch prostych rozpoznajesz po współczynnikach kierunkowych. Proste są równoległe, gdy mają ten sam współczynnik: $a_1 = a_2$. Są prostopadłe, gdy iloczyn współczynników jest równy $-1$: $a_1 \cdot a_2 = -1$, czyli $a_2 = -\frac{1}{a_1}$. Symetralna odcinka to prosta prostopadła do niego, przechodząca przez jego środek – łączy więc wzór na środek z warunkiem prostopadłości.`,
-        context: 'Zadania 24–27 w arkuszu • 1 pkt oraz zadanie otwarte za 2–4 pkt (symetralna, wysokość trójkąta).',
-        pl: T`Równoległe – to samo nachylenie. Prostopadłe – nachylenie „odwrócone i ze zmienionym znakiem”: dla $\frac{2}{3}$ bierzesz $-\frac{3}{2}$, dla $-4$ bierzesz $\frac{1}{4}$. Jedna prosta wspina się, druga musi opadać.`,
+        essence: T`Wzajemne położenie dwóch prostych rozpoznajesz po współczynnikach kierunkowych. Ten sam współczynnik i różne wyrazy wolne – proste równoległe, bez punktu wspólnego. Te same równania po uproszczeniu – proste się pokrywają. Różne współczynniki – proste przecinają się w jednym punkcie, który wyznaczasz z układu ich równań.`,
+        context: 'Zadania zamknięte za 1 pkt oraz otwarte za 2 pkt (punkt wspólny prostych, prosta równoległa przez punkt).',
+        pl: T`Równoległe – to samo nachylenie, jak dwa tory kolejowe. Różne nachylenie – drogi kiedyś się skrzyżują. Skrzyżowanie to punkt, który leży na obu prostych naraz, więc spełnia oba równania.`,
         steps: [
-          ['Odczytaj współczynnik kierunkowy', T`$y = 3x - 5$: $a_1 = 3$.`, 'Tylko liczba przy x.'],
-          ['Zastosuj warunek', T`Równoległa: $a_2 = 3$. Prostopadła: $a_2 = -\frac{1}{3}$.`, 'Odwróć i zmień znak.'],
-          ['Wyznacz b z punktu', T`Prostopadła przez $(6, 1)$: $1 = -\frac{1}{3} \cdot 6 + b$, $b = 3$.`, 'Jak w każdym równaniu prostej.']
+          ['Sprowadź do postaci kierunkowej', T`$2y = 6x - 4$ to $y = 3x - 2$.`, 'Dopiero wtedy porównuj.'],
+          ['Porównaj współczynniki', T`$y = 3x - 2$ i $y = 3x + 5$: $a_1 = a_2$, $b_1 \neq b_2$ – równoległe.`, 'Liczba przy x decyduje.'],
+          ['Punkt wspólny z układu', T`$y = 2x + 1$ i $y = -x + 7$: $2x + 1 = -x + 7$, $x = 2$, $y = 5$.`, 'Sprawdź w obu równaniach.']
         ],
         formulas: [
           ['Proste równoległe', T`a_1 = a_2`, 22],
-          ['Proste prostopadłe', T`a_1 \cdot a_2 = -1`, 22],
-          ['Symetralna odcinka', T`\text{prostopadła do } AB, \text{ przechodzi przez środek } AB`]
+          ['Punkt wspólny prostych', T`a_1x + b_1 = a_2x + b_2`]
         ],
         examples: [
           ['Parametr', '1 pkt', T`Proste $y = (2m - 1)x + 3$ i $y = 5x - 2$ są równoległe. Oblicz $m$.`, T`1. $2m - 1 = 5$.` + '\n' + T`2. $m = 3$.`, 'Przyrównaj całe współczynniki przy x.'],
-          ['Symetralna', '2 pkt', T`Wyznacz równanie symetralnej odcinka o końcach $A = (0, 2)$, $B = (4, 6)$.`, T`1. Środek: $S = (2, 4)$.` + '\n' + T`2. Współczynnik $AB$: $\frac{6 - 2}{4 - 0} = 1$, więc symetralna ma $a = -1$.` + '\n' + T`3. $4 = -2 + b$, $b = 6$. Równanie: $y = -x + 6$.`, 'Środek + prostopadłość.']
+          ['Punkt wspólny', '2 pkt', T`Wyznacz punkt wspólny prostych $y = 2x - 3$ i $y = -x + 6$.`, T`1. $2x - 3 = -x + 6$, więc $3x = 9$, $x = 3$.` + '\n' + T`2. $y = 2 \cdot 3 - 3 = 3$. Punkt: $(3, 3)$.` + '\n' + T`3. Sprawdzenie: $-3 + 6 = 3$.`, 'Układ równań, a potem sprawdzenie.']
         ],
-        trap: T`Prostopadła do $y = 2x + 1$ ma współczynnik $-\frac{1}{2}$, a NIE $-2$ ani $\frac{1}{2}$. Trzeba i odwrócić, i zmienić znak.`,
-        fail: T`„Prostopadła do $y = 2x + 1$ to $y = -2x + 1$.”`,
-        win: T`$a_2 = -\frac{1}{2}$, bo $2 \cdot \left(-\frac{1}{2}\right) = -1$.`,
-        why: 'Proste y = 2x i y = −2x są symetryczne względem osi, ale kąt między nimi nie jest prosty.',
-        ckeTip: 'Oba warunki są w karcie wzorów na str. 22. Sprawdź prostopadłość mnożeniem: wynik musi być dokładnie −1.',
-        points: [T`Równoległe: $a_1 = a_2$.`, T`Prostopadłe: $a_1 \cdot a_2 = -1$.`, T`Symetralna: przez środek i prostopadle.`]
+        trap: T`Prosta równoległa do $y = 2x + 1$ ma współczynnik $2$, a NIE $-2$ ani $\frac{1}{2}$ – zmiana znaku czy odwrócenie daje prostą, która przecina wyjściową.`,
+        fail: T`„Równoległa do $y = 2x + 1$ to $y = -2x + 1$.”`,
+        win: T`Równoległa: $y = 2x + b$, gdzie $b \neq 1$, np. $y = 2x - 4$.`,
+        why: 'Proste y = 2x i y = −2x mają różne nachylenie, więc przecinają się w punkcie (0, 0).',
+        ckeTip: 'Warunek równoległości jest w karcie wzorów na str. 22. Punkt wspólny zawsze sprawdź w drugim równaniu.',
+        points: [T`Równoległe: $a_1 = a_2$, $b_1 \neq b_2$.`, T`Pokrywają się: te same równania po uproszczeniu.`, T`Punkt wspólny: rozwiąż układ równań.`]
       }),
-      gens: [perpSlope, perpParam, perpThroughPoint, perpBisector, linesPosition]
+      gens: [parSlope, parParam, parThroughPoint, crossPoint, linesPosition]
     },
     {
       title: 'Równanie okręgu',

@@ -99,6 +99,18 @@ describe('Kurikulum matematyki PP – spójność danych z generatora scripts/ma
         expect(t.statements, t.id).toHaveLength(2);
         expect(t.correct_answer, t.id).toBe(t.statements.map((s: any) => s.correct).join(''));
         expect(t.options, t.id).toBeUndefined();
+      } else if (t.type === 'OPEN_CALCULATION' || t.type === 'OPEN_PROOF') {
+        // zadanie otwarte oceniane etapami jak w zasadach oceniania CKE (od 2 etapów, ostatni = komplet punktów)
+        const stages = t.rubric_stages || [];
+        expect(stages.length, t.id).toBeGreaterThanOrEqual(2);
+        expect(stages[stages.length - 1].points, t.id).toBe(t.points);
+        expect(t.points, t.id).toBeLessThanOrEqual(5);
+        stages.forEach((s: any, i: number) => {
+          expect(s.criterion.length, t.id).toBeGreaterThan(10);
+          if (i) expect(s.points, t.id).toBeGreaterThan(stages[i - 1].points);
+        });
+        expect(t.scoring_key, t.id).toMatch(/Odpowiedź:/);
+        expect(t.requirements.length, t.id).toBeGreaterThan(0);
       } else {
         expect(t.type, t.id).toBe('NUMERIC_INPUT');
         expect(String(t.correct_answer), t.id).toMatch(/^-?\d+(,\d+)?$/);
@@ -106,11 +118,18 @@ describe('Kurikulum matematyki PP – spójność danych z generatora scripts/ma
     });
   });
 
-  it('pula zadań realizuje Format Matrix: wybór ABCD, prawda/fałsz i wynik liczbowy', () => {
+  it('pula zadań realizuje Format Matrix: wybór ABCD, prawda/fałsz, wynik liczbowy i zadania otwarte', () => {
     const count = (type: string) => tasks.filter(t => t.type === type).length;
-    expect(count('SINGLE_CHOICE')).toBeGreaterThan(1300);
+    expect(count('SINGLE_CHOICE')).toBeGreaterThan(1100);
     expect(count('TRUE_FALSE')).toBeGreaterThanOrEqual(40);
-    expect(count('NUMERIC_INPUT')).toBeGreaterThanOrEqual(40);
+    expect(count('NUMERIC_INPUT')).toBeGreaterThanOrEqual(30);
+    // arkusze PP od grudnia 2024 r.: ok. połowa punktów za zadania otwarte – każda lekcja ma 4 takie zadania
+    expect(count('OPEN_CALCULATION') + count('OPEN_PROOF')).toBe(300);
+    expect(count('OPEN_PROOF')).toBeGreaterThan(0);
+    ALL_MATH_LESSONS.forEach(lesson => {
+      const open = getMathLessonTaskPool(lesson.id).filter((t: any) => t.type === 'OPEN_CALCULATION' || t.type === 'OPEN_PROOF');
+      expect(open, lesson.id).toHaveLength(4);
+    });
     // zadania P/F trafiają do silnika sesji w formacie natywnym (bez sztucznych opcji A–D)
     const pool = getMathLessonTaskPool('math-lesson-13-2');
     const tf = pool.find(t => t.type === 'TRUE_FALSE');

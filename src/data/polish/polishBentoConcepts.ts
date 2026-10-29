@@ -107,7 +107,7 @@ export const POLISH_LESSON_CONCEPTS: Record<string, PolishBentoConcept[]> = {
       name: 'Synteza dwugłosowa',
       tag: 'Standard CKE 4 pkt',
       simpleDefinition: 'Połączenie w jedną spójną wypowiedź dwóch różnych stanowisk autorów, wskazujące na czym polega ich spór oraz co stanowi ich wspólną płaszczyznę refleksji.',
-      contextExample: '„Agnieszka Krzemińska krytykuje masową turystykę za komercjalizację kultury, podczas gdy Ola Stanisławska dostrzega w podróży szansę na empatię. Obie autorki zgadzają się jednak, że wartość wyprawy zależy od intencji samego wędrowca”.',
+      contextExample: '„Anna Zielińska krytykuje masową turystykę za komercjalizację kultury, podczas gdy Ewa Nowicka dostrzega w podróży szansę na empatię. Obie autorki zgadzają się jednak, że wartość wyprawy zależy od intencji samego wędrowca”.',
       ckeTrap: 'Napisanie dwóch osobnych streszczeń tekstu 1 i tekstu 2 połączonych słowem „a”. CKE wymaga uogólnienia scalającego obie perspektywy!'
     },
     {
@@ -134,7 +134,7 @@ export const POLISH_LESSON_CONCEPTS: Record<string, PolishBentoConcept[]> = {
       name: 'Parafraza uogólniająca',
       tag: 'Technika CKE',
       simpleDefinition: 'Oddanie głównej myśli autora własnymi słowami na wyższym poziomie ogólności, bez cytowania i bez przepisywania całych zdań z arkusza.',
-      contextExample: 'Zamiast: „Krzemińska pisze, że turyści biegają z aparatami po placu św. Marka i kupują pamiątki z Chin” -> Parafraza: „Krzemińska zwraca uwagę na redukcję doświadczenia kulturowego do powierzchownej konsumpcji”.',
+      contextExample: 'Zamiast: „Zielińska pisze, że turyści biegają z aparatami po placu św. Marka i kupują pamiątki z Chin” -> Parafraza: „Zielińska zwraca uwagę na redukcję doświadczenia kulturowego do powierzchownej konsumpcji”.',
       ckeTrap: 'Cytowanie fragmentów tekstu w cudzysłowie w notatce syntetyzującej. Każdy dosłowny cytat zabiera cenne słowa z limitu i świadczy o braku umiejętności syntetyzowania.'
     },
     {

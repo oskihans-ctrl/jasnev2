@@ -39,6 +39,9 @@ export interface MathTask {
   numberLine?: any;
   /** Informacja, że forma zadania została dostosowana względem arkusza CKE (np. rysunek opisano słownie) */
   adaptationNote?: string;
+  /** Zadanie archiwalnego arkusza spoza zakresu PP od matury 2025 (podstawa 2024); powód w `scopeNote` */
+  outsideScope2025?: boolean;
+  scopeNote?: string;
   /** Stwierdzenia oceniane jako prawda/fałsz (klucz w `correct_answer`, np. "PF") */
   statements?: { id: string; text: string; correct: 'P' | 'F' }[];
   /** Części odpowiedzi – w każdej wybór jednej opcji (klucz np. "B2" albo "AE") */
@@ -203,7 +206,7 @@ export const MATH_SECTIONS: MathSection[] = [
     short_title: 'Statystyka',
     icon: 'BarChart3',
     points_range: '0–2 pkt',
-    description: 'Średnia arytmetyczna i ważona, mediana, dominanta, odchylenie standardowe oraz odczytywanie danych z tabel i diagramów.',
+    description: 'Średnia arytmetyczna i ważona, mediana, dominanta oraz odczytywanie danych z tabel i diagramów.',
     cke_formula_page: 'str. 29–30'
   },
   {

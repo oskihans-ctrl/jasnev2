@@ -27,12 +27,13 @@ export interface CkePassageItem {
   };
 }
 
+// Teksty ćwiczeniowe JASNE w formacie arkusza CKE (autorzy fikcyjni) – nie są cytatami z publikacji ani z arkuszy.
 export const CKE_READING_PAIRS = [
   {
     id: 'para-1-turystyka',
     theme: 'Turystyka masowa a autentyzm i tożsamość kulturowa',
     text1: {
-      author: 'Agnieszka Krzemińska',
+      author: 'Anna Zielińska (tekst ćwiczeniowy JASNE)',
       sourceTitle: 'W pogoni za autentyzmem',
       text: `1. Masowa turystyka stała się jednym z najbardziej ekspansywnych i wielowymiarowych zjawisk kulturowo-gospodarczych XXI wieku. Współczesny człowiek, zmęczony monotonią zurbanizowanego środowiska oraz presją korporacyjnych rygorów, wyrusza w podróż z obietnicą odnalezienia tego, co dziewicze, nieskażone i prawdziwe. Jednak sam fakt pojawienia się milionowych rzesz przybyszów w miejscach dotąd odizolowanych wywołuje nieodwracalne skutki: to, co miało być autentyczne, na oczach podróżnych przekształca się w zaaranżowany towar.
 
@@ -52,7 +53,7 @@ export const CKE_READING_PAIRS = [
       ]
     },
     text2: {
-      author: 'Olga Stanisławska',
+      author: 'Ewa Nowicka (tekst ćwiczeniowy JASNE)',
       sourceTitle: 'Pochwała spotkania z Innym',
       text: `1. Łatwo jest z perspektywy uniwersyteckiej katedry lub elitarnego gabinetu potępiać tłumy przemierzające rzymskie place czy plaże basenu Morza Śródziemnego. Wielu intelektualistów ulega pokusie snobizmu, dzieląc wędrujących na „prawdziwych podróżników” – wykształconych, wrażliwych i wnikliwych – oraz „wulgarnych turystów”, bezrefleksyjnie konsumujących egzotykę. Taki podział jest jednak głęboko niesprawiedliwy i pomija fundamentalną wartość, jaką niesie sam akt wyruszenia poza granice własnego podwórka.
 
@@ -76,8 +77,8 @@ export const CKE_READING_PAIRS = [
     id: 'para-2-pismo-ai',
     theme: 'Ewolucja pisma, cyfrowość i rewolucja AI',
     text1: {
-      author: 'Jacek Dukaj',
-      sourceTitle: 'Po piśmie',
+      author: 'Paweł Górecki (tekst ćwiczeniowy JASNE)',
+      sourceTitle: 'Koniec epoki pisma?',
       text: `1. Pismo odchodzi w przeszłość nie dlatego, że ludzie przestali chcieć czytać lub stali się leniwi, lecz dlatego, że technologie bezpośredniego transferu przeżyć okazują się nieporównanie bardziej pojemne, natychmiastowe i atrakcyjne sensorycznie. Żyjemy u progu epoki postpiśmiennej, w której litera drukowana traci status nadrzędnego wehikułu ludzkiej mądrości na rzecz strumieni audiowizualnych, wirtualnej rzeczywistości i algorytmicznych stymulacji neuronowych.
 
 2. Należy jednak z całą mocą uświadomić sobie, co bezpowrotnie tracimy wraz ze zmierzchem panowania tekstu. Pismo nie było jedynie neutralnym kodem zapisu mowy; pismo ukształtowało specyficzny rygor myślowy, który stworzył nowożytną cywilizację zachodnią. Wymusiło linearność wywodu: żelazne następstwo przyczyny i skutku, hierarchię przesłanek oraz dyscyplinę logicznego dowodzenia. Aby przeczytać traktat naukowy czy opasłą powieść, umysł musiał podjąć wysiłek dekodowania czarnych znaków na białym tle, konstruując we własnej wyobraźni cały zmysłowy wszechświat.
@@ -96,7 +97,7 @@ export const CKE_READING_PAIRS = [
       ]
     },
     text2: {
-      author: 'Yuval Noah Harari',
+      author: 'Daniel Brooks (tekst ćwiczeniowy JASNE)',
       sourceTitle: 'Kradzież ludzkiego głosu: AI a język',
       text: `1. Od zarania dziejów to język stanowił system operacyjny ludzkiej cywilizacji. Za pomocą słów tworzyliśmy religie, spisaliśmy konstytucje, formowaliśmy rynki finansowe i budowaliśmy imperia. Wszystkie wytwory kultury – od poezji Homera po kodeks drogowy – są utkaniem językowym. Przez tysiąclecia wyłącznie istoty ludzkie posiadały monopol na władanie tym narzędziem, co gwarantowało, że cokolwiek czytamy lub słyszymy, pochodzi z ludzkiego umysłu.
 
@@ -120,7 +121,7 @@ export const CKE_READING_PAIRS = [
     id: 'para-3-pamiec',
     theme: 'Pamięć zbiorowa i tożsamość',
     text1: {
-      author: 'Leszek Kołakowski',
+      author: 'Stefan Borowski (tekst ćwiczeniowy JASNE)',
       sourceTitle: 'O pamięci i tożsamości',
       text: `1. Pamięć nie jest jedynie biernym archiwum zakurzonych faktów ani muzealną gablotą, do której zagląda się od święta. Stanowi ona samą istotę podmiotowości jednostki oraz organiczny krwioobieg każdej wspólnoty ludzkiej. Człowiek dotknięty całkowitą amnezją przestaje wiedzieć, kim jest, utraciwszy zdolność do podejmowania odpowiedzialnych wyborów moralnych. To samo dotyczy społeczeństw: wspólnota, która dobrowolnie wymazuje ze swojej świadomości wiedzę o przeszłości, staje się bezwolną masą podatną na inżynierię społeczną.
 
@@ -140,8 +141,8 @@ export const CKE_READING_PAIRS = [
       ]
     },
     text2: {
-      author: 'David Rieff',
-      sourceTitle: 'Przeciw tyranii pamięci',
+      author: 'Mark Fuller (tekst ćwiczeniowy JASNE)',
+      sourceTitle: 'Kiedy pamięć dzieli',
       text: `1. Współczesny świat uległ dogmatowi, głoszonemu z niemal religijną żarliwością, że pamiętanie jest zawsze dobrem moralnym, a zapomnienie – tchórzostwem lub zbrodnią. Hasło „nigdy więcej”, powtarzane podczas międzynarodowych uroczystości rocznicowych, stało się uniwersalnym zaklęciem. Doświadczenie historyczne wojen i konfliktów etnicznych końca XX wieku, zwłaszcza na Bałkanach i w Afryce Środkowej, nakazuje jednak postawić niewygodne pytanie: czy pamięć nie staje się czasem trucizną podsycającą niekończącą się spiralę przemocy?
 
 2. Zbyt często to, co politycy nazywają uroczyście „pamięcią narodową”, jest w istocie zinstytucjonalizowanym kultywowaniem dawnych krzywd i resentymentów. Dzieci w szkołach uczą się nienawiści do sąsiadów za zbrodnie popełnione stulecia temu przez przodków, których nikt już nie pamięta. Taka pamięć nie zapobiega zbrodniom, lecz przygotowuje grunt pod kolejne wojny, dostarczając moralnego usprawiedliwienia dla agresji pod hasłem wyrównania historycznych rachunków.
@@ -164,8 +165,8 @@ export const CKE_READING_PAIRS = [
     id: 'para-4-nowomowa',
     theme: 'Język debaty publicznej i manipulacja',
     text1: {
-      author: 'Michał Głowiński',
-      sourceTitle: 'Nowomowa po polsku',
+      author: 'Krzysztof Wrona (tekst ćwiczeniowy JASNE)',
+      sourceTitle: 'Język propagandy dawniej i dziś',
       text: `1. Nowomowa nie jest po prostu jedną z wielu odmian stylistycznych polszczyzny, lecz swoistą chorobą języka, która z pełną siłą ujawniła się w systemach totalitarnych i autorytarnych. Jej podstawowym zadaniem nie jest informowanie o stanie rzeczy ani ułatwianie porozumienia między ludźmi; fundamentalną funkcją nowomowy jest uniemożliwienie dyskusji oraz narzucenie odbiorcy bezkrytycznego posłuszeństwa wobec rządzącej ideologii.
 
 2. Głównym mechanizmem tego języka jest arbitralne etykietowanie rzeczywistości i likwidacja wszelkich niuansów. W świecie rządzonym przez nowomowę nie istnieją zjawiska skomplikowane czy wieloznaczne: wszystko zostaje podzielone na to, co absolutnie słuszne (reprezentowane przez władzę), oraz to, co całkowicie wrogie i zdradzieckie (reprezentowane przez oponentów). Słowa przestają opisywać fakty, a stają się ocenami moralnymi o skrajnym zabarwieniu emocjonalnym.
@@ -184,7 +185,7 @@ export const CKE_READING_PAIRS = [
       ]
     },
     text2: {
-      author: 'Jan Miodek',
+      author: 'Tadeusz Kos (tekst ćwiczeniowy JASNE)',
       sourceTitle: 'O odpowiedzialności za słowo i kulturze sporu',
       text: `1. Język ojczysty jest najwspanialszym wspólnym dobrem narodowym, a zarazem bezlitosnym zwierciadłem obyczajów całego społeczeństwa. W tym, jak mówimy do siebie nawzajem, jak formułujemy sprzeciw i jak traktujemy inaczej myślących, ujawnia się nasza prawdziwa kultura duchowa. Niestety, obserwacja współczesnego dyskursu publicznego napawa głębokim niepokojem: jesteśmy świadkami bezprecedensowej brutalizacji wypowiedzi i zaniku elementarnej kindersztuby.
 
@@ -208,8 +209,8 @@ export const CKE_READING_PAIRS = [
     id: 'para-5-czas-czytanie',
     theme: 'Czas i tempo współczesnego życia',
     text1: {
-      author: 'Olga Tokarczuk',
-      sourceTitle: 'Czuły narrator',
+      author: 'Maria Lewicka (tekst ćwiczeniowy JASNE)',
+      sourceTitle: 'O czułości w opowiadaniu',
       text: `1. Żyjemy w świecie potwornego pośpiechu, w którym informacja zastępuje wiedzę, a wiedza wypiera mądrość. Świat produkuje dziś w ciągu jednej doby więcej danych, niż ludzkość wygenerowała przez całe tysiąclecia starożytności. Zalani oceanem powiadomień, migających obrazów i krzykliwych nagłówków, cierpimy na chroniczny deficyt uwagi i poczucie bezradności wobec chaosu, w którym trudno odróżnić to, co kluczowe, od tego, co efemeryczne i błahe.
 
 2. Prawdziwym dramatem współczesności stał się rozpad narracji całościowej. Świat umiera z braku opowieści, która potrafiłaby połączyć porozrywane fragmenty naszego doświadczenia w spójny sens. Każdy z nas zamyka się w bańce własnych algorytmów, zaspokajając swoje doraźne potrzeby i tracąc z oczu wspólnotę ludzkiego losu. Przestajemy dostrzegać, że los drzewa w Amazonii, głodującego dziecka na drugim krańcu globu i topniejącego lodowca jest nierozerwalnie związany z naszą codzienną egzystencją.
@@ -228,8 +229,8 @@ export const CKE_READING_PAIRS = [
       ]
     },
     text2: {
-      author: 'Nicholas Carr',
-      sourceTitle: 'Płytki umysł: Jak internet wpływa na nasz mózg',
+      author: 'Thomas Reed (tekst ćwiczeniowy JASNE)',
+      sourceTitle: 'Umysł w trybie przewijania',
       text: `1. Wszystko zaczęło się od niewinnego, lecz uporczywego wrażenia, że coś dziwnego dzieje się z moim mózgiem. Dawniej bez problemu potrafiłem zanurzyć się na wiele godzin w gęstym tekście książki filozoficznej czy wielotomowej powieści. Dziś, po kilkunastu latach intensywnego korzystania z sieci, zaledwie po przeczytaniu dwóch lub trzech stron mój umysł staje się niespokojny, traci skupienie i zaczyna kompulsywnie szukać nowego bodźca: sprawdzenia poczty, kliknięcia linku czy odświeżenia wiadomości.
 
 2. Badania neuronaukowe dostarczają jednoznacznego wyjaśnienia tego zjawiska: nasz mózg charakteryzuje się niezwykłą neuroplastycznością. Przez całe życie przekształca swoje obwody synaptyczne w odpowiedzi na narzędzia, którymi się posługujemy. Internet nie jest jedynie pasywnym źródłem informacji; jest zaawansowaną technologią ingerującą w architekturę naszych procesów myślowych, nagradzającą szybkie, powierzchowne skanowanie bodźców kosztem głębokiej kontemplacji.
@@ -334,61 +335,61 @@ for (let i = 1; i <= 50; i++) {
 // -------------------------------------------------------------------------
 const METAPHOR_PASSAGES = [
   {
-    passage: PASSAGES[1], // Tokarczuk
+    passage: PASSAGES[1], // Lewicka
     phrase: '„tama przeciwko urzeczowieniu drugiego człowieka”',
     paraNumber: 3,
     meaning: 'Obrona godności i podmiotowości ludzkiej przed traktowaniem człowieka jak przedmiot lub towar w relacjach rynkowych i społecznych.'
   },
   {
-    passage: PASSAGES[0], // Krzemińska / Dukaj
+    passage: PASSAGES[0], // Zielińska / Górecki
     phrase: '„erozja rygoru myślowego”',
     paraNumber: 2,
     meaning: 'Stopniowe zatracanie nawyku logicznego dowodzenia, cierpliwości w analizie i krytycznej weryfikacji faktów pod wpływem kultury natychmiastowych bodźców.'
   },
   {
-    passage: PASSAGES[2], // Kołakowski
+    passage: PASSAGES[2], // Borowski
     phrase: '„bezwolna masa podatna na najprymitywniejszą inżynierię społeczną”',
     paraNumber: 1,
     meaning: 'Społeczeństwo pozbawione pamięci historycznej i tożsamości, dające się bez trudu manipulować przez propagandę polityczną i ideologiczną.'
   },
   {
-    passage: PASSAGES[4], // Tokarczuk / Czas i czytanie
+    passage: PASSAGES[4], // Lewicka / Czas i czytanie
     phrase: '„zamiana kultury w komercyjny spektakl”',
     paraNumber: 2,
     meaning: 'Zjawisko komercjalizacji tradycji, gdzie duchowe dziedzictwo zostaje sprowadzone do płatnej atrakcji turystycznej i produktu na sprzedaż.'
   },
   {
-    passage: PASSAGES[3], // Głowiński
+    passage: PASSAGES[3], // Wrona
     phrase: '„czarno-biały obraz świata w nowomowie”',
     paraNumber: 2,
     meaning: 'Skrajne uproszczenie rzeczywistości wykluczające odcienie szarości i kompromis, zmuszające odbiorcę do bezwzględnego podziału na swoich i wrogów.'
   },
   {
-    passage: PASSAGES[0], // Krzemińska
+    passage: PASSAGES[0], // Zielińska
     phrase: '„technologie bezpośredniego transferu przeżyć”',
     paraNumber: 1,
     meaning: 'Nowe formy przekazu multimedialnego i cyfrowego, które przekazują emocje i wrażenia natychmiast, bez konieczności linearnego odczytywania pisma.'
   },
   {
-    passage: PASSAGES[1], // Tokarczuk
+    passage: PASSAGES[1], // Lewicka
     phrase: '„świat potwornego pośpiechu”',
     paraNumber: 1,
     meaning: 'Tempo współczesnej cywilizacji, w którym natłok bodźców i powierzchowna informacja uniemożliwiają głębszą refleksję i osiągnięcie mądrości.'
   },
   {
-    passage: PASSAGES[2], // Kołakowski
+    passage: PASSAGES[2], // Borowski
     phrase: '„żywa tkanka naszej teraźniejszości”',
     paraNumber: 4,
     meaning: 'Pamięć jako dynamiczny element kształtujący bieżące wybory moralne i tożsamość wspólnoty, a nie martwy zbiór faktów archiwalnych.'
   },
   {
-    passage: PASSAGES[3], // Głowiński
+    passage: PASSAGES[3], // Wrona
     phrase: '„narzucony ładunek emocjonalny pojęć”',
     paraNumber: 3,
     meaning: 'Manipulacyjne dobieranie słów nacechowanych skrajnie negatywnie lub pozytywnie w celu z góry narzuconej oceny zjawiska i zablokowania rzeczowej debaty.'
   },
   {
-    passage: PASSAGES[4], // Krzemińska / Tokarczuk
+    passage: PASSAGES[4], // Zielińska / Lewicka
     phrase: '„redukcja relacji do transakcji finansowej”',
     paraNumber: 4,
     meaning: 'Zanik bezinteresownej gościnności i więzi międzyludzkich na rzecz chłodnej relacji klient – usługodawca w warunkach turystyki masowej.'
@@ -590,35 +591,35 @@ const confrontThemes = [
     theme: 'Sztuczna inteligencja: szansa czy zagrożenie?',
     t1Title: 'Nowe horyzonty percepcji',
     t2Title: 'Kradzież ludzkiego głosu',
-    a1: 'Jacek Dukaj twierdzi, że sztuczna inteligencja i technologie bezpośredniego transferu przeżyć poszerzają ludzkie możliwości poznawcze, choć osłabiają rygor logicznego pisma.',
-    a2: 'Yuval Noah Harari przestrzega, że przejęcie przez AI kontroli nad językiem – systemem operacyjnym ludzkiej kultury – grozi utratą panowania nad demokratycznym dyskursem.'
+    a1: 'Paweł Górecki twierdzi, że sztuczna inteligencja i technologie bezpośredniego transferu przeżyć poszerzają ludzkie możliwości poznawcze, choć osłabiają rygor logicznego pisma.',
+    a2: 'Daniel Brooks przestrzega, że przejęcie przez AI kontroli nad językiem – systemem operacyjnym ludzkiej kultury – grozi utratą panowania nad demokratycznym dyskursem.'
   },
   {
     theme: 'Turystyka masowa a autentyczność kulturowa',
     t1Title: 'W pogoni za autentyzmem',
     t2Title: 'Pochwała ciekawości świata',
-    a1: 'Agnieszka Krzemińska dowodzi, że masowa turystyka degraduje lokalne tradycje, zamieniając uświęcone obrzędy w tani spektakl komercyjny na sprzedaż.',
-    a2: 'Olga Stanisławska argumentuje, że nawet niedoskonała podróż sprzyja przekraczaniu barier etnocentryzmu i buduje elementarną empatię wobec odmiennych kultur.'
+    a1: 'Anna Zielińska dowodzi, że masowa turystyka degraduje lokalne tradycje, zamieniając uświęcone obrzędy w tani spektakl komercyjny na sprzedaż.',
+    a2: 'Ewa Nowicka argumentuje, że nawet niedoskonała podróż sprzyja przekraczaniu barier etnocentryzmu i buduje elementarną empatię wobec odmiennych kultur.'
   },
   {
     theme: 'Pamięć zbiorowa: ocalenie tożsamości czy źródło urazów?',
     t1Title: 'O pamięci i odpowiedzialności',
     t2Title: 'Przeciw tyranii przeszłości',
-    a1: 'Leszek Kołakowski podkreśla, że zrzeczenie się pamięci historycznej czyni naród bezbronną masą podatną na inżynierię społeczną i powtórzenie totalitarnych błędów.',
-    a2: 'David Rieff wskazuje, że bezkrytyczne kultywowanie dawnych krzywd narodowych paraliżuje porozumienie i prowadzi do niekończącego się resentymentu.'
+    a1: 'Stefan Borowski podkreśla, że zrzeczenie się pamięci historycznej czyni naród bezbronną masą podatną na inżynierię społeczną i powtórzenie totalitarnych błędów.',
+    a2: 'Mark Fuller wskazuje, że bezkrytyczne kultywowanie dawnych krzywd narodowych paraliżuje porozumienie i prowadzi do niekończącego się resentymentu.'
   },
   {
     theme: 'Kultura czytania w erze natychmiastowych bodźców',
     t1Title: 'Pochwała powolnego czytania',
     t2Title: 'Cyfrowy czytelnik',
     a1: 'Umberto Eco argumentował, że lektura książki rozwija pamięć i wyobraźnię, dając człowiekowi możliwość przeżycia wielu żyć zamiast jednego.',
-    a2: 'Nicholas Carr ostrzega, że nawyk skanowania krótkich informacji w internecie trwale przebudowuje ludzki mózg, uniemożliwiając głębokie skupienie.'
+    a2: 'Thomas Reed ostrzega, że nawyk skanowania krótkich informacji w internecie trwale przebudowuje ludzki mózg, uniemożliwiając głębokie skupienie.'
   },
   {
     theme: 'Język debaty publicznej a granice wolności słowa',
     t1Title: 'Granice tolerancji słownej',
     t2Title: 'W obronie swobody wyrazu',
-    a1: 'Michał Głowiński wykazuje, że mowa nienawiści i nowomowa niszczą tkankę społeczną, wymagając zdecydowanej reakcji etycznej i prawnej.',
+    a1: 'Krzysztof Wrona wykazuje, że mowa nienawiści i nowomowa niszczą tkankę społeczną, wymagając zdecydowanej reakcji etycznej i prawnej.',
     a2: 'John Stuart Mill przestrzegał, że uciszanie nawet skrajnych i błędnych opinii zubaża debatę, uniemożliwiając prawdzie pełne wybrzmienie w otwartej konfrontacji.'
   }
 ];
@@ -721,7 +722,7 @@ for (let i = 1; i <= 50; i++) {
     taskType: 'synthesis_note',
     granularType: 'T6_notatka_syntetyzujaca',
     title: `Notatka syntetyzująca (${i}/50): ${sp.topic}`,
-    question: `Na podstawie obu artykułów CKE (${pair.text1.author}, „${pair.text1.sourceTitle}” oraz ${pair.text2.author}, „${pair.text2.sourceTitle}”) napisz notatkę syntetyzującą na temat: „${sp.topic}”. Twoja wypowiedź powinna liczyć 60–90 wyrazów i zawierać stanowiska obu autorów oraz uogólnienie syntetyczne.`,
+    question: `Na podstawie obu artykułów (${pair.text1.author}, „${pair.text1.sourceTitle}” oraz ${pair.text2.author}, „${pair.text2.sourceTitle}”) napisz notatkę syntetyzującą na temat: „${sp.topic}”. Twoja wypowiedź powinna liczyć 60–90 wyrazów i zawierać stanowiska obu autorów oraz uogólnienie syntetyczne.`,
     passage: {
       author: pair.text1.author,
       sourceTitle: pair.text1.sourceTitle,

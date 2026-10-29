@@ -373,7 +373,8 @@ export default {
         T`$m + 1 = \frac{1}{2}$, czyli $m = -\frac{1}{2}$.`
       ],
       trap: T`Odpowiedź $m = -3$ daje $m + 1 = -2$, czyli proste RÓWNOLEGŁE (tu nawet pokrywające się), a nie prostopadłe.`,
-      tip: T`Karta wzorów, str. 22: proste $y = a_1x + b_1$ i $y = a_2x + b_2$ są prostopadłe, gdy $a_1 \cdot a_2 = -1$.`
+      tip: T`Karta wzorów, str. 22: proste $y = a_1x + b_1$ i $y = a_2x + b_2$ są prostopadłe, gdy $a_1 \cdot a_2 = -1$.`,
+      scope: 'Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi.'
     },
     {
       n: '24', pts: 2, t: 10, k: 'OPEN',

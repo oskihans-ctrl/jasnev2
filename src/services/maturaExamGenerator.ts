@@ -53,6 +53,17 @@ function lessonKeyOf(raw: any): string {
   return m ? `${m[1]}.${m[2]}` : '1.1';
 }
 
+/** Zadania otwarte generatora PP niosą etapy oceniania CKE – przekazujemy je dalej bez zmian. */
+function openScoring(raw: any) {
+  if (!Array.isArray(raw.rubric_stages)) return {};
+  return {
+    rubric_stages: raw.rubric_stages,
+    scoring_key: raw.scoring_key,
+    ...(Array.isArray(raw.zero_rules) ? { zero_rules: raw.zero_rules } : {}),
+    ...(Array.isArray(raw.official_solution_steps) ? { official_solution_steps: raw.official_solution_steps } : {})
+  };
+}
+
 /**
  * Standardizes raw json task to full MaturaTask interface.
  */
@@ -79,7 +90,8 @@ function normalizeToMaturaTask(raw: any): MaturaTask {
     diagram: raw.diagram,
     plot: raw.plot,
     // zadania prawda/fałsz: stwierdzenia oceniane osobno, klucz np. "PF" (lib/structuredAnswer.ts)
-    ...(Array.isArray(raw.statements) ? { statements: raw.statements } : {})
+    ...(Array.isArray(raw.statements) ? { statements: raw.statements } : {}),
+    ...openScoring(raw)
   } as MaturaTask);
 }
 
@@ -126,7 +138,8 @@ export function getAll1500MathTasks(): MathTask[] {
       badge: `Lekcja ${lessonKeyOf(t)}`,
       diagram: t.diagram,
       plot: t.plot,
-      ...(Array.isArray(t.statements) ? { statements: t.statements } : {})
+      ...(Array.isArray(t.statements) ? { statements: t.statements } : {}),
+      ...openScoring(t)
     });
   });
 }

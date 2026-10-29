@@ -1583,12 +1583,14 @@
     "correctAnswer": "D",
     "points": 1,
     "isClosed": true,
-    "explanation": "**Krok 1:** Współczynnik kierunkowy funkcji $f$ to $-1$. Prosta prostopadła ma współczynnik $a$ spełniający $a \\cdot (-1) = -1$, czyli $a = 1$.\n\n**Krok 2:** Wykres przechodzi przez punkt $(0, -1)$, więc wyraz wolny $b = -1$.\n\n**Krok 3:** $g(x) = x - 1$.\n\n**Pułapka CKE:** Współczynnik $-1$ (odpowiedzi B i C) oznacza prostą RÓWNOLEGŁĄ do wykresu $f$, nie prostopadłą.\n\nPrawidłowa odpowiedź: **D**.",
+    "explanation": "**Krok 1:** Współczynnik kierunkowy funkcji $f$ to $-1$. Prosta prostopadła ma współczynnik $a$ spełniający $a \\cdot (-1) = -1$, czyli $a = 1$.\n\n**Krok 2:** Wykres przechodzi przez punkt $(0, -1)$, więc wyraz wolny $b = -1$.\n\n**Krok 3:** $g(x) = x - 1$.\n\n**Pułapka CKE:** Współczynnik $-1$ (odpowiedzi B i C) oznacza prostą RÓWNOLEGŁĄ do wykresu $f$, nie prostopadłą.\n\nPrawidłowa odpowiedź: **D**.\n\n**Zakres od 2025 r.:** Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi.",
     "ckeTrap": "Współczynnik $-1$ (odpowiedzi B i C) oznacza prostą RÓWNOLEGŁĄ do wykresu $f$, nie prostopadłą.",
     "source": "Matura Czerwiec 2023 • Zad. 26",
     "year": 2023,
     "session": "Czerwiec",
-    "isCke": true
+    "isCke": true,
+    "outsideScope2025": true,
+    "scopeNote": "Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi."
   },
   {
     "id": "matura-czerwiec-2023-zad-27",

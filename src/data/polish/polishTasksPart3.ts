@@ -123,7 +123,7 @@ export const POLISH_TASKS_PART_3: PolishTask[] = [
     ],
     correctOptionIndex: 1,
     explanation: 'Zdanie B to ewidentny błąd kardynalny! Izabela nigdy nie poślubiła Wokulskiego (zaręczyny zostały zerwane po podsłuchaniu jej flirtu ze Starskim w pociągu), a los Wokulskiego po wyjeździe z Warszawy pozostaje tajemnicą powieści.',
-    sourceYear: 'Centrum Szkolenia Egzaminatorów CKE'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p3-004',
@@ -141,7 +141,7 @@ export const POLISH_TASKS_PART_3: PolishTask[] = [
     ],
     correctOptionIndex: 3,
     explanation: 'Zdanie D to błąd kardynalny! W Weselu do żadnego powstania ani zbrojnego marszu na Kraków nie dochodzi – w finale dramatu wszyscy zastygają w bezsilnym chocholim tańcu z powodu utraty Złotego Rogu.',
-    sourceYear: 'Centrum Szkolenia Egzaminatorów CKE'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -163,6 +163,6 @@ export const POLISH_TASKS_PART_3: PolishTask[] = [
     ],
     correctOptionIndex: 1,
     explanation: 'Egzystencjalizm to kluczowy kontekst dla literatury wojennej (Borowski, Herling-Grudziński) oraz literatury powojennej (Dżuma Camusa, Kartoteka Różewicza).',
-    sourceYear: 'Formuła 2023 Przewodnik Metodyczny'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   }
 ];

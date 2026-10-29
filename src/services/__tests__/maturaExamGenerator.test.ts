@@ -15,13 +15,20 @@ describe('MaturaExamGenerator Service (CKE Formuła 2023)', () => {
     const closed = tasks.filter(t => t.isClosed);
     const open = tasks.filter(t => !t.isClosed);
 
-    // Zadania otwarte w puli to wyłącznie zadania z wpisywanym wynikiem liczbowym
+    // Zadania otwarte w puli: wynik liczbowy albo zadanie oceniane etapami CKE (4 na lekcję)
     expect(closed.length + open.length).toBe(1500);
-    expect(closed.length).toBeGreaterThanOrEqual(1400);
+    expect(closed.length).toBeGreaterThanOrEqual(1150);
     open.forEach(t => {
-      expect(t.type).toBe('NUMERIC_INPUT');
-      expect(String(t.correctAnswer)).toMatch(/^-?\d+(,\d+)?$/);
+      if (t.type === 'NUMERIC_INPUT') {
+        expect(String(t.correctAnswer)).toMatch(/^-?\d+(,\d+)?$/);
+      } else {
+        expect(['OPEN_CALCULATION', 'OPEN_PROOF']).toContain(t.type);
+        const stages = (t as any).rubric_stages;
+        expect(stages.length, t.id).toBeGreaterThanOrEqual(2);
+        expect(stages[stages.length - 1].points, t.id).toBe(t.points);
+      }
     });
+    expect(open.filter(t => t.type !== 'NUMERIC_INPUT')).toHaveLength(300);
 
     // Zadania generowane są autorskie – nie mogą udawać oficjalnych zadań CKE
     tasks.forEach(t => {
@@ -42,10 +49,12 @@ describe('MaturaExamGenerator Service (CKE Formuła 2023)', () => {
       expect(t.correctAnswer).toMatch(/^[PF]{2}$/);
     });
 
-    expect(counts.A).toBeGreaterThanOrEqual(300);
-    expect(counts.B).toBeGreaterThanOrEqual(300);
-    expect(counts.C).toBeGreaterThanOrEqual(300);
-    expect(counts.D).toBeGreaterThanOrEqual(300);
+    // każda litera to co najmniej 22% kluczy ABCD
+    const minShare = Math.floor(abcd.length * 0.22);
+    expect(counts.A).toBeGreaterThanOrEqual(minShare);
+    expect(counts.B).toBeGreaterThanOrEqual(minShare);
+    expect(counts.C).toBeGreaterThanOrEqual(minShare);
+    expect(counts.D).toBeGreaterThanOrEqual(minShare);
 
     // No duplicate options in any closed task
     abcd.forEach(t => {

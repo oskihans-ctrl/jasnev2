@@ -1318,12 +1318,14 @@
     "correctAnswer": "A",
     "points": 1,
     "isClosed": true,
-    "explanation": "**Krok 1:** Proste są prostopadłe, gdy iloczyn ich współczynników kierunkowych jest równy $-1$: $(m + 1) \\cdot (-2) = -1$.\n\n**Krok 2:** $m + 1 = \\frac{1}{2}$, czyli $m = -\\frac{1}{2}$.\n\n**Pułapka CKE:** Odpowiedź $m = -3$ daje $m + 1 = -2$, czyli proste RÓWNOLEGŁE (tu nawet pokrywające się), a nie prostopadłe.\n\nPrawidłowa odpowiedź: **A**.",
+    "explanation": "**Krok 1:** Proste są prostopadłe, gdy iloczyn ich współczynników kierunkowych jest równy $-1$: $(m + 1) \\cdot (-2) = -1$.\n\n**Krok 2:** $m + 1 = \\frac{1}{2}$, czyli $m = -\\frac{1}{2}$.\n\n**Pułapka CKE:** Odpowiedź $m = -3$ daje $m + 1 = -2$, czyli proste RÓWNOLEGŁE (tu nawet pokrywające się), a nie prostopadłe.\n\nPrawidłowa odpowiedź: **A**.\n\n**Zakres od 2025 r.:** Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi.",
     "ckeTrap": "Karta wzorów, str. 22: proste $y = a_1x + b_1$ i $y = a_2x + b_2$ są prostopadłe, gdy $a_1 \\cdot a_2 = -1$.",
     "source": "Matura Maj 2024 • Zad. 23",
     "year": 2024,
     "session": "Maj",
-    "isCke": true
+    "isCke": true,
+    "outsideScope2025": true,
+    "scopeNote": "Od matury 2025 r. warunek prostopadłości prostych należy do zakresu rozszerzonego (podstawa 2024, IX.R4) – na arkuszu podstawowym takie zadanie już się nie pojawi."
   },
   {
     "id": "matura-maj-2024-zad-24",

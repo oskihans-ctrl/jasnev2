@@ -2,9 +2,9 @@ import { Task800Item } from './types';
 import { PolishEpoch, TaskVisualAsset } from '../../types/maturaTypes';
 
 // =========================================================================
-// CZĘŚĆ II: TEST HISTORYCZNOLITERACKI (518 ZADAŃ)
+// CZĘŚĆ II: TEST HISTORYCZNOLITERACKI (570 ZADAŃ)
 // Pełna zgodność z podstawą programową CKE Formuła 2023 i nowelą MEN 2024/2025/2026
-// Pokrycie wszystkich 11 epok i 26 kluczowych jednostek lekturowo-problemowych
+// Pokrycie wszystkich 11 epok i 30 jednostek lekturowo-problemowych (26 + 4 lektury PP z podstawy 2024)
 // =========================================================================
 
 export const PART2_TEST_HISTORYCZNY_TASKS: Task800Item[] = [];
@@ -194,7 +194,8 @@ const LEKTURY_DATA: Array<{
     lektura: 'Jan Kochanowski (Pieśni, Treny, Odprawa)',
     autor: 'Jan Kochanowski',
     epoch: 'Renesans',
-    isStarRequired: true,
+    isStarRequired: false,
+    statusNote: '[Podstawa 2024: Treny jako cykl to lektura z zakresu rozszerzonego, a Odprawa posłów greckich – lektura PP z podstawy 2018, do wykorzystania w wypracowaniu w latach 2025–2028. Fragmenty utworów poetyckich arkusz zawsze przytacza.]',
     bohaterowie: [
       { imie: 'Jan Kochanowski (ojciec)', dylemat: 'Załamanie stoickiej mądrości i wiary w cnotę po śmierci córki Urszulki', postawa: 'Humanista przeżywający graniczny kryzys światopoglądowy i odnajdujący ukojenie w Trenie XIX', symbol: 'Pusta lutnia i cyprysowy nagrobek Urszulki' },
       { imie: 'Antenor', dylemat: 'Obowiązek obrony praworządności ojczyzny wbrew woli przekupnej większości', postawa: 'Niezłomny mąż stanu, wzorzec renesansowego patriotyzmu obywatelskiego', symbol: 'Projekt oddania Heleny prawowitemu mężowi Menelaosowi' },
@@ -416,7 +417,7 @@ const LEKTURY_DATA: Array<{
     autor: 'Juliusz Słowacki',
     epoch: 'Romantyzm',
     isStarRequired: false,
-    statusNote: '[NOWELA MEN: Poziom Rozszerzony / utwór kontekstowy na PP]',
+    statusNote: '[Podstawa 2024: lektura z zakresu rozszerzonego – test historycznoliteracki na poziomie podstawowym jej nie sprawdza; w wypracowaniu PP można się do niej odwołać (informator CKE 2025, s. 10–11).]',
     bohaterowie: [
       { imie: 'Kordian', dylemat: 'Konflikt między pragnieniem zgładzenia cara a honorem rycerskim i zakazem skrytobójstwa', postawa: 'Winkelried narodów, spiskowiec ulegający paraliżowi woli pod sypialnią cara', symbol: 'Szczyt Mont Blanc, igła lodowca i dymiąca świeca' },
       { imie: 'Papież', dylemat: 'Utrzymanie relacji politycznych z carem Mikołajem I kosztem potępienia polskich powstańców', postawa: 'Lojalista potępiający walkę wyzwoleńczą Polaków i grożący klątwą', symbol: 'Papuga papieska i nakaz czczenia cara' }
@@ -856,12 +857,135 @@ const LEKTURY_DATA: Array<{
   }
 ];
 
+// Lektury obowiązkowe PP z podstawy 2024, których brakowało w bazie (informator CKE 2025, s. 9–11).
+// Ich zadania dostają kolejne numery ID, więc zadania 26 wcześniejszych jednostek zachowują swoje ID.
+const LEKTURY_2024: typeof LEKTURY_DATA = [
+  {
+    lektura: 'Skąpiec',
+    autor: 'Molier',
+    epoch: 'Barok',
+    isStarRequired: true,
+    statusNote: '[Podstawa 2024: lektura obowiązkowa PP. Komedia klasycystyczna (XVII w.) – w kursie omawiana przy baroku.]',
+    bohaterowie: [
+      { imie: 'Harpagon', dylemat: 'Przywiązanie do pieniędzy ważniejsze niż szczęście dzieci i własne uczucia', postawa: 'Skąpiec i lichwiarz, który wszystko przelicza na zysk – komiczny i zarazem groźny dla bliskich', symbol: 'Szkatułka z pieniędzmi zakopana w ogrodzie' },
+      { imie: 'Kleant', dylemat: 'Miłość do Mariany i bunt przeciw ojcu, który chce poślubić tę samą dziewczynę', postawa: 'Syn zmuszony pożyczać na lichwę, by żyć na poziomie, rywal ojca', symbol: 'Pożyczka na wysoki procent, za którą stoi sam Harpagon' },
+      { imie: 'Eliza', dylemat: 'Posłuszeństwo ojcu albo wierność ukochanemu Waleremu', postawa: 'Córka broniąca prawa do wyboru męża wbrew planom ojca', symbol: 'Małżeństwo z Anzelmem „bez posagu”' }
+    ],
+    topos: 'Komedia charakterów – wada (skąpstwo) wyolbrzymiona do granic absurdu',
+    iconography: {
+      title: 'Śmierć skąpca',
+      artist: 'Hieronim Bosch',
+      relation: 'Umierający bogacz waha się między aniołem wskazującym krzyż a diabłem podsuwającym worek złota – jak Harpagon, który do końca wybiera pieniądze zamiast ludzi.',
+      fallbackDescription: 'Obraz ukazuje wnętrze sypialni: na łożu leży umierający mężczyzna, przy nim anioł wskazuje na krucyfiks w oknie, a w drzwiach stoi Śmierć ze strzałą. U stóp łóżka postać skąpca chowa monety do skrzyni, z której diabeł podaje mu sakiewkę.',
+      sourceDomain: 'National Gallery of Art, Waszyngton (domena publiczna)'
+    },
+    factualStatements: [
+      {
+        s1: 'Harpagon chce wydać Elizę za bogatego Anzelma, bo ten zgadza się ją poślubić bez posagu.',
+        t1: true,
+        s2: 'W zakończeniu Harpagon poślubia Marianę, a odzyskaną szkatułkę oddaje Kleantowi.',
+        t2: false,
+        expl: 'Zdanie 1 prawdziwe („bez posagu” to powtarzany argument Harpagona). Zdanie 2 fałszywe: Harpagon rezygnuje z Mariany na rzecz Kleanta w zamian za zwrot szkatułki i zostaje z pieniędzmi.'
+      }
+    ]
+  },
+  {
+    lektura: 'Miejsce',
+    autor: 'Andrzej Stasiuk (z tomu Opowieści galicyjskie)',
+    epoch: 'Współczesność',
+    isStarRequired: true,
+    statusNote: '[Podstawa 2024: lektura obowiązkowa PP.]',
+    bohaterowie: [
+      { imie: 'Narrator', dylemat: 'Czy świętość miejsca znika, gdy rozebraną cerkiew przenosi się do muzeum', postawa: 'Uważny obserwator łączący realistyczny opis z refleksją metafizyczną', symbol: 'Prostokąt gołej, gliniastej ziemi po rozebranej cerkwi' },
+      { imie: 'Turysta z aparatem', dylemat: 'Poznawanie przeszłości przez mapę i fotografię, bez zrozumienia sensu miejsca', postawa: 'Przybysz, który widzi tylko to, co da się zmierzyć i sfotografować', symbol: 'Próg cerkwi, na którym nieświadomie stoi' }
+    ],
+    topos: 'Genius loci – miejsce, którego nie da się przenieść, i przemijanie świata pogranicza',
+    iconography: {
+      title: 'Cerkiew (akwarele z cerkwiami Łemkowszczyzny)',
+      artist: 'Nikifor Krynicki',
+      relation: 'Naiwne, pełne czułości akwarele Nikifora utrwalają drewniane cerkwie Beskidu Niskiego – ten sam świat, o którego zniknięciu opowiada Stasiuk.',
+      fallbackDescription: 'Akwarela w stylu naiwnym: drewniana cerkiew z kopułami na tle zielonych wzgórz, uproszczone kształty i jasne barwy; budowla zajmuje środek kompozycji.',
+      sourceDomain: 'Muzeum Nikifora w Krynicy-Zdroju'
+    },
+    factualStatements: [
+      {
+        s1: 'Cerkiew z opowiadania rozebrano i przeniesiono do muzeum, a na jej miejscu został pusty prostokąt ziemi.',
+        t1: true,
+        s2: 'Narrator jest przekonany, że cerkiew w muzeum w pełni zachowała swoje znaczenie, bo przeniesiono ją w całości.',
+        t2: false,
+        expl: 'Zdanie 1 prawdziwe. Zdanie 2 fałszywe: narrator stwierdza, że „miejsca nie można przenieść”, i nie ma pewności, czy cerkiew naprawdę zabrano.'
+      }
+    ]
+  },
+  {
+    lektura: 'Profesor Andrews w Warszawie',
+    autor: 'Olga Tokarczuk (z tomu Gra na wielu bębenkach)',
+    epoch: 'Współczesność',
+    isStarRequired: true,
+    statusNote: '[Podstawa 2024: lektura obowiązkowa PP.]',
+    bohaterowie: [
+      { imie: 'Profesor Andrews', dylemat: 'Samotność i bezradność obcokrajowca w mieście, w którym nagle zawiesza się zwykłe życie', postawa: 'Obcy obserwator, który nie zna języka i próbuje zrozumieć świat z gestów i twarzy', symbol: 'Głuchy telefon, który ciągle nie działa' },
+      { imie: 'Gosha', dylemat: 'Nieobecność opiekunki, która miała być łącznikiem profesora ze światem', postawa: 'Postać wyczekiwana i szukana w tłumie – znak zerwanej komunikacji', symbol: 'Twarze w kolejce, wśród których profesor jej szuka' }
+    ],
+    topos: 'Obcość i granice porozumienia – historia (stan wojenny) widziana oczami przybysza z zewnątrz',
+    iconography: {
+      title: 'Czas Apokalipsy (Warszawa, grudzień 1981)',
+      artist: 'Chris Niedenthal',
+      relation: 'Fotografia transportera opancerzonego przed kinem z plakatem filmu „Czas Apokalipsy” to ikona stanu wojennego – grozy, którą profesor Andrews odczuwa, choć nie rozumie jej przyczyn.',
+      fallbackDescription: 'Zimowe zdjęcie warszawskiej ulicy: na pierwszym planie wóz opancerzony, za nim fasada kina z dużym napisem reklamującym film „Czas Apokalipsy”.',
+      sourceDomain: 'Chris Niedenthal (fotografia prasowa, 1981)'
+    },
+    factualStatements: [
+      {
+        s1: 'Akcja opowiadania rozgrywa się w Warszawie w grudniu 1981 r., po wprowadzeniu stanu wojennego.',
+        t1: true,
+        s2: 'Profesor Andrews swobodnie rozmawia z mieszkańcami Warszawy, bo dobrze zna język polski.',
+        t2: false,
+        expl: 'Zdanie 1 prawdziwe (kolejki, żołnierze z psem, niedziałające telefony). Zdanie 2 fałszywe: profesor nie zna polskiego i może się tylko domyślać znaczenia słów, np. „Żywą czy na miejscu?”.'
+      }
+    ]
+  },
+  {
+    lektura: 'Podróże z Herodotem',
+    autor: 'Ryszard Kapuściński (fragmenty)',
+    epoch: 'Współczesność',
+    isStarRequired: true,
+    statusNote: '[Podstawa 2024: lektura obowiązkowa PP (fragmenty).]',
+    bohaterowie: [
+      { imie: 'Narrator-reporter', dylemat: 'Pragnienie „przekroczenia granicy” i lęk przed światem, którego języka i kultury nie zna', postawa: 'Młody reporter, który uczy się świata przez podróż, rozmowę i lekturę', symbol: 'Egzemplarz „Dziejów” Herodota zabrany w pierwszą podróż' },
+      { imie: 'Herodot', dylemat: 'Jak opisać wojny i obyczaje wielu ludów, nie tracąc ciekawości wobec Innego', postawa: 'Pierwszy reporter i wzór dla narratora – podróżnik zbierający relacje świadków', symbol: '„Dzieje” jako zapis rozmów z ludźmi różnych kultur' }
+    ],
+    topos: 'Podróż jako poznanie Innego i przekraczanie granic – fizycznych, językowych i kulturowych',
+    iconography: {
+      title: 'Mapa świata według Herodota (rekonstrukcja)',
+      artist: 'rekonstrukcja kartograficzna z XIX w.',
+      relation: 'Mapa znanego Herodotowi świata pokazuje, jak granice poznania przesuwały się dzięki podróżom – tak jak granice świata młodego reportera.',
+      fallbackDescription: 'Rekonstrukcja mapy: w środku Morze Śródziemne i Grecja, wokół Azja Mniejsza, Egipt, Persja i Scytia; krańce świata otoczone oceanem.',
+      sourceDomain: 'Wikimedia Commons (domena publiczna)'
+    },
+    factualStatements: [
+      {
+        s1: 'Narrator zabiera „Dzieje” Herodota w swoją pierwszą zagraniczną podróż reporterską, do Indii.',
+        t1: true,
+        s2: 'Herodot jest w książce przedstawiony jako autor, który opisywał wyłącznie dzieje Greków i nie interesował się innymi ludami.',
+        t2: false,
+        expl: 'Zdanie 1 prawdziwe. Zdanie 2 fałszywe: Herodot jest dla narratora wzorem ciekawości wobec wielu ludów i kultur – Persów, Egipcjan, Scytów.'
+      }
+    ]
+  }
+];
+
+/** Jednostka dla i-tego zadania pętli: najpierw dotychczasowe zadania (oldCount), potem lektury 2024. */
+const unitFor = (i: number, oldCount: number) =>
+  i <= oldCount ? LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length] : LEKTURY_2024[(i - oldCount - 1) % LEKTURY_2024.length];
+
 // -------------------------------------------------------------------------
-// T7: OCENA POSTAWY I MOTYWACJI BOHATERA LEKTURY (104 zadania = 4 na jednostkę)
-// ID: POL_P2_T7_001 do POL_P2_T7_104
+// T7: OCENA POSTAWY I MOTYWACJI BOHATERA LEKTURY (104 zadania = 4 na jednostkę + 16 dla lektur 2024)
+// ID: POL_P2_T7_001 do POL_P2_T7_120
 // -------------------------------------------------------------------------
-for (let i = 1; i <= 104; i++) {
-  const lekItem = LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length];
+const T7_TOTAL = 104 + 4 * LEKTURY_2024.length;
+for (let i = 1; i <= T7_TOTAL; i++) {
+  const lekItem = unitFor(i, 104);
   const boh = lekItem.bohaterowie[(i - 1) % lekItem.bohaterowie.length];
 
   PART2_TEST_HISTORYCZNY_TASKS.push({
@@ -870,7 +994,7 @@ for (let i = 1; i <= 104; i++) {
     partName: 'Test historycznoliteracki',
     taskType: 'short_open',
     granularType: 'T7_ocena_postawy_bohatera',
-    title: `Ocena postawy (${i}/104): ${boh.imie} („${lekItem.lektura}”)`,
+    title: `Ocena postawy (${i}/${T7_TOTAL}): ${boh.imie} („${lekItem.lektura}”)`,
     question: `Na podstawie znajomości utworu „${lekItem.lektura}” (${lekItem.autor}), oceń postawę bohatera: ${boh.imie}. Wyjaśnij, przed jakim dylematem moralnym stanął i jak jego wybór zdeterminował jego dalsze losy w kontekście ideowym epoki (${lekItem.epoch}).`,
     epoch: lekItem.epoch,
     lektura: lekItem.lektura,
@@ -889,11 +1013,12 @@ for (let i = 1; i <= 104; i++) {
 }
 
 // -------------------------------------------------------------------------
-// T8: ANALIZA FRAGMENTU LEKTURY I SYMBOLIKI (104 zadania = 4 na jednostkę)
-// ID: POL_P2_T8_001 do POL_P2_T8_104
+// T8: ANALIZA FRAGMENTU LEKTURY I SYMBOLIKI (104 zadania = 4 na jednostkę + 16 dla lektur 2024)
+// ID: POL_P2_T8_001 do POL_P2_T8_120
 // -------------------------------------------------------------------------
-for (let i = 1; i <= 104; i++) {
-  const lekItem = LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length];
+const T8_TOTAL = 104 + 4 * LEKTURY_2024.length;
+for (let i = 1; i <= T8_TOTAL; i++) {
+  const lekItem = unitFor(i, 104);
   const boh = lekItem.bohaterowie[(i - 1) % lekItem.bohaterowie.length];
 
   PART2_TEST_HISTORYCZNY_TASKS.push({
@@ -902,7 +1027,7 @@ for (let i = 1; i <= 104; i++) {
     partName: 'Test historycznoliteracki',
     taskType: 'short_open',
     granularType: 'T8_analiza_fragmentu_symboliki',
-    title: `Symbolika i motyw (${i}/104): ${boh.symbol} („${lekItem.lektura}”)`,
+    title: `Symbolika i motyw (${i}/${T8_TOTAL}): ${boh.symbol} („${lekItem.lektura}”)`,
     question: `W utworze „${lekItem.lektura}” kluczową rolę odgrywa motyw/atrybut: ${boh.symbol}. Wyjaśnij symboliczne znaczenie tego elementu w kontekście losów postaci (${boh.imie}) oraz przesłania ideowego dzieła w epoce (${lekItem.epoch}).`,
     epoch: lekItem.epoch,
     lektura: lekItem.lektura,
@@ -921,13 +1046,14 @@ for (let i = 1; i <= 104; i++) {
 }
 
 // -------------------------------------------------------------------------
-// T9: IKONOGRAFIA: DZIEŁO SZTUKI A LEKTURA (52 zadania = 2 na jednostkę)
-// ID: POL_P2_T9_001 do POL_P2_T9_052
+// T9: IKONOGRAFIA: DZIEŁO SZTUKI A LEKTURA (52 zadania = 2 na jednostkę + 8 dla lektur 2024)
+// ID: POL_P2_T9_001 do POL_P2_T9_060
 // -------------------------------------------------------------------------
-for (let i = 1; i <= 52; i++) {
-  const lekItem = LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length];
+const T9_TOTAL = 52 + 2 * LEKTURY_2024.length;
+for (let i = 1; i <= T9_TOTAL; i++) {
+  const lekItem = unitFor(i, 52);
   const ico = lekItem.iconography;
-  const isSecondVariant = i > LEKTURY_DATA.length;
+  const isSecondVariant = i <= 52 ? i > LEKTURY_DATA.length : i > 52 + LEKTURY_2024.length;
 
   const visualAsset: TaskVisualAsset = {
     imageUrl: ico.imageUrl || '',
@@ -947,7 +1073,7 @@ for (let i = 1; i <= 52; i++) {
     partName: 'Test historycznoliteracki',
     taskType: 'short_open',
     granularType: 'T9_ikonografia_dzielo_sztuki',
-    title: `Ikonografia maturalna (${i}/52): ${ico.title} (${ico.artist}) a „${lekItem.lektura}”`,
+    title: `Ikonografia maturalna (${i}/${T9_TOTAL}): ${ico.title} (${ico.artist}) a „${lekItem.lektura}”`,
     question: questionText,
     image: visualAsset,
     imageUrl: visualAsset.imageUrl,
@@ -971,11 +1097,12 @@ for (let i = 1; i <= 52; i++) {
 }
 
 // -------------------------------------------------------------------------
-// T10: PRAWDA / FAŁSZ Z WIEDZY O FABULE I PROBLEMATYCE LEKTURY (78 zadań = 3 na jednostkę)
-// ID: POL_P2_T10_001 do POL_P2_T10_078
+// T10: PRAWDA / FAŁSZ Z WIEDZY O FABULE I PROBLEMATYCE LEKTURY (78 zadań = 3 na jednostkę + 4 dla lektur 2024)
+// ID: POL_P2_T10_001 do POL_P2_T10_082
 // -------------------------------------------------------------------------
-for (let i = 1; i <= 78; i++) {
-  const lekItem = LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length];
+const T10_TOTAL = 78 + LEKTURY_2024.length;
+for (let i = 1; i <= T10_TOTAL; i++) {
+  const lekItem = unitFor(i, 78);
   const fItem = lekItem.factualStatements[0];
 
   PART2_TEST_HISTORYCZNY_TASKS.push({
@@ -984,7 +1111,7 @@ for (let i = 1; i <= 78; i++) {
     partName: 'Test historycznoliteracki',
     taskType: 'true_false',
     granularType: 'T10_prawda_falsz_lektura',
-    title: `Prawda/Fałsz z lektury (${i}/78): „${lekItem.lektura}”`,
+    title: `Prawda/Fałsz z lektury (${i}/${T10_TOTAL}): „${lekItem.lektura}”`,
     question: `Oceń prawdziwość zdań dotyczących fabuły i problematyki utworu „${lekItem.lektura}” (${lekItem.autor}, epoka: ${lekItem.epoch}). Wybierz P (prawda) lub F (fałsz).`,
     epoch: lekItem.epoch,
     lektura: lekItem.lektura,
@@ -1009,11 +1136,12 @@ for (let i = 1; i <= 78; i++) {
 }
 
 // -------------------------------------------------------------------------
-// T11: TABELA SYNTETYCZNA / DOPASOWANIE (52 zadania = 2 na jednostkę)
-// ID: POL_P2_T11_001 do POL_P2_T11_052
+// T11: TABELA SYNTETYCZNA / DOPASOWANIE (52 zadania = 2 na jednostkę + 8 dla lektur 2024)
+// ID: POL_P2_T11_001 do POL_P2_T11_060
 // -------------------------------------------------------------------------
-for (let i = 1; i <= 52; i++) {
-  const lekItem = LEKTURY_DATA[(i - 1) % LEKTURY_DATA.length];
+const T11_TOTAL = 52 + 2 * LEKTURY_2024.length;
+for (let i = 1; i <= T11_TOTAL; i++) {
+  const lekItem = unitFor(i, 52);
 
   // Dobierz wiarygodny dystraktor z innej lektury tej samej epoki lub innej jednostki kanonicznej
   const otherUnit = LEKTURY_DATA.find((u, uIdx) => uIdx !== (i - 1) % LEKTURY_DATA.length && u.epoch === lekItem.epoch) ||
@@ -1027,7 +1155,7 @@ for (let i = 1; i <= 52; i++) {
     partName: 'Test historycznoliteracki',
     taskType: 'matching',
     granularType: 'T11_tabela_syntetyczna_dopasowanie',
-    title: `Dopasowanie postaci i motywów (${i}/52): „${lekItem.lektura}”`,
+    title: `Dopasowanie postaci i motywów (${i}/${T11_TOTAL}): „${lekItem.lektura}”`,
     question: `Dopasuj bohaterów utworu „${lekItem.lektura}” (${lekItem.epoch}) do odpowiadających im postaw życiowych oraz atrybutów symbolicznych. Uwaga: W puli znajduje się jeden dodatkowy dystraktor!`,
     epoch: lekItem.epoch,
     lektura: lekItem.lektura,

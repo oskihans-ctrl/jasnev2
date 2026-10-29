@@ -18,6 +18,11 @@
     "short_title": "Potęgi",
     "badge": "Lekcja 1.1",
     "archetypeCode": "L1.1",
+    "requirements": [
+     "I.1",
+     "I.4",
+     "I.5"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -178,6 +183,11 @@
     "short_title": "Pierwiastki",
     "badge": "Lekcja 1.2",
     "archetypeCode": "L1.2",
+    "requirements": [
+     "I.1",
+     "I.3",
+     "I.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -308,6 +318,10 @@
     "short_title": "Logarytmy",
     "badge": "Lekcja 1.3",
     "archetypeCode": "L1.3",
+    "requirements": [
+     "I.1",
+     "I.9"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -456,6 +470,10 @@
     "short_title": "Wartość bezwzględna",
     "badge": "Lekcja 1.4",
     "archetypeCode": "L1.4",
+    "requirements": [
+     "I.6",
+     "I.7"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -592,6 +610,9 @@
     "short_title": "Procenty i lokaty",
     "badge": "Lekcja 1.5",
     "archetypeCode": "L1.5",
+    "requirements": [
+     "I.8"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -749,6 +770,9 @@
     "short_title": "Wzory skróconego mnożenia",
     "badge": "Lekcja 2.1",
     "archetypeCode": "L2.1",
+    "requirements": [
+     "II.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -869,6 +893,9 @@
     "short_title": "Działania na wielomianach",
     "badge": "Lekcja 2.2",
     "archetypeCode": "L2.2",
+    "requirements": [
+     "II.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -985,6 +1012,9 @@
     "short_title": "Rozkład na czynniki",
     "badge": "Lekcja 2.3",
     "archetypeCode": "L2.3",
+    "requirements": [
+     "II.3"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1109,6 +1139,9 @@
     "short_title": "Wyrażenia wymierne",
     "badge": "Lekcja 2.4",
     "archetypeCode": "L2.4",
+    "requirements": [
+     "II.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1223,6 +1256,9 @@
     "short_title": "Dowody algebraiczne",
     "badge": "Lekcja 2.5",
     "archetypeCode": "L2.5",
+    "requirements": [
+     "I.2"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1355,6 +1391,11 @@
     "short_title": "Równania i nierówności liniowe",
     "badge": "Lekcja 3.1",
     "archetypeCode": "L3.1",
+    "requirements": [
+     "III.1",
+     "III.2",
+     "III.3"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1487,6 +1528,9 @@
     "short_title": "Równania kwadratowe",
     "badge": "Lekcja 3.2",
     "archetypeCode": "L3.2",
+    "requirements": [
+     "III.4"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1613,6 +1657,9 @@
     "short_title": "Nierówności kwadratowe",
     "badge": "Lekcja 3.3",
     "archetypeCode": "L3.3",
+    "requirements": [
+     "III.4"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1747,6 +1794,9 @@
     "short_title": "Równania wielomianowe",
     "badge": "Lekcja 3.4",
     "archetypeCode": "L3.4",
+    "requirements": [
+     "III.5"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1869,6 +1919,9 @@
     "short_title": "Równania wymierne",
     "badge": "Lekcja 3.5",
     "archetypeCode": "L3.5",
+    "requirements": [
+     "III.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -1997,6 +2050,10 @@
     "short_title": "Wzór funkcji",
     "badge": "Lekcja 4.1",
     "archetypeCode": "L4.1",
+    "requirements": [
+     "V.1",
+     "V.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2115,6 +2172,10 @@
     "short_title": "Czytanie wykresu",
     "badge": "Lekcja 4.2",
     "archetypeCode": "L4.2",
+    "requirements": [
+     "V.3",
+     "V.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2225,6 +2286,9 @@
     "short_title": "Monotoniczność i znak",
     "badge": "Lekcja 4.3",
     "archetypeCode": "L4.3",
+    "requirements": [
+     "V.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2339,6 +2403,9 @@
     "short_title": "Przesunięcia wykresów",
     "badge": "Lekcja 4.4",
     "archetypeCode": "L4.4",
+    "requirements": [
+     "V.12"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2447,6 +2514,10 @@
     "short_title": "Wykładnicza i logarytmiczna",
     "badge": "Lekcja 4.5",
     "archetypeCode": "L4.5",
+    "requirements": [
+     "V.13",
+     "V.14"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2569,6 +2640,9 @@
     "short_title": "Współczynniki a i b",
     "badge": "Lekcja 5.1",
     "archetypeCode": "L5.1",
+    "requirements": [
+     "V.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2679,6 +2753,9 @@
     "short_title": "Wzór funkcji liniowej",
     "badge": "Lekcja 5.2",
     "archetypeCode": "L5.2",
+    "requirements": [
+     "V.6"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2809,6 +2886,9 @@
     "short_title": "Układy równań",
     "badge": "Lekcja 5.3",
     "archetypeCode": "L5.3",
+    "requirements": [
+     "IV.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -2915,6 +2995,10 @@
     "short_title": "Układ równań a proste",
     "badge": "Lekcja 5.4",
     "archetypeCode": "L5.4",
+    "requirements": [
+     "IV.1",
+     "IX.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3033,6 +3117,9 @@
     "short_title": "Zadania tekstowe",
     "badge": "Lekcja 5.5",
     "archetypeCode": "L5.5",
+    "requirements": [
+     "IV.2"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3165,6 +3252,9 @@
     "short_title": "Trzy postacie",
     "badge": "Lekcja 6.1",
     "archetypeCode": "L6.1",
+    "requirements": [
+     "V.8"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3281,6 +3371,10 @@
     "short_title": "Wierzchołek i oś symetrii",
     "badge": "Lekcja 6.2",
     "archetypeCode": "L6.2",
+    "requirements": [
+     "V.7",
+     "V.8"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3401,6 +3495,10 @@
     "short_title": "Miejsca zerowe",
     "badge": "Lekcja 6.3",
     "archetypeCode": "L6.3",
+    "requirements": [
+     "V.8",
+     "III.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3525,6 +3623,9 @@
     "short_title": "Wartości skrajne w przedziale",
     "badge": "Lekcja 6.4",
     "archetypeCode": "L6.4",
+    "requirements": [
+     "V.10"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3651,6 +3752,9 @@
     "short_title": "Wyznaczanie wzoru",
     "badge": "Lekcja 6.5",
     "archetypeCode": "L6.5",
+    "requirements": [
+     "V.9"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3787,6 +3891,11 @@
     "short_title": "Wzór ogólny i rekurencja",
     "badge": "Lekcja 7.1",
     "archetypeCode": "L7.1",
+    "requirements": [
+     "VI.1",
+     "VI.2",
+     "VI.3"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -3893,6 +4002,10 @@
     "short_title": "Ciąg arytmetyczny",
     "badge": "Lekcja 7.2",
     "archetypeCode": "L7.2",
+    "requirements": [
+     "VI.4",
+     "VI.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4001,6 +4114,9 @@
     "short_title": "Suma ciągu arytmetycznego",
     "badge": "Lekcja 7.3",
     "archetypeCode": "L7.3",
+    "requirements": [
+     "VI.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4115,6 +4231,10 @@
     "short_title": "Ciąg geometryczny",
     "badge": "Lekcja 7.4",
     "archetypeCode": "L7.4",
+    "requirements": [
+     "VI.4",
+     "VI.6"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4237,6 +4357,9 @@
     "short_title": "Trzy kolejne wyrazy",
     "badge": "Lekcja 7.5",
     "archetypeCode": "L7.5",
+    "requirements": [
+     "VI.7"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4365,6 +4488,9 @@
     "short_title": "Definicje sin, cos, tg",
     "badge": "Lekcja 8.1",
     "archetypeCode": "L8.1",
+    "requirements": [
+     "VII.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4485,6 +4611,9 @@
     "short_title": "Kąty 30°, 45°, 60°",
     "badge": "Lekcja 8.2",
     "archetypeCode": "L8.2",
+    "requirements": [
+     "VII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4597,6 +4726,9 @@
     "short_title": "Jedynka trygonometryczna",
     "badge": "Lekcja 8.3",
     "archetypeCode": "L8.3",
+    "requirements": [
+     "VII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4703,6 +4835,9 @@
     "short_title": "Kąty rozwarte",
     "badge": "Lekcja 8.4",
     "archetypeCode": "L8.4",
+    "requirements": [
+     "VII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4823,6 +4958,10 @@
     "short_title": "Pole i twierdzenie cosinusów",
     "badge": "Lekcja 8.5",
     "archetypeCode": "L8.5",
+    "requirements": [
+     "VII.3",
+     "VIII.12"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -4959,6 +5098,10 @@
     "short_title": "Pitagoras i pola trójkątów",
     "badge": "Lekcja 9.1",
     "archetypeCode": "L9.1",
+    "requirements": [
+     "VIII.1",
+     "VIII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5083,6 +5226,11 @@
     "short_title": "Podobieństwo i Tales",
     "badge": "Lekcja 9.2",
     "archetypeCode": "L9.2",
+    "requirements": [
+     "VIII.7",
+     "VIII.8",
+     "VIII.9"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5191,6 +5339,11 @@
     "short_title": "Czworokąty",
     "badge": "Lekcja 9.3",
     "archetypeCode": "L9.3",
+    "requirements": [
+     "VIII.3",
+     "VIII.4",
+     "VIII.11"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5303,6 +5456,10 @@
     "short_title": "Kąty w okręgu",
     "badge": "Lekcja 9.4",
     "archetypeCode": "L9.4",
+    "requirements": [
+     "VIII.1",
+     "VIII.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5411,6 +5568,10 @@
     "short_title": "Łuk, wycinek, okręgi",
     "badge": "Lekcja 9.5",
     "archetypeCode": "L9.5",
+    "requirements": [
+     "VIII.6",
+     "VIII.10"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5535,6 +5696,9 @@
     "short_title": "Odległość i środek",
     "badge": "Lekcja 10.1",
     "archetypeCode": "L10.1",
+    "requirements": [
+     "IX.3"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5649,6 +5813,9 @@
     "short_title": "Równanie prostej",
     "badge": "Lekcja 10.2",
     "archetypeCode": "L10.2",
+    "requirements": [
+     "IX.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -5765,35 +5932,39 @@
    {
     "id": "math-lesson-10-3",
     "order": 3,
-    "title": "Proste równoległe i prostopadłe",
-    "short_title": "Równoległe i prostopadłe",
+    "title": "Wzajemne położenie prostych i proste równoległe",
+    "short_title": "Położenie prostych",
     "badge": "Lekcja 10.3",
     "archetypeCode": "L10.3",
+    "requirements": [
+     "IX.1",
+     "IX.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
      "noAutoVisual": true,
-     "concept_essence": "Wzajemne położenie dwóch prostych rozpoznajesz po współczynnikach kierunkowych. Proste są równoległe, gdy mają ten sam współczynnik: $a_1 = a_2$. Są prostopadłe, gdy iloczyn współczynników jest równy $-1$: $a_1 \\cdot a_2 = -1$, czyli $a_2 = -\\frac{1}{a_1}$. Symetralna odcinka to prosta prostopadła do niego, przechodząca przez jego środek – łączy więc wzór na środek z warunkiem prostopadłości.",
-     "matura_context": "Zadania 24–27 w arkuszu • 1 pkt oraz zadanie otwarte za 2–4 pkt (symetralna, wysokość trójkąta).",
-     "plain_polish": "Z polskiego na nasze: Równoległe – to samo nachylenie. Prostopadłe – nachylenie „odwrócone i ze zmienionym znakiem”: dla $\\frac{2}{3}$ bierzesz $-\\frac{3}{2}$, dla $-4$ bierzesz $\\frac{1}{4}$. Jedna prosta wspina się, druga musi opadać.",
+     "concept_essence": "Wzajemne położenie dwóch prostych rozpoznajesz po współczynnikach kierunkowych. Ten sam współczynnik i różne wyrazy wolne – proste równoległe, bez punktu wspólnego. Te same równania po uproszczeniu – proste się pokrywają. Różne współczynniki – proste przecinają się w jednym punkcie, który wyznaczasz z układu ich równań.",
+     "matura_context": "Zadania zamknięte za 1 pkt oraz otwarte za 2 pkt (punkt wspólny prostych, prosta równoległa przez punkt).",
+     "plain_polish": "Z polskiego na nasze: Równoległe – to samo nachylenie, jak dwa tory kolejowe. Różne nachylenie – drogi kiedyś się skrzyżują. Skrzyżowanie to punkt, który leży na obu prostych naraz, więc spełnia oba równania.",
      "algorithm_steps": [
       {
        "stepNumber": 1,
-       "title": "Odczytaj współczynnik kierunkowy",
-       "description": "$y = 3x - 5$: $a_1 = 3$.",
-       "tip": "Tylko liczba przy x."
+       "title": "Sprowadź do postaci kierunkowej",
+       "description": "$2y = 6x - 4$ to $y = 3x - 2$.",
+       "tip": "Dopiero wtedy porównuj."
       },
       {
        "stepNumber": 2,
-       "title": "Zastosuj warunek",
-       "description": "Równoległa: $a_2 = 3$. Prostopadła: $a_2 = -\\frac{1}{3}$.",
-       "tip": "Odwróć i zmień znak."
+       "title": "Porównaj współczynniki",
+       "description": "$y = 3x - 2$ i $y = 3x + 5$: $a_1 = a_2$, $b_1 \\neq b_2$ – równoległe.",
+       "tip": "Liczba przy x decyduje."
       },
       {
        "stepNumber": 3,
-       "title": "Wyznacz b z punktu",
-       "description": "Prostopadła przez $(6, 1)$: $1 = -\\frac{1}{3} \\cdot 6 + b$, $b = 3$.",
-       "tip": "Jak w każdym równaniu prostej."
+       "title": "Punkt wspólny z układu",
+       "description": "$y = 2x + 1$ i $y = -x + 7$: $2x + 1 = -x + 7$, $x = 2$, $y = 5$.",
+       "tip": "Sprawdź w obu równaniach."
       }
      ],
      "core_formulas": [
@@ -5804,14 +5975,8 @@
        "in_cke_sheet": true
       },
       {
-       "name": "Proste prostopadłe",
-       "formula": "a_1 \\cdot a_2 = -1",
-       "cke_page": "str. 22",
-       "in_cke_sheet": true
-      },
-      {
-       "name": "Symetralna odcinka",
-       "formula": "\\text{prostopadła do } AB, \\text{ przechodzi przez środek } AB"
+       "name": "Punkt wspólny prostych",
+       "formula": "a_1x + b_1 = a_2x + b_2"
       }
      ],
      "worked_examples": [
@@ -5830,35 +5995,35 @@
        "result": "$m = 3$."
       },
       {
-       "title": "Symetralna",
+       "title": "Punkt wspólny",
        "points": "2 pkt",
-       "problem": "Wyznacz równanie symetralnej odcinka o końcach $A = (0, 2)$, $B = (4, 6)$.",
-       "solution": "1. Środek: $S = (2, 4)$.\n2. Współczynnik $AB$: $\\frac{6 - 2}{4 - 0} = 1$, więc symetralna ma $a = -1$.\n3. $4 = -2 + b$, $b = 6$. Równanie: $y = -x + 6$.",
-       "keyInsight": "Środek + prostopadłość.",
+       "problem": "Wyznacz punkt wspólny prostych $y = 2x - 3$ i $y = -x + 6$.",
+       "solution": "1. $2x - 3 = -x + 6$, więc $3x = 9$, $x = 3$.\n2. $y = 2 \\cdot 3 - 3 = 3$. Punkt: $(3, 3)$.\n3. Sprawdzenie: $-3 + 6 = 3$.",
+       "keyInsight": "Układ równań, a potem sprawdzenie.",
        "steps": [
         {
          "num": 1,
-         "text": "Środek: $S = (2, 4)$."
+         "text": "$2x - 3 = -x + 6$, więc $3x = 9$, $x = 3$."
         },
         {
          "num": 2,
-         "text": "Współczynnik $AB$: $\\frac{6 - 2}{4 - 0} = 1$, więc symetralna ma $a = -1$."
+         "text": "$y = 2 \\cdot 3 - 3 = 3$. Punkt: $(3, 3)$."
         }
        ],
-       "result": "$4 = -2 + b$, $b = 6$. Równanie: $y = -x + 6$."
+       "result": "Sprawdzenie: $-3 + 6 = 3$."
       }
      ],
-     "exam_trap": "Prostopadła do $y = 2x + 1$ ma współczynnik $-\\frac{1}{2}$, a NIE $-2$ ani $\\frac{1}{2}$. Trzeba i odwrócić, i zmienić znak.",
+     "exam_trap": "Prosta równoległa do $y = 2x + 1$ ma współczynnik $2$, a NIE $-2$ ani $\\frac{1}{2}$ – zmiana znaku czy odwrócenie daje prostą, która przecina wyjściową.",
      "trap_details": {
-      "fail": "Błąd: „Prostopadła do $y = 2x + 1$ to $y = -2x + 1$.”",
-      "win": "Poprawnie: $a_2 = -\\frac{1}{2}$, bo $2 \\cdot \\left(-\\frac{1}{2}\\right) = -1$.",
-      "explanation": "Proste y = 2x i y = −2x są symetryczne względem osi, ale kąt między nimi nie jest prosty.",
-      "ckeTip": "Oba warunki są w karcie wzorów na str. 22. Sprawdź prostopadłość mnożeniem: wynik musi być dokładnie −1."
+      "fail": "Błąd: „Równoległa do $y = 2x + 1$ to $y = -2x + 1$.”",
+      "win": "Poprawnie: Równoległa: $y = 2x + b$, gdzie $b \\neq 1$, np. $y = 2x - 4$.",
+      "explanation": "Proste y = 2x i y = −2x mają różne nachylenie, więc przecinają się w punkcie (0, 0).",
+      "ckeTip": "Warunek równoległości jest w karcie wzorów na str. 22. Punkt wspólny zawsze sprawdź w drugim równaniu."
      },
      "key_points": [
-      "Równoległe: $a_1 = a_2$.",
-      "Prostopadłe: $a_1 \\cdot a_2 = -1$.",
-      "Symetralna: przez środek i prostopadle."
+      "Równoległe: $a_1 = a_2$, $b_1 \\neq b_2$.",
+      "Pokrywają się: te same równania po uproszczeniu.",
+      "Punkt wspólny: rozwiąż układ równań."
      ],
      "worked_example": {
       "title": "Parametr",
@@ -5883,6 +6048,9 @@
     "short_title": "Równanie okręgu",
     "badge": "Lekcja 10.4",
     "archetypeCode": "L10.4",
+    "requirements": [
+     "IX.4"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6001,6 +6169,9 @@
     "short_title": "Symetrie",
     "badge": "Lekcja 10.5",
     "archetypeCode": "L10.5",
+    "requirements": [
+     "IX.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6129,6 +6300,10 @@
     "short_title": "Graniastosłupy",
     "badge": "Lekcja 11.1",
     "archetypeCode": "L11.1",
+    "requirements": [
+     "X.3",
+     "X.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6239,6 +6414,9 @@
     "short_title": "Ostrosłupy",
     "badge": "Lekcja 11.2",
     "archetypeCode": "L11.2",
+    "requirements": [
+     "X.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6347,6 +6525,11 @@
     "short_title": "Kąty w bryłach",
     "badge": "Lekcja 11.3",
     "archetypeCode": "L11.3",
+    "requirements": [
+     "X.1",
+     "X.2",
+     "X.3"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6453,6 +6636,10 @@
     "short_title": "Walec, stożek, kula",
     "badge": "Lekcja 11.4",
     "archetypeCode": "L11.4",
+    "requirements": [
+     "X.4",
+     "X.5"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6565,6 +6752,9 @@
     "short_title": "Bryły podobne",
     "badge": "Lekcja 11.5",
     "archetypeCode": "L11.5",
+    "requirements": [
+     "X.6"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6685,6 +6875,10 @@
     "short_title": "Reguła mnożenia",
     "badge": "Lekcja 12.1",
     "archetypeCode": "L12.1",
+    "requirements": [
+     "XI.1",
+     "XI.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6791,6 +6985,9 @@
     "short_title": "Reguła dodawania",
     "badge": "Lekcja 12.2",
     "archetypeCode": "L12.2",
+    "requirements": [
+     "XI.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -6897,6 +7094,9 @@
     "short_title": "Zliczanie liczb",
     "badge": "Lekcja 12.3",
     "archetypeCode": "L12.3",
+    "requirements": [
+     "XI.2"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7015,6 +7215,10 @@
     "short_title": "Bez powtórzeń",
     "badge": "Lekcja 12.4",
     "archetypeCode": "L12.4",
+    "requirements": [
+     "XI.1",
+     "XI.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7123,6 +7327,10 @@
     "short_title": "Pary i dopełnienie",
     "badge": "Lekcja 12.5",
     "archetypeCode": "L12.5",
+    "requirements": [
+     "XI.1",
+     "XI.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7247,6 +7455,9 @@
     "short_title": "Model klasyczny",
     "badge": "Lekcja 13.1",
     "archetypeCode": "L13.1",
+    "requirements": [
+     "XII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7361,6 +7572,9 @@
     "short_title": "Dwie kostki",
     "badge": "Lekcja 13.2",
     "archetypeCode": "L13.2",
+    "requirements": [
+     "XII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7477,6 +7691,9 @@
     "short_title": "Losowanie liczb",
     "badge": "Lekcja 13.3",
     "archetypeCode": "L13.3",
+    "requirements": [
+     "XII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7595,6 +7812,9 @@
     "short_title": "Dwa losowania i drzewo",
     "badge": "Lekcja 13.4",
     "archetypeCode": "L13.4",
+    "requirements": [
+     "XII.1"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7713,6 +7933,9 @@
     "short_title": "Zdarzenie przeciwne",
     "badge": "Lekcja 13.5",
     "archetypeCode": "L13.5",
+    "requirements": [
+     "XII.1"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7825,7 +8048,7 @@
   "numericId": 14,
   "title": "Statystyka",
   "short_title": "Statystyka",
-  "description": "Średnia arytmetyczna i ważona, mediana, dominanta, odchylenie standardowe oraz odczytywanie danych z tabel i diagramów.",
+  "description": "Średnia arytmetyczna i ważona, mediana, dominanta oraz odczytywanie danych z tabel i diagramów.",
   "icon": "BarChart3",
   "color": "#2DD4BF",
   "matura_points_range": "0–2 pkt",
@@ -7839,6 +8062,9 @@
     "short_title": "Średnia arytmetyczna",
     "badge": "Lekcja 14.1",
     "archetypeCode": "L14.1",
+    "requirements": [
+     "XII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -7951,6 +8177,9 @@
     "short_title": "Średnia ważona",
     "badge": "Lekcja 14.2",
     "archetypeCode": "L14.2",
+    "requirements": [
+     "XII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8059,6 +8288,9 @@
     "short_title": "Mediana",
     "badge": "Lekcja 14.3",
     "archetypeCode": "L14.3",
+    "requirements": [
+     "XII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8173,47 +8405,48 @@
    {
     "id": "math-lesson-14-4",
     "order": 4,
-    "title": "Dominanta i odchylenie standardowe",
-    "short_title": "Dominanta i odchylenie",
+    "title": "Dominanta i dane pogrupowane",
+    "short_title": "Dominanta",
     "badge": "Lekcja 14.4",
     "archetypeCode": "L14.4",
+    "requirements": [
+     "XII.2"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
      "noAutoVisual": true,
-     "concept_essence": "Dominanta (moda) to wartość, która występuje w zestawie najczęściej. Odchylenie standardowe mówi, jak bardzo dane są rozrzucone wokół średniej: liczysz średnią, odejmujesz ją od każdej danej, podnosisz różnice do kwadratu, uśredniasz (to wariancja) i pierwiastkujesz. Małe odchylenie oznacza dane skupione blisko średniej, duże – dane rozproszone.",
-     "matura_context": "Zadanie 31–32 w arkuszu • 1 pkt. Dominanta pojawia się regularnie; wzór na odchylenie standardowe jest w karcie wzorów na str. 30.",
-     "plain_polish": "Z polskiego na nasze: Dominanta to „najpopularniejsza odpowiedź”. Jeśli w klasie najwięcej osób dostało czwórkę, dominantą jest $4$. Odchylenie standardowe to „typowa odległość od średniej”: dwie klasy mogą mieć tę samą średnią, ale w jednej wszyscy mają trójki, a w drugiej połowa jedynki i połowa piątki.",
+     "concept_essence": "Dominanta (moda) to wartość, która występuje w zestawie najczęściej. W danych pogrupowanych (tabela „wartość – liczebność”) dominantą jest wartość z największą liczebnością. Po dopisaniu nowych danych liczebności się zmieniają, więc dominantę trzeba wyznaczyć od nowa.",
+     "matura_context": "Zadania zamknięte za 1 pkt (dominanta, porównanie średniej, mediany i dominanty) oraz otwarte za 2 pkt z danymi z tabeli.",
+     "plain_polish": "Z polskiego na nasze: Dominanta to „najpopularniejsza odpowiedź”. Jeśli w klasie najwięcej osób dostało czwórkę, dominantą jest $4$ – niezależnie od tego, czy czwórek było $7$, czy $12$.",
      "algorithm_steps": [
       {
        "stepNumber": 1,
-       "title": "Dominanta: zlicz wystąpienia",
+       "title": "Zlicz wystąpienia",
        "description": "$2, 5, 3, 5, 4, 5, 2$: piątka występuje trzy razy.",
        "tip": "Odpowiedzią jest wartość, nie liczba wystąpień."
       },
       {
        "stepNumber": 2,
-       "title": "Odchylenie: średnia i kwadraty różnic",
-       "description": "$1, 3, 5, 7$: średnia $4$, kwadraty różnic: $9, 1, 1, 9$.",
-       "tip": "Różnice mogą być ujemne, kwadraty – nie."
+       "title": "Tabela: największa liczebność",
+       "description": "Ocena $3$ – $7$ osób, ocena $4$ – $5$ osób: dominanta $3$.",
+       "tip": "Szukasz największej liczby w kolumnie liczebności."
       },
       {
        "stepNumber": 3,
-       "title": "Uśrednij i spierwiastkuj",
-       "description": "Wariancja: $\\frac{20}{4} = 5$. Odchylenie: $\\sqrt{5}$.",
-       "tip": "Wariancja to kwadrat odchylenia."
+       "title": "Po zmianie danych – policz od nowa",
+       "description": "Dopisano $4$ czwórki: czwórek jest $9$, więc dominanta to teraz $4$.",
+       "tip": "Nowe liczebności, nowa dominanta."
       }
      ],
      "core_formulas": [
       {
-       "name": "Wariancja",
-       "formula": "\\sigma^2 = \\frac{(x_1 - \\bar{x})^2 + \\ldots + (x_n - \\bar{x})^2}{n}",
-       "cke_page": "str. 30",
-       "in_cke_sheet": true
+       "name": "Dominanta",
+       "formula": "\\text{wartość o największej liczebności}"
       },
       {
-       "name": "Odchylenie standardowe",
-       "formula": "\\sigma = \\sqrt{\\sigma^2}",
+       "name": "Mediana (n nieparzyste)",
+       "formula": "\\text{środkowy wyraz uporządkowanego zestawu}",
        "cke_page": "str. 30",
        "in_cke_sheet": true
       }
@@ -8238,22 +8471,18 @@
        "result": "Dominanta: $3$."
       },
       {
-       "title": "Odchylenie standardowe",
-       "points": "2 pkt",
-       "problem": "Oblicz odchylenie standardowe zestawu $2, 2, 6, 6$.",
-       "solution": "1. Średnia: $4$.\n2. Kwadraty odchyleń: $4, 4, 4, 4$; wariancja: $4$.\n3. $\\sigma = 2$.",
-       "keyInsight": "Każda dana leży o 2 od średniej.",
+       "title": "Po dopisaniu danych",
+       "points": "1 pkt",
+       "problem": "Do tej samej klasy dopisano $3$ osoby z oceną $4$. Podaj nową dominantę.",
+       "solution": "1. Czwórek jest teraz $5 + 3 = 8$.\n2. $8 > 7$, więc dominanta to $4$.",
+       "keyInsight": "Liczebności zmieniają się po dopisaniu danych.",
        "steps": [
         {
          "num": 1,
-         "text": "Średnia: $4$."
-        },
-        {
-         "num": 2,
-         "text": "Kwadraty odchyleń: $4, 4, 4, 4$; wariancja: $4$."
+         "text": "Czwórek jest teraz $5 + 3 = 8$."
         }
        ],
-       "result": "$\\sigma = 2$."
+       "result": "$8 > 7$, więc dominanta to $4$."
       }
      ],
      "exam_trap": "Dominanta to WARTOŚĆ, a nie liczba jej wystąpień. Jeśli piątka pojawia się trzy razy, dominantą jest $5$, nie $3$.",
@@ -8261,12 +8490,12 @@
       "fail": "Błąd: „W zestawie $2, 5, 3, 5, 4, 5$ dominanta to $3$, bo piątka występuje trzy razy.”",
       "win": "Poprawnie: Dominanta to $5$.",
       "explanation": "Pytanie brzmi „która wartość jest najczęstsza”, a nie „ile razy występuje”.",
-      "ckeTip": "Wzory na wariancję i odchylenie standardowe są w karcie wzorów na str. 30 – nie ucz się ich na pamięć."
+      "ckeTip": "Od 2025 r. w zakresie podstawowym są średnia, średnia ważona, mediana i dominanta – bez odchylenia standardowego."
      },
      "key_points": [
       "Dominanta: wartość najczęstsza.",
-      "Wariancja: średnia kwadratów odchyleń od średniej.",
-      "Odchylenie standardowe: pierwiastek z wariancji."
+      "W tabeli: wartość z największą liczebnością.",
+      "Zmiana danych – nowa dominanta."
      ],
      "worked_example": {
       "title": "Dominanta z tabeli",
@@ -8295,6 +8524,10 @@
     "short_title": "Tabele i diagramy",
     "badge": "Lekcja 14.5",
     "archetypeCode": "L14.5",
+    "requirements": [
+     "XII.2",
+     "V.3"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8429,6 +8662,10 @@
     "short_title": "Pole przy stałym obwodzie",
     "badge": "Lekcja 15.1",
     "archetypeCode": "L15.1",
+    "requirements": [
+     "XIII.1",
+     "V.10"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8549,6 +8786,10 @@
     "short_title": "Dziedzina i wierzchołek",
     "badge": "Lekcja 15.2",
     "archetypeCode": "L15.2",
+    "requirements": [
+     "XIII.1",
+     "V.10"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8669,6 +8910,10 @@
     "short_title": "Ogrodzenia z przegrodami",
     "badge": "Lekcja 15.3",
     "archetypeCode": "L15.3",
+    "requirements": [
+     "XIII.1",
+     "V.11"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8787,6 +9032,10 @@
     "short_title": "Przychód i cena",
     "badge": "Lekcja 15.4",
     "archetypeCode": "L15.4",
+    "requirements": [
+     "XIII.1",
+     "V.11"
+    ],
     "estimated_time_formatted": "~6 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,
@@ -8905,6 +9154,10 @@
     "short_title": "Schemat za 4 punkty",
     "badge": "Lekcja 15.5",
     "archetypeCode": "L15.5",
+    "requirements": [
+     "XIII.1",
+     "V.10"
+    ],
     "estimated_time_formatted": "~5 min",
     "theory_pill": {
      "reading_time_minutes": 3.5,

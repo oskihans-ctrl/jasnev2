@@ -19,7 +19,8 @@
 //           PARTS (tabela: każdemu zdaniu jedna odpowiedź z listy),
 //           MULTI (dwie odpowiedzi z A–F), FILL (uzupełnij), NUM (uzupełnij liczbą), OPEN, PROOF,
 //   q     – treść (LaTeX w $...$), o – opcje, a – odpowiedź (jak w kluczu CKE, wersja A),
-//   s     – kroki rozwiązania, trap – typowy błąd, fig – { diagram | plot | numberLine }, optNL – osie liczbowe opcji.
+//   s     – kroki rozwiązania, trap – typowy błąd, fig – { diagram | plot | numberLine }, optNL – osie liczbowe opcji,
+//   scope – uwaga o zadaniu spoza zakresu PP od matury 2025 (podstawa 2024); zadanie zostaje w arkuszu archiwalnym.
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
@@ -129,7 +130,7 @@ function convert(exam, t) {
     if (['SC', 'PF', 'AB', 'MULTI'].includes(t.k) && /^([A-F]{1,2}\d?|[PF]{2})$/.test(ref.key) && ref.key !== t.a) fail(`${id}: klucz ${t.a} ≠ oficjalny ${ref.key}`);
   }
 
-  const explanation = [steps(t.s), t.trap ? `**Pułapka CKE:** ${t.trap}` : null, answerLine].filter(Boolean).join('\n\n');
+  const explanation = [steps(t.s), t.trap ? `**Pułapka CKE:** ${t.trap}` : null, answerLine, t.scope ? `**Zakres od 2025 r.:** ${t.scope}` : null].filter(Boolean).join('\n\n');
   const tip = t.tip || t.trap || 'Sprawdź, czy odpowiadasz dokładnie na to, o co pytają w poleceniu.';
   lint(id, 'treść', content); lint(id, 'wyjaśnienie', explanation); lint(id, 'wskazówka', tip); lint(id, 'odpowiedź', correct);
   (options || []).forEach((o) => lint(id, 'opcja', o));
@@ -140,7 +141,7 @@ function convert(exam, t) {
   return {
     id, n: t.n, type, content, options, correct, explanation, tip, sectionTitle, officialKey,
     topicId: `dzial-${t.t}`, points: t.pts, isClosed: ['SINGLE_CHOICE', 'TRUE_FALSE', 'TWO_PART', 'MULTI_CHOICE'].includes(type), optNL: t.optNL, optFig: t.optFig, extra,
-    diagram: fig.diagram, plot: fig.plot, numberLine: fig.numberLine, adapted: t.adapted
+    diagram: fig.diagram, plot: fig.plot, numberLine: fig.numberLine, adapted: t.adapted, scope: t.scope
   };
 }
 
@@ -189,7 +190,8 @@ const mathTask = ({ exam }, t) => ({
   ...(t.diagram ? { diagram: t.diagram } : {}),
   ...(t.plot ? { plot: t.plot } : {}),
   ...(t.numberLine ? { numberLine: t.numberLine } : {}),
-  ...(t.adapted ? { adaptationNote: t.adapted } : {})
+  ...(t.adapted ? { adaptationNote: t.adapted } : {}),
+  ...(t.scope ? { outsideScope2025: true, scopeNote: t.scope } : {})
 });
 const seedTask = ({ exam }, t) => ({
   id: t.id,
@@ -214,7 +216,8 @@ const seedTask = ({ exam }, t) => ({
   ...(t.diagram ? { diagram: t.diagram } : {}),
   ...(t.plot ? { plot: t.plot } : {}),
   ...(t.numberLine ? { numberLine: t.numberLine } : {}),
-  ...(t.adapted ? { adaptationNote: t.adapted } : {})
+  ...(t.adapted ? { adaptationNote: t.adapted } : {}),
+  ...(t.scope ? { outsideScope2025: true, scopeNote: t.scope } : {})
 });
 const refTask = ({ exam }, t) => ({
   badge: `${exam.refLabel} • Zad. ${t.n}`,

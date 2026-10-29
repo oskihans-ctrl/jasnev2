@@ -288,7 +288,7 @@ const medAfterAdding = (r) => {
   });
 };
 
-// ---------- 14.4 Dominanta i odchylenie standardowe ----------
+// ---------- 14.4 Dominanta i dane pogrupowane ----------
 const modeSimple = (r) => {
   const n = r.int(7, 10);
   const a = rndList(r, n, 1, 9);
@@ -327,33 +327,39 @@ const modeFrequency = (r) => {
     tip: 'Dominanta (moda) to wartość występująca w zestawie najczęściej.'
   });
 };
-const stdDev = (r) => {
-  const sets = [[2, 4, 4, 4, 5, 5, 7, 9], [1, 3, 5, 7], [2, 2, 6, 6], [1, 1, 5, 5], [3, 3, 3, 7, 7, 7], [1, 5, 5, 9], [2, 4, 6, 8], [4, 4, 8, 8], [1, 2, 3, 4, 5], [2, 6, 6, 10], [3, 5, 7, 9], [1, 1, 1, 9, 9, 9], [0, 4, 4, 8], [2, 8, 8, 14]];
-  const shift = r.int(0, 6);
-  const a = r.pick(sets).map((x) => x + shift);
-  const n = a.length;
-  const mean = sum(a) / n;
-  const variance = sum(a.map((x) => (x - mean) ** 2)) / n;
-  const askVar = r.bool();
-  const sd = Math.sqrt(variance);
-  need(Number.isInteger(mean) && (askVar ? Number.isInteger(variance) : Number.isInteger(sd * 2) || Number.isInteger(variance)));
-  const sqTex = (v2) => (Number.isInteger(Math.sqrt(v2)) ? `${Math.sqrt(v2)}` : `\\sqrt{${v2}}`);
+// Podstawa 2024 (XII.2): średnia, średnia ważona, mediana i dominanta. Wariancji i odchylenia standardowego
+// nie ma już w zakresie podstawowym, więc ta lekcja ćwiczy dominantę także na danych pogrupowanych.
+const modeAfterAdding = (r) => {
+  const vals = [2, 3, 4, 5, 6];
+  const cnts = vals.map(() => r.int(2, 9));
+  const mx = Math.max(...cnts);
+  need(cnts.filter((x) => x === mx).length === 1);
+  const old = vals[cnts.indexOf(mx)];
+  const gIdx = r.intNot(0, 4, cnts.indexOf(mx));
+  const g = vals[gIdx];
+  const k = mx - cnts[gIdx] + r.int(1, 2);
+  const after = cnts.map((c, i) => (i === gIdx ? c + k : c));
+  const mx2 = Math.max(...after);
+  need(after.filter((x) => x === mx2).length === 1);
+  const v = vals[after.indexOf(mx2)];
   return mc({
-    title: askVar ? 'Wariancja zestawu danych' : 'Odchylenie standardowe zestawu danych',
-    q: T`${askVar ? 'Wariancja' : 'Odchylenie standardowe'} zestawu liczb: $${a.join(', ')}$ jest ${askVar ? 'równa' : 'równe'}`,
-    ok: m(askVar ? variance : sqTex(variance)),
-    val: askVar ? variance : sd,
-    bad: askVar ? numOpts(variance, [variance * n, sd, mean, variance + 1, variance / 2, sum(a.map((x) => Math.abs(x - mean))) / n]) : [m(`${variance}`), m(sqTex(variance * n)), m(`${mean}`), m(sqTex(variance + 1)), m(`${d1(sum(a.map((x) => Math.abs(x - mean))) / n)}`), m(sqTex(variance * 2))].filter((o, i, arr) => arr.indexOf(o) === i),
-    steps: [T`Średnia: $\bar{x} = \frac{${sum(a)}}{${n}} = ${mean}$.`, T`Kwadraty odchyleń od średniej: $${a.map((x) => (x - mean) ** 2).join(', ')}$; ich suma to $${variance * n}$.`, askVar ? T`Wariancja: $\frac{${variance * n}}{${n}} = ${variance}$.` : T`Wariancja: $\frac{${variance * n}}{${n}} = ${variance}$, więc odchylenie standardowe to $\sigma = ${Number.isInteger(sd) ? sd : `\\sqrt{${variance}}`}$.`],
-    trap: askVar ? T`Sumę kwadratów odchyleń trzeba podzielić przez liczbę danych ($${n}$). Sama suma to jeszcze nie wariancja.` : T`Odchylenie standardowe to PIERWIASTEK z wariancji. Liczba $${variance}$ to wariancja.`,
-    tip: 'Karta wzorów, str. 30: odchylenie standardowe $\\sigma = \\sqrt{\\frac{(x_1 - \\bar{x})^2 + \\ldots + (x_n - \\bar{x})^2}{n}}$.'
+    title: 'Dominanta po dopisaniu danych',
+    q: T`Wyniki sprawdzianu w klasie (ocena – liczba uczniów): ${freqText(vals, cnts, 'ocena')}. Dopisano oceny $${k}$ uczniów, którzy pisali sprawdzian w drugim terminie – każdy z nich otrzymał ocenę $${g}$. Dominanta wszystkich ocen jest równa`,
+    ok: m(v),
+    val: v,
+    bad: numOpts(v, [old, mx2, k, g === v ? old : g, vals[(after.indexOf(mx2) + 1) % 5], mx].filter((y) => y !== v)),
+    steps: [T`Nowe liczebności: ${freqText(vals, after, 'ocena')}.`, T`Największa liczebność to teraz $${mx2}$ i odpowiada ocenie $${v}$.`],
+    trap: T`Po dopisaniu danych liczebności się zmieniają – dominanta nie musi zostać ta sama co wcześniej ($${old}$). Odpowiedzią jest ocena, a nie liczba uczniów.`,
+    tip: 'Dominanta (moda) to wartość występująca w zestawie najczęściej.'
   });
 };
 const statCompare = (r) => {
   const n = r.pick([5, 7]);
-  const a = rndList(r, n, 1, 9);
+  // zestaw z jedną dominantą: trzy razy ta sama liczba, reszta różna (bez odrzuceń w build.js)
+  const moV = r.int(1, 9);
+  const rest = r.shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9].filter((x) => x !== moV)).slice(0, n - 3);
+  const a = r.shuffle([moV, moV, moV, ...rest]);
   const mo = modeOf(a);
-  need(mo !== null);
   const me = median(a);
   const mean = sum(a) / n;
   need(Number.isInteger(mean * 100));
@@ -497,7 +503,7 @@ export default {
   numericId: 14,
   title: 'Statystyka',
   short_title: 'Statystyka',
-  description: 'Średnia arytmetyczna i ważona, mediana, dominanta, odchylenie standardowe oraz odczytywanie danych z tabel i diagramów.',
+  description: 'Średnia arytmetyczna i ważona, mediana, dominanta oraz odczytywanie danych z tabel i diagramów.',
   icon: 'BarChart3',
   color: '#2DD4BF',
   matura_points_range: '2–3 pkt',
@@ -591,33 +597,33 @@ export default {
       gens: [medOdd, medEven, medWithX, medFrequency, medAfterAdding]
     },
     {
-      title: 'Dominanta i odchylenie standardowe',
-      short_title: 'Dominanta i odchylenie',
+      title: 'Dominanta i dane pogrupowane',
+      short_title: 'Dominanta',
       pill: pill({
-        essence: T`Dominanta (moda) to wartość, która występuje w zestawie najczęściej. Odchylenie standardowe mówi, jak bardzo dane są rozrzucone wokół średniej: liczysz średnią, odejmujesz ją od każdej danej, podnosisz różnice do kwadratu, uśredniasz (to wariancja) i pierwiastkujesz. Małe odchylenie oznacza dane skupione blisko średniej, duże – dane rozproszone.`,
-        context: 'Zadanie 31–32 w arkuszu • 1 pkt. Dominanta pojawia się regularnie; wzór na odchylenie standardowe jest w karcie wzorów na str. 30.',
-        pl: T`Dominanta to „najpopularniejsza odpowiedź”. Jeśli w klasie najwięcej osób dostało czwórkę, dominantą jest $4$. Odchylenie standardowe to „typowa odległość od średniej”: dwie klasy mogą mieć tę samą średnią, ale w jednej wszyscy mają trójki, a w drugiej połowa jedynki i połowa piątki.`,
+        essence: T`Dominanta (moda) to wartość, która występuje w zestawie najczęściej. W danych pogrupowanych (tabela „wartość – liczebność”) dominantą jest wartość z największą liczebnością. Po dopisaniu nowych danych liczebności się zmieniają, więc dominantę trzeba wyznaczyć od nowa.`,
+        context: 'Zadania zamknięte za 1 pkt (dominanta, porównanie średniej, mediany i dominanty) oraz otwarte za 2 pkt z danymi z tabeli.',
+        pl: T`Dominanta to „najpopularniejsza odpowiedź”. Jeśli w klasie najwięcej osób dostało czwórkę, dominantą jest $4$ – niezależnie od tego, czy czwórek było $7$, czy $12$.`,
         steps: [
-          ['Dominanta: zlicz wystąpienia', T`$2, 5, 3, 5, 4, 5, 2$: piątka występuje trzy razy.`, 'Odpowiedzią jest wartość, nie liczba wystąpień.'],
-          ['Odchylenie: średnia i kwadraty różnic', T`$1, 3, 5, 7$: średnia $4$, kwadraty różnic: $9, 1, 1, 9$.`, 'Różnice mogą być ujemne, kwadraty – nie.'],
-          ['Uśrednij i spierwiastkuj', T`Wariancja: $\frac{20}{4} = 5$. Odchylenie: $\sqrt{5}$.`, 'Wariancja to kwadrat odchylenia.']
+          ['Zlicz wystąpienia', T`$2, 5, 3, 5, 4, 5, 2$: piątka występuje trzy razy.`, 'Odpowiedzią jest wartość, nie liczba wystąpień.'],
+          ['Tabela: największa liczebność', T`Ocena $3$ – $7$ osób, ocena $4$ – $5$ osób: dominanta $3$.`, 'Szukasz największej liczby w kolumnie liczebności.'],
+          ['Po zmianie danych – policz od nowa', T`Dopisano $4$ czwórki: czwórek jest $9$, więc dominanta to teraz $4$.`, 'Nowe liczebności, nowa dominanta.']
         ],
         formulas: [
-          ['Wariancja', T`\sigma^2 = \frac{(x_1 - \bar{x})^2 + \ldots + (x_n - \bar{x})^2}{n}`, 30],
-          ['Odchylenie standardowe', T`\sigma = \sqrt{\sigma^2}`, 30]
+          ['Dominanta', T`\text{wartość o największej liczebności}`],
+          ['Mediana (n nieparzyste)', T`\text{środkowy wyraz uporządkowanego zestawu}`, 30]
         ],
         examples: [
           ['Dominanta z tabeli', '1 pkt', T`Oceny: dwójka – $3$ osoby, trójka – $7$ osób, czwórka – $5$ osób. Podaj dominantę.`, T`1. Największa liczebność to $7$.` + '\n' + T`2. Odpowiada jej ocena $3$.` + '\n' + T`3. Dominanta: $3$.`, 'Dominantą jest ocena, nie liczba osób.'],
-          ['Odchylenie standardowe', '2 pkt', T`Oblicz odchylenie standardowe zestawu $2, 2, 6, 6$.`, T`1. Średnia: $4$.` + '\n' + T`2. Kwadraty odchyleń: $4, 4, 4, 4$; wariancja: $4$.` + '\n' + T`3. $\sigma = 2$.`, 'Każda dana leży o 2 od średniej.']
+          ['Po dopisaniu danych', '1 pkt', T`Do tej samej klasy dopisano $3$ osoby z oceną $4$. Podaj nową dominantę.`, T`1. Czwórek jest teraz $5 + 3 = 8$.` + '\n' + T`2. $8 > 7$, więc dominanta to $4$.`, 'Liczebności zmieniają się po dopisaniu danych.']
         ],
         trap: T`Dominanta to WARTOŚĆ, a nie liczba jej wystąpień. Jeśli piątka pojawia się trzy razy, dominantą jest $5$, nie $3$.`,
         fail: T`„W zestawie $2, 5, 3, 5, 4, 5$ dominanta to $3$, bo piątka występuje trzy razy.”`,
         win: T`Dominanta to $5$.`,
         why: 'Pytanie brzmi „która wartość jest najczęstsza”, a nie „ile razy występuje”.',
-        ckeTip: 'Wzory na wariancję i odchylenie standardowe są w karcie wzorów na str. 30 – nie ucz się ich na pamięć.',
-        points: [T`Dominanta: wartość najczęstsza.`, T`Wariancja: średnia kwadratów odchyleń od średniej.`, T`Odchylenie standardowe: pierwiastek z wariancji.`]
+        ckeTip: 'Od 2025 r. w zakresie podstawowym są średnia, średnia ważona, mediana i dominanta – bez odchylenia standardowego.',
+        points: [T`Dominanta: wartość najczęstsza.`, T`W tabeli: wartość z największą liczebnością.`, T`Zmiana danych – nowa dominanta.`]
       }),
-      gens: [modeSimple, modeFrequency, stdDev, statCompare, modeAndMean]
+      gens: [modeSimple, modeFrequency, modeAfterAdding, statCompare, modeAndMean]
     },
     {
       title: 'Odczytywanie danych z tabel i diagramów',

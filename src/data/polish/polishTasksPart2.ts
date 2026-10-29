@@ -21,7 +21,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
     ],
     correctOptionIndex: 1,
     explanation: 'Prometeizm to postawa altruistycznego buntu przeciw bogom (lub Bogu) w celu ulżenia cierpieniom ludzi, co wiąże się ze świadomą ofiarą z samego siebie.',
-    sourceYear: 'Informator CKE Formuła 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-002',
@@ -43,7 +43,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – brak nazwy motywu lub błędna interpretacja.'
     ],
     explanation: 'Topos vanitas z Księgi Koheleta pojawia się w arkuszach CKE w odniesieniu do poezji barokowej (Naborowski, Sęp Szarzyński) oraz ikonografii.',
-    sourceYear: 'CKE Maj 2024 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-003',
@@ -61,7 +61,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       { left: 'Wdowi grosz', right: 'Niewielka materialnie ofiara dana z ogromnym wyrzeczeniem' }
     ],
     explanation: 'Znajomość frazeologii biblijnej i mitologicznej jest standardowym elementem sprawdzianu językowego i kulturowego CKE.',
-    sourceYear: 'CKE Próbna 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -106,7 +106,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
     ],
     correctOptionIndex: 1,
     explanation: 'Danse macabre unaoczniał egalitaryzm śmierci – w korowodzie uczestniczą papież, cesarz, żebrak, rycerz i dziecko.',
-    sourceYear: 'Informator CKE'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -133,7 +133,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – odpowiedź niepoprawna.'
     ],
     explanation: 'Treny to cykl dokumentujący drogę od rozpaczy i buntu przeciw filozofii stoickiej aż po ukojenie w Trenie XIX.',
-    sourceYear: 'CKE Maj 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -155,7 +155,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       { left: 'Hiperbola', right: 'Wyolbrzymienie cech zjawiska lub emocji w celu wzmocnienia ekspresji' }
     ],
     explanation: 'Poezja dworska Morsztyna i metafizyczna Naborowskiego opierała się na operowaniu zaskakującym konceptem i figurami paradoksu.',
-    sourceYear: 'CKE Próbna Grudzień 2022'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -184,7 +184,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – odpowiedź błędna.'
     ],
     explanation: 'Konrad to typowy bohater prometejski – jego grzechem jest bezgraniczna pycha i próba bluźnierstwa, lecz ratuje go czysta, bezinteresowna miłość do ojczyzny.',
-    sourceYear: 'CKE Maj 2023 (Formuła 2023)'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-009',
@@ -210,7 +210,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       }
     ],
     explanation: 'Scena Salonu Warszawskiego ukazuje fundamentalny podział narodu polskiego na kosmopolityczne elity i wierną młodzież patriotyczną.',
-    sourceYear: 'CKE Maj 2024'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-010',
@@ -230,7 +230,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – brak odpowiedzi.'
     ],
     explanation: 'Kluczowe zagadnienie sporów romantycznych o drogi do niepodległości.',
-    sourceYear: 'Informator CKE'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -259,7 +259,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – błędne przyporządkowanie cech.'
     ],
     explanation: 'Wokulski jako bohater synkretyczny (łączący ideały romantyczne z pozytywistycznymi) to absolutny pewniak maturalny CKE.',
-    sourceYear: 'CKE Maj 2023 & Maj 2024'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-012',
@@ -285,7 +285,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       }
     ],
     explanation: 'Szczegółowa weryfikacja losów drugoplanowych bohaterów Lalki.',
-    sourceYear: 'CKE Maj 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -310,7 +310,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       { left: 'Wernyhora', right: 'Gospodarz (Włodzimierz Tetmajer)' }
     ],
     explanation: 'Zjawy w Weselu są personifikacją skrywanych lęków, wyrzutów sumienia i marzeń bohaterów bronowickiej chaty.',
-    sourceYear: 'CKE Maj 2024'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
   {
     id: 'pol-p2-014',
@@ -330,7 +330,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – brak odpowiedzi.'
     ],
     explanation: 'Scena tańca chocholego to kulminacja dramatu narodowego Wyspiańskiego.',
-    sourceYear: 'CKE Czerwiec 2024'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -359,7 +359,7 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – brak odpowiedzi.'
     ],
     explanation: 'Inny świat ukazuje zderzenie etyki chrześcijańskiej i humanistycznej z mechanizmem sowieckiego Gułagu.',
-    sourceYear: 'CKE Maj 2023'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   },
 
   // ==========================================
@@ -382,6 +382,6 @@ export const POLISH_TASKS_PART_2: PolishTask[] = [
       '0 pkt – brak odniesienia do dzieła sztuki.'
     ],
     explanation: 'W arkuszach CKE (np. Maj 2024) regularnie pojawia się zadanie z dziełem sztuki i lekturą/toposem epoki.',
-    sourceYear: 'CKE Maj 2024'
+    sourceYear: 'Ćwiczenie JASNE w formacie CKE (Formuła 2023)'
   }
 ];
