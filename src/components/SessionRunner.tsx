@@ -55,6 +55,7 @@ import { UserState, LessonTheoryPill } from '../types';
 import { LessonFormulaSheet, drawSessionTasks, getLessonTheoryPill, getLessonTaskPool } from '../data/dzial1TaskPool';
 import { pickRetryTask, nextQueueIndex } from '../lib/sessionQueue';
 import { toFormulaBoxContent } from '../lib/formulaBox';
+import { apiHeaders } from '../lib/apiClient';
 import { curriculumRepository } from '../services/curriculumRepository';
 import { addMistakeToBank, removeMistakeFromBank } from '../utils/mistakesBank';
 import { OpenTaskWorkspace, convertDataUrlToAiOptimized } from './OpenTaskWorkspace';
@@ -1374,7 +1375,7 @@ export const SessionRunner: React.FC<SessionRunnerProps> = ({
       try {
         const res = await fetch('/api/ai-tutor', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: await apiHeaders(),
           body: JSON.stringify({
             question: currentTask?.question || currentTask?.content || currentTask?.math_statement || '',
             instruction: currentTask?.instruction || '',
@@ -2986,7 +2987,7 @@ export const SessionRunner: React.FC<SessionRunnerProps> = ({
       const evalEndpoint = isEnglishSession ? '/api/english-eval' : '/api/evaluate-task';
       const response = await fetch(evalEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           taskId: currentTask?.id,
           question: currentTask?.question || currentTask?.math_statement,

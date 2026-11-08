@@ -21,6 +21,8 @@ export const originGuard = (req: Request, res: Response, next: NextFunction): vo
   const origin = req.headers.origin;
   if (typeof origin !== 'string' || origin.length === 0) {
     // Brak Origin = żądanie nieprzeglądarkowe (aplikacja mobilna, curl, SSR).
+    // Guard chroni tylko przed cudzymi stronami w przeglądarce; przed skryptami
+    // chronią identifyUser + limity per uid/IP (gość ma ostrzejsze).
     next();
     return;
   }
@@ -32,10 +34,13 @@ export const originGuard = (req: Request, res: Response, next: NextFunction): vo
     next();
     return;
   }
-  const host = req.headers.host;
+  const host = (req.headers['x-forwarded-host'] as string) || req.headers.host;
   if (host) {
     try {
-      if (new URL(origin).host === host) {
+      const originHost = new URL(origin).host;
+      // Bez wyjątku dla całego `*.vercel.app` — każdy może tam postawić własny
+      // frontend. Domeny naszych deploymentów Vercela są w config.allowedOrigins.
+      if (originHost === host) {
         next();
         return;
       }

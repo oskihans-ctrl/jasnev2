@@ -9,12 +9,15 @@
 
 import type { NextFunction, Request, Response } from 'express';
 import { logger } from './logger';
+import { getVerifiedUid } from './middleware/auth';
 
 export interface RateLimitRule {
   /** Nazwa koszyka — osobne limity dla różnych klas endpointów. */
   bucket: string;
   windowMs: number;
   max: number;
+  /** Limit dla gościa (bez zweryfikowanego tokenu). Domyślnie równy `max`. */
+  guestMax?: number;
 }
 
 type Counter = { count: number; resetAt: number };
@@ -33,13 +36,16 @@ export interface RateLimiter {
   reset: () => void;
 }
 
-/** Klucz limitera: IP + (jeśli znany) uid. Uwierzytelniony użytkownik ma własny koszyk. */
-function buildKey(req: Request, bucket: string): string {
+/**
+ * Klucz limitera: zweryfikowany uid (z Firebase ID tokenu, patrz middleware/auth.ts)
+ * albo — dla gościa — samo IP. `uid` z body świadomie ignorujemy: losowy uid
+ * w każdym żądaniu tworzyłby nowy koszyk i całkowicie wyłączał limit.
+ */
+function buildKey(req: Request, res: Response, bucket: string): string {
+  const uid = getVerifiedUid(res);
+  if (uid) return `${bucket}|uid:${uid}`;
   const ip = req.ip || req.socket?.remoteAddress || 'unknown';
-  const uid = typeof (req.body as Record<string, unknown> | undefined)?.uid === 'string'
-    ? String((req.body as Record<string, unknown>).uid).slice(0, 128)
-    : 'anon';
-  return `${bucket}|${ip}|${uid}`;
+  return `${bucket}|ip:${ip}`;
 }
 
 export function createRateLimiter(options: RateLimiterOptions): RateLimiter {
@@ -90,8 +96,10 @@ export function createRateLimiter(options: RateLimiterOptions): RateLimiter {
       return;
     }
 
-    for (const rule of options.rules) {
-      const key = buildKey(req, rule.bucket);
+    const isGuest = !getVerifiedUid(res);
+    for (const baseRule of options.rules) {
+      const rule = isGuest && baseRule.guestMax !== undefined ? { ...baseRule, max: baseRule.guestMax } : baseRule;
+      const key = buildKey(req, res, rule.bucket);
       const result = hit(key, rule);
 
       res.setHeader('X-RateLimit-Limit', String(rule.max));

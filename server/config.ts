@@ -11,6 +11,7 @@
 // dotenv musi zostać załadowany PRZED odczytem zmiennych — dlatego robimy to
 // w tym module (a nie w server.ts), bo importy wykonują się przed ciałem pliku.
 import dotenv from 'dotenv';
+import firebaseAppletConfig from '../firebase-applet-config.json';
 
 dotenv.config();
 
@@ -56,8 +57,27 @@ export const config = {
   /** @deprecated klucz z prefiksem VITE_ — trafia do bundle'a klienta, do usunięcia. */
   legacyOpenRouterApiKey: readString('VITE_OPENROUTER_API_KEY'),
 
-  /** Lista dozwolonych Origin (rozdzielona przecinkami). Puste = tylko same-origin. */
-  allowedOrigins: readList('ALLOWED_ORIGINS'),
+  /**
+   * Projekt Firebase, dla którego weryfikujemy ID tokeny (`aud` tokenu).
+   * Kolejność: jawny FIREBASE_PROJECT_ID → wspólna z klientem zmienna Vite →
+   * zmienna środowiska Google Cloud → projectId z firebase-applet-config.json.
+   */
+  firebaseProjectId: readString(
+    'FIREBASE_PROJECT_ID',
+    readString('VITE_FIREBASE_PROJECT_ID', readString('GOOGLE_CLOUD_PROJECT', firebaseAppletConfig.projectId ?? ''))
+  ),
+
+  /**
+   * Lista dozwolonych Origin (rozdzielona przecinkami). Puste = tylko same-origin.
+   * Na Vercelu domeny bieżącego deploymentu dopisywane są automatycznie.
+   */
+  allowedOrigins: [
+    ...readList('ALLOWED_ORIGINS'),
+    ...['VERCEL_URL', 'VERCEL_BRANCH_URL', 'VERCEL_PROJECT_PRODUCTION_URL']
+      .map(name => readString(name))
+      .filter(host => host.length > 0)
+      .map(host => `https://${host}`),
+  ],
 
   rateLimits: {
     /** Ogólny limit na całą powierzchnię /api. */
@@ -65,6 +85,11 @@ export const config = {
     apiMax: readInt('RATE_LIMIT_API_MAX', 120, 1, 100_000),
     /** Osobny, ostrzejszy limit na endpointy, które wołają płatne modele AI. */
     aiMax: readInt('RATE_LIMIT_AI_MAX', 20, 1, 10_000),
+    /** Limit AI dla gościa (bez zweryfikowanego tokenu Firebase), liczony per IP. */
+    aiGuestMax: readInt('RATE_LIMIT_AI_GUEST_MAX', 8, 0, 10_000),
+    /** Dobowy sufit wywołań AI — chroni koszty przed powolnym, ciągłym nadużyciem. */
+    aiDailyMax: readInt('RATE_LIMIT_AI_DAILY_MAX', 300, 1, 100_000),
+    aiGuestDailyMax: readInt('RATE_LIMIT_AI_GUEST_DAILY_MAX', 40, 0, 100_000),
   },
 } as const;
 

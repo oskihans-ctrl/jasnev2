@@ -65,6 +65,7 @@ import { MathDiagram } from './MathDiagram';
 import { NumberLineDiagram } from './NumberLineDiagram';
 import { enrichTaskWithVisual } from '../data/mathVisualRegistry';
 import { showToast } from '../lib/toast';
+import { apiHeaders } from '../lib/apiClient';
 
 interface ExamTaskCardProps {
   task: MaturaTask;
@@ -701,7 +702,7 @@ export function MaturaSimulatorView({
       const effectiveText = hasText ? text.trim() : '[Rozwiązanie odręczne na tablicy]';
       const response = await fetch('/api/evaluate-task', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           id: task.id,
           question: task.content,
@@ -1235,7 +1236,7 @@ export function MaturaSimulatorView({
 
       const res = await fetch('/api/ai-tutor', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           question: currentMaratonTask.content,
           instruction: 'Wskaż naprowadzającą wskazówkę sokratejską w 1-2 zdaniach, nie podając gotowego wyniku.',
@@ -1286,7 +1287,7 @@ export function MaturaSimulatorView({
     try {
       const response = await fetch('/api/evaluate-task', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           question: currentMaratonTask.content,
           officialKey: currentMaratonTask.explanation,
