@@ -474,21 +474,15 @@ service cloud.firestore {
         existing().player1Id == request.auth.uid
         || existing().player2Id == request.auth.uid
       );
-      allow create: if isSignedIn()
-        && incoming().keys().hasOnly(['player1Id', 'player2Id', 'status', 'createdAt', 'tasks', 'scores'])
-        && incoming().player1Id == request.auth.uid
-        && isSmallText(incoming().player2Id, 128);
-      allow update: if isSignedIn() && (
-        existing().player1Id == request.auth.uid
-        || existing().player2Id == request.auth.uid
-      );
-      allow delete: if false;
+      // Wyniki meczu decydują o ELO, więc zapis tylko przez serwer (Admin SDK).
+      // Zapis z klienta pozwalał uczestnikowi nadpisać `scores` i graczy.
+      allow write: if false;
     }
 
-    // Test łączności z Firestore (używany przez klienta przy starcie).
+    // Test łączności z Firestore (klient tylko czyta przy starcie).
     match /test/connection {
       allow read: if true;
-      allow write: if isSignedIn();
+      allow write: if false;
     }
 
     // ---------------------------------------------------------------

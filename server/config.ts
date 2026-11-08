@@ -35,7 +35,13 @@ function readList(name: string): string[] {
     .filter(entry => entry.length > 0);
 }
 
-const nodeEnv = readString('NODE_ENV', 'development');
+// Ustawiane przez esbuild w `npm run build` (--define). Zbudowany serwer
+// (`npm start`) bez jawnego NODE_ENV musi startować jako produkcja — inaczej
+// włączałby Vite dev middleware i przepuszczał origin localhost (fail-open).
+declare const __JASNE_PROD_BUILD__: boolean | undefined;
+const isProductionBuild = typeof __JASNE_PROD_BUILD__ !== 'undefined' && __JASNE_PROD_BUILD__ === true;
+
+const nodeEnv = readString('NODE_ENV', isProductionBuild ? 'production' : 'development');
 
 export const config = {
   nodeEnv,

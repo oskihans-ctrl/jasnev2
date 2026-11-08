@@ -76,7 +76,8 @@ export async function diagnoseWithJev(input: JevDiagnosticInput): Promise<JevDia
 
     if (!response.ok) {
       const errText = await response.text();
-      logger.warn('jev_api_error', { status: response.status, body: errText });
+      // Przycięte: odpowiedź providera może zawierać fragmenty promptu z odpowiedzią ucznia.
+      logger.warn('jev_api_error', { status: response.status, body: errText.slice(0, 500) });
       return createFallbackDiagnostic(input, latencyMs);
     }
 

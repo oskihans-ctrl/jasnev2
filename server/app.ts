@@ -5,6 +5,7 @@ import { config } from './config';
 import { createRateLimiter, type RateLimiter } from './rateLimit';
 import { originGuard } from './middleware/originGuard';
 import { identifyUser } from './middleware/auth';
+import { securityHeaders } from './middleware/securityHeaders';
 import { centralErrorHandler } from './middleware/errorHandler';
 import { createHealthRouter } from './routes/health.routes';
 import { createAiRouter } from './routes/ai.routes';
@@ -29,6 +30,7 @@ export async function createApp(options?: CreateAppOptions): Promise<{
   // X-Forwarded-For.
   app.set('trust proxy', 1);
   app.disable('x-powered-by');
+  app.use(securityHeaders);
 
   app.use(express.json({ limit: config.jsonBodyLimit }));
 

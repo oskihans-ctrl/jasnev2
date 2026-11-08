@@ -21,6 +21,27 @@ describe('Jev System 1 Diagnostic API Tests', () => {
       expect(response.body.code).toBe('bad_request');
     });
 
+    it('should reject oversized fields and malformed options with 400', async () => {
+      const tooLong = await request(app)
+        .post('/api/jev/diagnose')
+        .send({ question: 'x'.repeat(100_000), studentAnswer: '1' });
+      expect(tooLong.status).toBe(400);
+
+      const tooManyOptions = await request(app)
+        .post('/api/jev/diagnose')
+        .send({
+          question: 'Q',
+          studentAnswer: 'A',
+          options: Array.from({ length: 50 }, (_, i) => ({ id: String(i), text: 'opcja' })),
+        });
+      expect(tooManyOptions.status).toBe(400);
+
+      const badOption = await request(app)
+        .post('/api/jev/diagnose')
+        .send({ question: 'Q', studentAnswer: 'A', options: ['nie-obiekt'] });
+      expect(badOption.status).toBe(400);
+    });
+
     it('should return diagnostic output with latency and classification', async () => {
       const response = await request(app)
         .post('/api/jev/diagnose')

@@ -22,6 +22,15 @@ describe('API Integration Tests', () => {
       expect(response.body.providers).toBeDefined();
       expect(response.body.rateLimit).toBeDefined();
     });
+
+    it('should send security headers', async () => {
+      const response = await request(app).get('/api/health');
+
+      expect(response.headers['x-content-type-options']).toBe('nosniff');
+      expect(response.headers['x-frame-options']).toBe('DENY');
+      expect(response.headers['content-security-policy']).toBe("frame-ancestors 'none'");
+      expect(response.headers['strict-transport-security']).toContain('max-age=');
+    });
   });
 
   describe('Origin Guard Middleware', () => {
