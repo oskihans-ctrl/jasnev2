@@ -45,7 +45,7 @@ rules_version = '2';
 //     {topic_id, completedLessons, completedTasks, taskStars, mistakesCount, unlockedItems, updatedAt}
 //
 // system/meta                                — publiczny odczyt (wersja kurikulum)
-// system/proCodes/{code}                      — kody aktywacyjne PRO:
+// system/proCodes/items/{code}                — kody aktywacyjne PRO:
 //     {active: bool, usedBy?: uid, usedAt?: timestamp, plan?: string}
 //   Odczyt przez klienta ZABRONIONY; reguły używają get()/exists(), które
 //   działają niezależnie od uprawnień odczytu klienta.
@@ -282,7 +282,7 @@ service cloud.firestore {
     // Aktywacja PRO wyłącznie kodem z system/proCodes
     // ---------------------------------------------------------------
     function proCodeRef(code) {
-      return /databases/$(database)/documents/system/proCodes/$(code);
+      return /databases/$(database)/documents/system/proCodes/items/$(code);
     }
 
     function proActivationOk() {
@@ -442,14 +442,21 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    match /system/{document=**} {
-      allow read: if isSignedIn();
+    // Konfiguracja promocji (bez danych osobowych) — czytana także w trybie gościa.
+    match /system/promotions {
+      allow read: if true;
       allow write: if false;
     }
 
-    // Kody aktywacyjne PRO. Odczyt przez klienta zabroniony (reguły i tak widzą
-    // dokument przez get()). Użytkownik może jednorazowo „spalić” kod na siebie.
-    match /system/proCodes/{code} {
+    // UWAGA: nie dodawaj tu wildcardu `system/{document=**}` z `allow read`.
+    // Reguły Firestore są sumą wszystkich pasujących `match`, więc taki wildcard
+    // nadpisałby `allow read: if false` dla kodów PRO poniżej. Każdy publiczny
+    // dokument w `system` musi mieć własny, jawny blok.
+
+    // Kody aktywacyjne PRO (system/proCodes/items/{code}). Odczyt i listowanie
+    // przez klienta zabronione (reguły i tak widzą dokument przez get()).
+    // Użytkownik może jednorazowo „spalić” kod na siebie.
+    match /system/proCodes/items/{code} {
       allow read: if false;
       allow create, delete: if false;
       allow update: if isSignedIn()

@@ -61,7 +61,18 @@ export function getAllDevTaskIds(): string[] {
   ]));
 }
 
+/**
+ * Czy ten build w ogóle zawiera narzędzia deweloperskie. Produkcja: zawsze false,
+ * niezależnie od localStorage i parametrów URL — inaczej każdy użytkownik mógłby
+ * włączyć sobie PRO, serca i wszystkie lekcje (`?dev=1`). Build testowy (np. Vercel
+ * Preview na telefon) włączasz zmienną `VITE_ENABLE_DEV_TOOLS=true`.
+ */
+export function isDevBuild(): boolean {
+  return import.meta.env.DEV || import.meta.env.VITE_ENABLE_DEV_TOOLS === 'true';
+}
+
 export function isDevModeActive(): boolean {
+  if (!isDevBuild()) return false;
   try {
     return localStorage.getItem(DEV_STORAGE_KEY) === 'true';
   } catch {
@@ -73,17 +84,16 @@ export function isDevModeActive(): boolean {
  * Czy wolno automatycznie nadać pełny dostęp deweloperski przy starcie aplikacji.
  * Na produkcji nowy użytkownik MUSI startować z prawdziwą ekonomią (5 serc, 0 monet,
  * zablokowane lekcje) – inaczej PRO, serca i doładowania BLIK nie mają żadnej wartości.
- * Dostęp dev dostaje tylko: lokalny serwer deweloperski, urządzenie z już aktywną
- * flagą albo wejście z parametrem ?dev=1 (testy na telefonie). ?dev=0 wyłącza go zawsze.
+ * Dostęp dev istnieje wyłącznie w buildzie deweloperskim (patrz isDevBuild()).
+ * ?dev=0 wyłącza go zawsze — podgląd doświadczenia nowego użytkownika.
  */
 export function isDevAccessAllowed(): boolean {
+  if (!isDevBuild()) return false;
   let devParam: string | null = null;
   try {
     devParam = new URLSearchParams(window.location.search).get('dev');
   } catch {}
-  // ?dev=0 – podgląd doświadczenia prawdziwego, nowego użytkownika także lokalnie
-  if (devParam === '0') return false;
-  return import.meta.env.DEV || isDevModeActive() || devParam === '1';
+  return devParam !== '0';
 }
 
 export function applyFullDeveloperAccess(currentState: UserState): UserState {

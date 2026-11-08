@@ -61,7 +61,7 @@ import { CkeFormulasModal } from './components/CkeFormulasModal';
 import { EnglishDictionaryModal } from './components/english/EnglishDictionaryModal';
 import { ScratchpadModal } from './components/ScratchpadModal';
 import { DevHubModal } from './components/DevHubModal';
-import { applyFullDeveloperAccess, isDevModeActive, isDevAccessAllowed, getAllDevTaskIds } from './services/devService';
+import { applyFullDeveloperAccess, isDevBuild, isDevModeActive, isDevAccessAllowed, getAllDevTaskIds } from './services/devService';
 import { SubjectId, SubjectKey } from './types';
 import { PolishPartNumber, PolishEpoch, PolishTaskType } from './types/maturaTypes';
 
@@ -401,6 +401,9 @@ export default function App() {
           perks: { ...defaultState.perks, ...(parsed.perks || {}) }
         };
       }
+      // Flaga dev zapisana w localStorage (np. przez dawne ?dev=1) nie może nic
+      // odblokować w buildzie produkcyjnym.
+      if (!isDevBuild()) state = { ...state, isDev: false };
       return isDevAccessAllowed() ? applyFullDeveloperAccess(state) : state;
     } catch {}
 
@@ -503,7 +506,7 @@ export default function App() {
               claimedAchievements: data.claimedAchievements || {}
             };
 
-            if (isDevModeActive() || prev.isDev) {
+            if (isDevModeActive() || (isDevBuild() && prev.isDev)) {
               nextState = applyFullDeveloperAccess(nextState);
             }
 
@@ -541,6 +544,7 @@ export default function App() {
           setUserState(prev => ({
             ...prev,
             ...parsed,
+            isDev: isDevBuild() ? parsed.isDev : false,
             streakDays: typeof parsed.streakDays === 'number' ? parsed.streakDays : (prev.streakDays || 0),
             streakActiveDates: Array.isArray(parsed.streakActiveDates) ? parsed.streakActiveDates : (prev.streakActiveDates || []),
             lastStreakDate: parsed.lastStreakDate || prev.lastStreakDate,
