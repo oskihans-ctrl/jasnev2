@@ -44,6 +44,7 @@ import { MathDiagram } from './MathDiagram';
 import { NumberLineDiagram } from './NumberLineDiagram';
 import { UserState, MathTaskItem, TaskOption, TaskSolutionStep } from '../types';
 import { deductHeart, getSyncedHearts } from '../lib/heartsManager';
+import { apiHeaders } from '../lib/apiClient';
 
 interface TaskViewProps {
   taskData?: any;
@@ -766,7 +767,7 @@ export function TaskView({
     try {
       const res = await fetch('/api/ai-tutor', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           question: activeTask.math_statement || activeTask.question,
           instruction: activeTask.instruction,

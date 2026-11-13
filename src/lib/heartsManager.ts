@@ -244,7 +244,7 @@ export interface ProActivationResult {
  * Reguły Firestore nie pozwalają klientowi samodzielnie ustawić `isPro = true`.
  * Jedyne legalne przejście to atomowy batch:
  *   1) users/{uid}: { isPro: true, proCode: '<kod>' }
- *   2) system/proCodes/{kod}: { usedBy: <uid>, usedAt: ... }
+ *   2) system/proCodes/items/{kod}: { usedBy: <uid>, usedAt: ... }
  * Dzięki temu kod nie może być użyty dwa razy, a pole `isPro` nie da się
  * włączyć z konsoli przeglądarki.
  */
@@ -268,7 +268,7 @@ export async function activateProWithCode(code: string): Promise<ProActivationRe
       maxHearts: MAX_HEARTS,
       lastHeartRegenTimestamp: Date.now()
     });
-    batch.update(doc(db, 'system', 'proCodes', normalized), {
+    batch.update(doc(db, 'system', 'proCodes', 'items', normalized), {
       usedBy: uid,
       usedAt: serverTimestamp()
     });

@@ -1,7 +1,7 @@
 /**
  * Generator jednorazowych kodów aktywacyjnych PRO.
  *
- * Reguły Firestore nie pozwalają włączyć PRO bez kodu z `system/proCodes/{kod}`,
+ * Reguły Firestore nie pozwalają włączyć PRO bez kodu z `system/proCodes/items/{kod}`,
  * więc ten skrypt jest jedynym oficjalnym źródłem kodów. Uruchamiaj wyłącznie
  * lokalnie / w CI z kluczem Service Account (Admin SDK omija reguły).
  *
@@ -91,21 +91,8 @@ async function main() {
   let written = 0;
   const output = [];
 
-  for (const code of codes) {
-    const ref = db.collection('system').doc('proCodes').collection('_').doc();
-    void ref; // (nie używamy podkolekcji — dokument jest bezpośrednio w system/proCodes)
-    batch.set(db.collection('system').doc('proCodes').collection('_placeholder').doc(), {}, { merge: true });
-    operations++;
-    // Proper write: system/proCodes/{code}
-    batch = db.batch();
-    batch.set(db.collection('system').doc('proCodes'), {}, { merge: true });
-    break;
-  }
-
-  // Powyższa pętla jest zastąpiona niżej czystą, poprawną implementacją.
-  batch = db.batch();
-  operations = 0;
-
+  // Kody leżą w system/proCodes/items/{kod} — ścieżka musi być zgodna z
+  // proCodeRef() w firestore.rules i activateProWithCode() w heartsManager.ts.
   for (const code of codes) {
     batch.set(db.collection('system').doc('proCodes').collection('items').doc(code), {
       code,

@@ -6,6 +6,12 @@ export const createHealthRouter = (apiLimiter: RateLimiter): Router => {
   const router = Router();
 
   router.get('/health', (_req: Request, res: Response) => {
+    // Publiczny endpoint: na produkcji bez konfiguracji modeli, dostawców i stanu
+    // limitera — to mapa dla kogoś, kto szuka, który endpoint najtaniej nadużyć.
+    if (config.isProduction) {
+      res.json({ status: 'ok', timestamp: new Date().toISOString() });
+      return;
+    }
     res.json({
       status: 'ok',
       timestamp: new Date().toISOString(),

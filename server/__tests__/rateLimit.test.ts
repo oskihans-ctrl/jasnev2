@@ -5,8 +5,9 @@ function makeReq(ip: string, body: Record<string, unknown> = {}) {
   return { ip, method: 'POST', path: '/api/hint', body, socket: { remoteAddress: ip } } as never;
 }
 
-function makeRes() {
+function makeRes(verifiedUid?: string) {
   const res = {
+    locals: verifiedUid ? { uid: verifiedUid } : {},
     statusCode: 200,
     headers: {} as Record<string, string>,
     body: undefined as unknown,
@@ -68,15 +69,46 @@ describe('createRateLimiter', () => {
     });
     expect(secondIpPassed).toBe(true);
 
-    // To samo IP, inny uid -> nowy koszyk.
+    // To samo IP, inny zweryfikowany uid -> nowy koszyk.
     const withUidLimiter = createRateLimiter({ rules: [{ bucket: 'ai', windowMs: 60_000, max: 1 }] });
-    withUidLimiter.middleware(makeReq('10.0.0.9', { uid: 'user-a' }), makeRes() as never, () => {});
-    const otherUid = makeRes();
+    withUidLimiter.middleware(makeReq('10.0.0.9'), makeRes('user-a') as never, () => {});
     let otherUidPassed = false;
-    withUidLimiter.middleware(makeReq('10.0.0.9', { uid: 'user-b' }), otherUid as never, () => {
+    withUidLimiter.middleware(makeReq('10.0.0.9'), makeRes('user-b') as never, () => {
       otherUidPassed = true;
     });
     expect(otherUidPassed).toBe(true);
+  });
+
+  it('ignoruje uid z body — rotacja uid nie omija limitu gościa', () => {
+    const limiter = createRateLimiter({ rules: [{ bucket: 'ai', windowMs: 60_000, max: 1 }] });
+    limiter.middleware(makeReq('10.0.0.7', { uid: 'fake-1' }), makeRes() as never, () => {});
+
+    const blocked = makeRes();
+    let passed = false;
+    limiter.middleware(makeReq('10.0.0.7', { uid: 'fake-2' }), blocked as never, () => {
+      passed = true;
+    });
+    expect(passed).toBe(false);
+    expect(blocked.statusCode).toBe(429);
+  });
+
+  it('stosuje guestMax dla gościa i max dla zweryfikowanego użytkownika', () => {
+    const limiter = createRateLimiter({ rules: [{ bucket: 'ai', windowMs: 60_000, max: 3, guestMax: 1 }] });
+
+    limiter.middleware(makeReq('10.0.0.8'), makeRes() as never, () => {});
+    let guestPassed = false;
+    limiter.middleware(makeReq('10.0.0.8'), makeRes() as never, () => {
+      guestPassed = true;
+    });
+    expect(guestPassed).toBe(false);
+
+    let userPasses = 0;
+    for (let i = 0; i < 4; i += 1) {
+      limiter.middleware(makeReq('10.0.0.8'), makeRes('user-x') as never, () => {
+        userPasses += 1;
+      });
+    }
+    expect(userPasses).toBe(3);
   });
 
   it('nie limituje preflightów OPTIONS', () => {

@@ -19,6 +19,7 @@ import confetti from 'canvas-confetti';
 import { MathRenderer } from './MathRenderer';
 import { triggerHaptic, playSuccessSound, playErrorSound } from '../utils';
 import { recordAiTokenUsage } from '../services/aiUsageTracker';
+import { apiHeaders } from '../lib/apiClient';
 
 interface AiTaskGeneratorModalProps {
   isOpen: boolean;
@@ -105,7 +106,7 @@ export const AiTaskGeneratorModal: React.FC<AiTaskGeneratorModalProps> = ({
     try {
       const res = await fetch('/api/generate-task', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           subject: isPolish ? 'jezyk-polski' : isEnglish ? 'jezyk-angielski' : 'matematyka',
           topic: selectedTopic,
@@ -143,7 +144,7 @@ export const AiTaskGeneratorModal: React.FC<AiTaskGeneratorModalProps> = ({
     try {
       const res = await fetch('/api/ai-tutor', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: await apiHeaders(),
         body: JSON.stringify({
           mode: 'hint',
           question: generatedTask.question,
@@ -208,7 +209,7 @@ export const AiTaskGeneratorModal: React.FC<AiTaskGeneratorModalProps> = ({
       try {
         const res = await fetch('/api/evaluate-task', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: await apiHeaders(),
           body: JSON.stringify({
             question: generatedTask.question,
             officialKey: generatedTask.explanation,
